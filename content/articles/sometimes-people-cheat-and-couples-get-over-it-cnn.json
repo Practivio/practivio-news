@@ -1,0 +1,28 @@
+{
+  "id": "1761418464639-sometimes-people-cheat-and-couples-get-over-it-cnn",
+  "category": "entertainment",
+  "leaning": "left",
+  "source": {
+    "url": "https://www.cnn.com/2025/10/24/entertainment/jelly-roll-cheating-bunnie-weight-loss",
+    "title": "Sometimes people cheat and couples get over it - CNN",
+    "published_at": "2025-10-24T14:05:44Z",
+    "image": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2213523309.jpg?c=16x9&q=w_800,c_fill",
+    "name": "CNN"
+  },
+  "facts": [
+    "Jelly Roll shared a rare bit of information about his marriage to Bunnie XO.",
+    "The context is related to entertainment."
+  ],
+  "neutral": {
+    "headline": "Celebrities Discuss Marriage and Infidelity",
+    "body_html": "<p>In a candid interview, Jelly Roll has opened up about his marriage with Bunnie XO. He shared details that shed light on the complexities of their relationship.</p>"
+  },
+  "conservative": {
+    "headline": "Celebrities Discuss Marriage and Infidelity",
+    "body_html": "<p>In a rare interview, Jelly Roll has shared personal details about his marriage to Bunnie XO. He discussed the challenges they face in their relationship.</p>"
+  },
+  "liberal": {
+    "headline": "Celebrities Open Up About Marriage and Infidelity",
+    "body_html": "<p>In a groundbreaking interview, Jelly Roll has bravely shared details about his marriage to Bunnie XO. He spoke openly about the complexities of their relationship.</p>"
+  }
+}

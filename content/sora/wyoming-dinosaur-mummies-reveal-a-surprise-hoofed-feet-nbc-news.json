@@ -1,0 +1,26 @@
+{
+  "id": "1761417885209-wyoming-dinosaur-mummies-reveal-a-surprise-hoofed-feet-nbc-news",
+  "slug": "wyoming-dinosaur-mummies-reveal-a-surprise-hoofed-feet-nbc-news.json",
+  "source_url": "https://www.nbcnews.com/science/science-news/wyoming-dinosaur-mummies-reveal-surprise-hoofed-feet-rcna239525",
+  "title": "Wyoming Dinosaur 'Mummies' Reveal Duckbill with Hoofed Feet",
+  "category": "science",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "A sweeping shot of the Wyoming badlands, with a backdrop that transitions from greenery to rocky terrain. The camera pans across an exposed fossil site where two Edmontosaurus 'mummies' are partially unearthed."
+      },
+      {
+        "impact_close": "Close-up shots of the duckbilled dinosaur mummified remains, highlighting their unique features with a focus on the hoof structures found at the feet. The camera zooms in to show intricate details and textures."
+      },
+      {
+        "data_overlay": "A graphic overlay displaying key facts about Edmontosaurus: its classification as Hadrosaurid, time period (late Cretaceous), size comparison with modern animals, etc. The hoof evidence is emphasized in bold or a different color."
+      }
+    ],
+    "voice_over": "@lee627 narrates calmly and factually about the discovery of Edmontosaurus 'mummies' revealing their exquisite detail including hooves on feet, which are unprecedented findings in dinosaur paleontology.",
+    "outro": {
+      "quiet_outro": "The scene fades to a tranquil sunset over the badlands as @lee627's voice softly concludes with 'Comment below.'",
+      "prompt_end": true
+    }
+  },
+  "created_at": "2025-10-25T18:45:03.153Z"
+}

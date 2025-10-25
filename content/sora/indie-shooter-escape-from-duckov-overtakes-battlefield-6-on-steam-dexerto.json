@@ -1,0 +1,26 @@
+{
+  "id": "1761417982903-indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-dexerto",
+  "slug": "indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-dexerto.json",
+  "source_url": "https://www.dexerto.com/gaming/indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-3273511/",
+  "title": "Escape From Duckov surpasses popularity of Battlefield 6 in indie shooter scene",
+  "category": "technology",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "A montage of Escape From Duckov's gameplay, showcasing its unique mechanics and immersive world.",
+        "impact_close": "Cut to a live feed on Steam showing the real-time player count for both games side by end each day at peak hours."
+      },
+      {
+        "data_overlay": "Numbers rise steadily, with Escape From Duckov's final tally surpassing Battlefield 6’s.",
+        "narration": "@lee627 speaks calmly: 'Escape From Duckov has proven to be more popular than the AAA title on Steam.'"
+      },
+      {
+        "quiet_outro": "The camera pans out, leaving a sense of wonder and excitement for Escape From Duckov's future."
+      }
+    ],
+    "voiceover": "@lee627 speaks calmly: 'Escape From Duckov has proven to be more popular than the AAA title on Steam.'",
+    "call_to_action": "Comment below.",
+    "duration": "8–10 seconds"
+  },
+  "created_at": "2025-10-25T18:46:37.607Z"
+}

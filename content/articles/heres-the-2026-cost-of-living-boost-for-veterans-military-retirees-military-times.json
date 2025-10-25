@@ -1,0 +1,28 @@
+{
+  "id": "1761417765235-heres-the-2026-cost-of-living-boost-for-veterans-military-retirees-military-times",
+  "category": "business",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.militarytimes.com/pay-benefits/mil-money/2025/10/24/heres-the-2026-cost-of-living-boost-for-veterans-military-retirees/",
+    "title": "Here’s the 2026 cost-of-living boost for veterans, military retirees - Military Times",
+    "published_at": "2025-10-24T13:59:26Z",
+    "image": "https://www.armytimes.com/resizer/v2/DY7FLI7LFBC4DHVLXYLNWMGE6E.jpg?width=1200&auth=dc45858e04c142018bb1c8b47cf0c437f958ac4ab97a49854781c55b2d1a58fa",
+    "name": "Military Times"
+  },
+  "facts": [
+    "The Cost of Living Adjustment (COLA) takes effect in January",
+    "It is set based on the rate of inflation"
+  ],
+  "neutral": {
+    "headline": "Cost-of-Living Boost for Veterans and Military Retirees Set to Begin in January, Based on Inflation Rate",
+    "body_html": "<p>The Cost of Living Adjustment (COLA) is set to take effect in January. This annual increase will be based on the rate of inflation as determined by economic indicators.</p>"
+  },
+  "conservative": {
+    "headline": "Veterans and Military Retirees Set for COLA Increase Based on Current Economic Indicators",
+    "body_html": "<p>The Cost of Living Adjustment (COLA) is set to take effect in January. This annual increase will be based on the rate of inflation as determined by economic indicators.</p>"
+  },
+  "liberal": {
+    "headline": "2026 COLA Boost for Veterans and Military Retirees Reflects Inflation Rate, Ensuring Fair Compensation",
+    "body_html": "<p>The Cost of Living Adjustment (COLA) is set to take effect in January. This annual increase will be based on the rate of inflation as determined by economic indicators.</p>"
+  }
+}

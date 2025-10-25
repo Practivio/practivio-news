@@ -1,0 +1,31 @@
+{
+  "id": "1761417499802-us-carried-out-a-strike-on-another-alleged-drug-carrying-boat-in-the-caribbean-sea-pete-hegseth-says",
+  "category": "general",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.nbcnews.com/politics/politics-news/us-strike-drug-boat-rcna239564",
+    "title": "U.S. carried out a strike on another alleged drug-carrying boat in the Caribbean Sea, Pete Hegseth says - NBC News",
+    "published_at": "2025-10-24T15:01:42Z",
+    "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2025-10/251024-caribbean-strike-mn-1007-69e873.jpg",
+    "name": "NBC News"
+  },
+  "facts": [
+    "Defense Secretary Pete Hegseth made the statement",
+    "The strike occurred in the Caribbean Sea",
+    "It was alleged that the boat carried drugs",
+    "This is at least the third time this week such an action has been taken by the U.S.",
+    "Pete Hegseth's role as Defense Secretary"
+  ],
+  "neutral": {
+    "headline": "U.S. Strikes Alleged Drug-Carrying Boat in Caribbean Sea",
+    "body_html": "<p>The U.S., under the direction of Defense Secretary Pete Hegseth, has struck a boat alleged to be carrying drugs within its waters in the Caribbean Sea for at least the third time this week.</p>"
+  },
+  "conservative": {
+    "headline": "U.S. Strikes Alleged Drug-Carrying Boat, Third This Week",
+    "body_html": "<p>Under Defense Secretary Pete Hegseth's direction, the U.S. has struck a boat alleged to be carrying drugs in its waters within the Caribbean Sea for at least the third time this week.</p>"
+  },
+  "liberal": {
+    "headline": "U.S. Strikes Alleged Drug-Carrying Boat, Third Time This Week",
+    "body_html": "<p>Defense Secretary Pete Hegseth announced that the U.S. has struck a boat alleged to be carrying drugs within its waters in the Caribbean Sea for at least the third time this week.</p>"
+  }
+}

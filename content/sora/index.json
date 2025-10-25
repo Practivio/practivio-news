@@ -1,116 +1,849 @@
 {
   "prompts": [
     {
-      "id": "1761414040515-will-lucy-powells-win-turn-things-around-for-labour",
-      "slug": "will-lucy-powells-win-turn-things-around-for-labour.json",
-      "source_url": "https://www.bbc.com/news/articles/cly9g1vnjqjo?at_medium=RSS&at_campaign=rss",
-      "title": "Labour Party Elects Lucy Powell as Deputy Leader",
-      "category": "center",
+      "id": "1761418587484-cnn-anchor-reveals-second-diagnosis-of-fairly-rare-form-of-ovarian-cancer-new-york-post",
+      "slug": "cnn-anchor-reveals-second-diagnosis-of-fairly-rare-form-of-ovarian-cancer-new-york-post.json",
+      "source_url": "https://nypost.com/2025/10/24/media/cnns-christiane-amanpour-diagnosed-with-ovarian-cancer-again/",
+      "title": "CNN anchor discloses second diagnosis with fairly rare type of recurrent ovarian cancer.",
+      "category": "entertainment",
       "sora_prompt": {
         "scene_plan": [
           {
-            "wide_context": "A serene South London street with bustling life, transitioning to the Labour Party headquarters where a sense of anticipation fills the air. The camera pans across various campaign posters and supporters waiting outside."
+            "wide_context": "A seasoned journalist, @lee627, stands in a quiet newsroom with CNN's logo visible on the screen behind. The camera pans across to show her seated at an interview setup."
           },
           {
-            "impact_close": "Cut to an intimate setting inside the party's office with members gathered around, awaiting results on their phones or computers as they whisper in hushed tones. The camera focuses closely on Lucy Powell and her supporters who look hopeful yet composed."
+            "impact_close": "Close-up of @lee627 as she reveals her diagnosis and looks directly into the lens, conveying vulnerability yet strength."
           },
           {
-            "data_overlay": "Overlays the screen of a phone showing live updates, with text flashing 'Lucy Powell elected as Deputy Leader!', along with statistics about Labour's recent polls and controversies. A graphic timeline highlights her rise within the party."
+            "data_overlay": "A graphic overlay displaying statistics about ovarian cancer recurrence rates appears on screen during a pause in dialogue. The rare form of this disease is highlighted with an icon or image representing the specific type mentioned by doctors.",
+            "narration": "Ovarian cancers are notoriously difficult to diagnose early, but even rarer forms like hers have unique challenges."
           },
           {
-            "quiet_outro": "Fade out to a tranquil view of London at night, stars twinkling above as if reflecting on the calm aftermath of political storms and Lucy Powell's new role in shaping Labour’s future. The screen fades black."
+            "quiet_outro": "The scene fades out with a soft focus on @lee627' enduring composure as she takes her seat. The newsroom returns to its usual pace around the anchor desk, and viewers are prompted directly at this moment."
           }
         ],
-        "voice_over": "@lee627 'In a historic move for progressive politics, London-born activist Lucy Powell has been elected as the Deputy Leader of the Labour Party amidst recent turmoil.' Comment below.",
-        "headline": "Labour Party Elects Lucy Powell as Deputy Leader"
+        "voice_over": "<brief factual narration> After a month off-air due to health concerns, @lee627 courageously discloses her second bout with ovarian cancer. Doctors have identified it as a rare recurrence that defies typical patterns.",
+        "ending": "Comment below."
       },
-      "created_at": "2025-10-25T17:40:58.902Z"
+      "created_at": "2025-10-25T18:56:48.547Z"
     },
     {
-      "id": "1761413998215-can-miracle-mineral-magnesium-really-help-us-sleep",
-      "slug": "can-miracle-mineral-magnesium-really-help-us-sleep.json",
-      "source_url": "https://www.bbc.com/news/articles/czxn1qxrr32o?at_medium=RSS&at_campaign=rss",
-      "title": "Global Magnesium Market Worth Nearly £3bn",
-      "category": "center",
+      "id": "1761418543979-9-1-1-nashville-star-isabelle-tate-dies-at-the-age-of-23-nbc-news",
+      "slug": "9-1-1-nashville-star-isabelle-tate-dies-at-the-age-of-23-nbc-news.json",
+      "source_url": "https://www.nbcnews.com/news/us-news/9-1-1-nashville-star-isabelle-tate-dies-age-23-rcna239543",
+      "title": "Isabelle Tate, '9-1-1: Nashville' Star, Dies at Age 23",
+      "category": "entertainment",
       "sora_prompt": {
         "scene_plan": [
           {
-            "time": "0-1.5",
-            "action": "Establish the global context of magnesium's importance."
+            "wide_context": "A panoramic shot of the '9-1-1: Nashville' set, with a backdrop that subtly hints at Tate’s character without being overt."
           },
           {
-            "time": "2-3.5",
-            "action": "Highlight health implications due to insufficient intake among populations."
+            "impact_close": "Cut to an intimate close-up on actor Lee627 as he delivers the news in a calm and factual tone. The camera focuses closely on his face, capturing emotion through restrained expression while maintaining professionalism."
           },
           {
-            "time": "4-6",
-            "action": "Present the market data and its growth potential, referencing the £3bn valuation."
+            "data_overlay": "A simple overlay of Isabelle Tate’s age (23) appears subtly during the narration to provide a factual anchor for viewers without overwh0wershadowing Lee627's voice-over. The text is clean, clear and not too large."
           },
           {
-            "time": "7.5-9",
-            "action": "Conclude with a calm tone emphasizing magnesium's role in health and wellbeing before inviting comments."
+            "quiet_outro": "The scene fades out with soft background music playing in the newsroom as a gentle reminder of normalcy amidst tragedy; Lee627's voice-over ends on this note. The prompt concludes, inviting viewers to comment below."
           }
         ],
-        "voiceover": "@lee627, 'Magnesium: Essential for Health Amidst Global Market Worth £3bn.'",
-        "headline": "Global Magnesium Market Worth Nearly £3bn"
-      },
-      "created_at": "2025-10-25T17:40:11.545Z"
-    },
-    {
-      "id": "1761413954398-parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise",
-      "slug": "parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise.json",
-      "source_url": "https://www.bbc.com/news/articles/cpwv7yw4dz9o?at_medium=RSS&at_campaign=rss",
-      "title": "Parents Urged to Vaccinate Children Against Flu Over Half-term",
-      "category": "center",
-      "sora_prompt": {
-        "scene_plan": [
-          "[wide context]: A calm, cinematic shot of a bustling NHS office with parents and children in the background.",
-          "[impact close]: Zoom into concerned faces as health officials discuss rising flu cases among school-aged children.",
-          "[data overlay]: Display real-time statistics on screen showing increasing trends for England."
-        ],
-        "voice_over": "@lee627, 'With early signs of a severe flu season upon us and hospitalizations climbing in young ones, it's crucial to act now. Ensure your child is protected.' Comment below.",
-        "conclusion": {
-          "headline": "Parents Urged to Vaccinate Children Against Flu Over Half-term",
-          "call_to_action": "Comment below."
-        }
-      },
-      "created_at": "2025-10-25T17:39:25.111Z"
-    },
-    {
-      "id": "1761413915483-lucy-powell-elected-labours-deputy-leader",
-      "slug": "lucy-powell-elected-labours-deputy-leader.json",
-      "source_url": "https://www.bbc.com/news/articles/c620g2gj0x5o?at_medium=RSS&at_campaign=rss",
-      "title": "Lucy Powell elected as new deputy leader of the Labour Party.",
-      "category": "center",
-      "sora_prompt": {
-        "scene_plan": [
-          "[wide context]: A serene newsroom setting with a backdrop of the Labour Party logo. Camera pans across to focus on Lucy Powell, who stands confidently at center stage.",
-          "[impact close]: Close-up shots reveal her determined expression as she addresses party members and supporters in front of them, emphasizing unity within diversity.",
-          "[data overlay]: Text graphics display key facts: 'Powell elected', 'Bridget Phillipson defeated' with subtle animations to highlight the election process."
-        ],
-        "voiceover": "@lee627 says in a calm and authoritative tone, \"Lucy Powell has been chosen as Labour’s new deputy leader. Her victory marks an important step towards inclusive representation within our party's leadership. This change reflects the evolving priorities of modern Britain. Comment below."
-      },
-      "created_at": "2025-10-25T17:38:46.618Z"
-    },
-    {
-      "id": "1761413862829-i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again",
-      "slug": "i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again.json",
-      "source_url": "https://www.bbc.com/news/articles/cx2n7k2veywo?at_medium=RSS&at_campaign=rss",
-      "title": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
-      "category": "center",
-      "sora_prompt": {
-        "scene_plan": [
-          "[wide context]: Kamala Harris, a seasoned politician and former Vice President of the United States, stands in front of an American flag-draped backdrop. The camera pans across her confident face as she addresses reporters about future political aspirations.",
-          "[impact close]: 'I believe there's not enough time for my campaign now but if given more time later on.' Harris says, with a hopeful yet realistic tone in her voice.\n',  // Lee627: Kamala Harris believes the right timing will come and is open to future possibilities. Her statement challenges current election timelines while emphasizing patience.",
-          "[data overlay]: 'Kamala Harris has served as Vice President since January 20, 2021.'\n",
-          "Lee627: Kamala's candidacy could signal a shift towards more women in leadership roles. Her confidence and openness to future elections may inspire many.\n"
-        ],
-        "voiceover": "@lee627: Kamala Harris, with her experience as Vice President and previous Senate service, considers the possibility of running for president again.",
-        "headline": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
-        "quiet_outro": "@lee627: Kamala's political journey continues to evolve, and her future decisions remain a point of interest.",
+        "voice_over": "@lee627 (<=25 words): 'Isabelle Tate brought her character Isabella Preston to life in the heart of Nashville's drama scene for years. She passed away unexpectedly over the weekend, leaving a void felt by many.'",
         "comment_invitation": "Comment below."
       },
-      "created_at": "2025-10-25T17:38:00.838Z"
+      "created_at": "2025-10-25T18:56:04.858Z"
+    },
+    {
+      "id": "1761418503340-bugonia-is-fun-as-hell-incredibly-of-the-moment-and-impossible-to-forget-gizmodo",
+      "slug": "bugonia-is-fun-as-hell-incredibly-of-the-moment-and-impossible-to-forget-gizmodo.json",
+      "source_url": "https://gizmodo.com/bugonia-movie-review-lanthimos-emma-stone-2000675308",
+      "title": "Review: Bugonia Movie Features Emma Stone, Jesse Plemons, and Aidan Delbis",
+      "category": "entertainment",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "The camera pans across a bustling newsroom, with journalists typing on keyboards and discussing recent films. The focus narrows to Emma Stone' endorsement of 'Bugonia', her excitement palpable as she shares the film experience."
+          },
+          {
+            "impact_close": "Cutting in close-up, we see Jesse Plemons and Aidan Delbis sharing a knowing look. The director Yorgos Lanthimos is introduced with his signature enigmatic smile as he speaks about the film's unique approach to storytelling."
+          },
+          {
+            "data_overlay": "'Bugonia': Director - @lee627; Starring Emma Stone, Jesse Plemons and Aidan Delbis. Running Time: 105 minutes"
+          }
+        ],
+        "voice_over": "@lee627's calm narration sets the scene with 'Bugonia', a film by Yorgos Lanthimos featuring Emma Stone, Jesse Plemons and Aidan Delbis. The movie explores complex themes through its unconventional storytelling.",
+        "outro": {
+          "text_overlay": "Comment below."
+        }
+      },
+      "created_at": "2025-10-25T18:55:21.379Z"
+    },
+    {
+      "id": "1761418428727-victorious-trina-vega-spinoff-hollywood-arts-starring-daniella-monet-moves-to-netflix-with-series-or",
+      "slug": "victorious-trina-vega-spinoff-hollywood-arts-starring-daniella-monet-moves-to-netflix-with-series-or.json",
+      "source_url": "http://deadline.com/2025/10/victorious-trina-vega-spinoff-hollywood-arts-daniella-monet-netflix-1236596090/",
+      "title": "Trina Vega Spinoff 'Hollywood Arts' Starring Daniella Monet Moves To Netflix With Series Order And Cast Set; Nick & P+ Get Second Window - Deadline",
+      "category": "entertainment",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A newsroom setting with journalists discussing the latest entertainment industry updates. A large screen displays breaking news about 'Hollywood Arts.'"
+          },
+          {
+            "impact_close": "Camera focuses on Daniella Monet as she reacts to her spinoff series getting a Netflix order, showing excitement and relief."
+          },
+          {
+            "data_overlay": "Screen shows the cast list of 'Hollywood Arts,' highlighting Trina Vega's role with an actor resembling Daniella Monet playing it. A graphic displays series details: release date on Netflix, second window availability for Nick and P+."
+          },
+          {
+            "quiet_outro": "The newsroom fades out as the camera pans over a calendar marked with 'Hollywood Arts' premiere dates. The screen transitions to Daniella Monet’ endorsing message, inviting viewers to comment below on their thoughts about her new Netflix series."
+          }
+        ],
+        "voice_over": "<brief factual narration> Trina Vega Spinoff 'Hollywood Arts' starring Daniella Monet moves to Netflix with a confirmed order and cast set. The spinoff, based on the popular TV show 'Victorious,' is getting its second window release alongside Nick & P+."
+      },
+      "created_at": "2025-10-25T18:54:08.747Z"
+    },
+    {
+      "id": "1761418379387-2025-nfl-week-8-advanced-matchups-fantasy-points",
+      "slug": "2025-nfl-week-8-advanced-matchups-fantasy-points.json",
+      "source_url": "https://www.fantasypoints.com/nfl/articles/2025/nfl-week-8-advanced-matchups",
+      "title": "2025 NFL Week 8 Advanced Matchups: Best & Worst Schematics Identified Using Fantasy Points Data Suite",
+      "category": "sports",
+      "sora_prompt": {
+        "scene_description": "A newsroom setting with a large screen displaying the Fantasy Points Data Suite. Two analysts are seated at desks, one of which is @lee627.",
+        "wide_context": [
+          {
+            "shot1": "Two football experts in their mid-30s discussing NFL Week 8 matchups."
+          },
+          {
+            "shot2": "@lee627 reviews the data on a large screen, pointing out key statistics and trends relevant to DFS betting strategies for each team pairing."
+          }
+        ],
+        "impact_close": [
+          {
+            "shot3": "Close-up of @lee627' end face as they conclude with 'These insights could make all the difference in your fantasy lineups.'"
+          }
+        ],
+        "data_overlay": [
+          {
+            "text1": "Best Schematic Matchups: Lions vs. Bears, Tigers vs. Eagles."
+          },
+          {
+            "text2": "Worst Schematic Matchups: Sharks vs. Dolphins, Wolves vs. Hawks."
+          }
+        ],
+        "voice_over": "<brief factual narration> 'In the 2025 NFL Week 8 advanced matchups analysis using our Fantasy Points Data Suite.'",
+        "outro": [
+          {
+            "shot4": "Fade out with a prompt for audience interaction, as @lee627 looks directly at the camera and says: 'Comment below.', followed by fading to black."
+          }
+        ]
+      },
+      "created_at": "2025-10-25T18:53:20.196Z"
+    },
+    {
+      "id": "1761418336549-eagles-giants-rematch-five-things-to-watch-phillyvoice",
+      "slug": "eagles-giants-rematch-five-things-to-watch-phillyvoice.json",
+      "source_url": "https://www.phillyvoice.com/eagles-giants-rematch-five-things-watch-2025/",
+      "title": "Rematch: Eagles' Performance Against Giants Raises Questions",
+      "category": "sports",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "The Eagles face off against the Giants in a highly anticipated rematch. The atmosphere is charged with excitement and tension as both teams prepare for battle on the field."
+          },
+          {
+            "impact_close": "As the game progresses, it becomes evident that despite their best efforts, the Eagles are struggling to keep up with the Giants' relentless offense. The crowd reacts in disbelief as they witness a surprising turn of events."
+          },
+          {
+            "data_overlay": "The screen displays real-time stats and replays highlighting key moments where Eagles players were outmuscled by their Giants counterparts, emphasizing the disparity between both teams' performances during crucial plays in Week 6."
+          }
+        ],
+        "voice_over": "@lee627 narrates calmly and factually: 'In a shocking turn of events this weekend, the Eagles were outmuscled by their rivals. The Giants' dominance was evident as they secured another win in Week 6.'",
+        "quiet_outro": "The scene fades to black with only ambient sounds from the stadium and a soft echo of cheers lingering, inviting viewers to share their thoughts on this unexpected outcome. 'Comment below.'"
+      },
+      "created_at": "2025-10-25T18:52:34.996Z"
+    },
+    {
+      "id": "1761418292221-charles-barkley-proved-in-one-day-that-hes-the-only-person-at-espn-with-balls-outkick",
+      "slug": "charles-barkley-proved-in-one-day-that-hes-the-only-person-at-espn-with-balls-outkick.json",
+      "source_url": "https://www.outkick.com/sports/charles-barkley-proved-one-day-hes-only-person-espn-balls",
+      "title": "Charles Barkley Demonstrates His Value at ESPN with Unique Money Concept - OutKick",
+      "category": "sports",
+      "sora_prompt": {
+        "scene_description": "A wide shot of Charles Barkley confidently striding into an ESPN newsroom. The camera zooms in on his determined face as he sits at a sleek, modern desk with the latest financial reports and charts displayed behind him.",
+        "closeup": {
+          "action": "Barkley gestures towards a graph showing significant profits made from 'F-U money' investments. His expression is one of pride as he explains his success to an attentive reporter, with the camera capturing their focused expressions and Barkley’s assertive hand movements.",
+          "background": "The scene maintains a calm atmosphere despite the excitement surrounding Charles Barkley'senormous financial gain."
+        },
+        "data_overlay": {
+          "content": "<graph showing 'F-U money' investment profits>",
+          "description": "A clear, concise graph overlay on screen detailing how much more profit has been made compared to traditional methods. The numbers are impressive and visually striking."
+        },
+        "voice_over": {
+          "narration": "@lee627 speaks calmly: 'Charles Barkley, known for his toughness on the court, now proves he's equally formidable in finance. His unique investment strategy has earned him a fortune beyond expectations.'",
+          "word_count": 18
+        },
+        "outro": {
+          "action": "The camera pulls back to show Barkley standing confidently, looking directly into the lens as he turns towards his reporter. The scene fades out with a soft focus on their faces.",
+          "background_music": "A subtle instrumental piece that complements the documentary realism tone."
+        },
+        "call_to_action": {
+          "text": "Comment below to share your thoughts or ask questions about Charles Barkley's financial ventures and his 'F-U money' concept.",
+          "position": "Bottom right corner of the screen"
+        }
+      },
+      "created_at": "2025-10-25T18:51:58.194Z"
+    },
+    {
+      "id": "1761418256625-the-opener-blue-jays-dodgers-world-series-mlb-trade-rumors",
+      "slug": "the-opener-blue-jays-dodgers-world-series-mlb-trade-rumors.json",
+      "source_url": "https://www.mlbtraderumors.com/2025/10/the-opener-blue-jays-dodgers-world-series.html",
+      "title": "The Opener: Blue Jays, Dodgers Face Off in Game 1 of the World Series - MLB Trade Rumors",
+      "category": "sports",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "[Open with a sweeping shot of the MLB Stadium, showcasing fans in anticipation and setting up for Game 1. The camera zooms into Lee627 standing at center stage.]",
+            "impact_close": "[Cut to close-up shots as Lee627 calmly discusses Blue Jays roster decisions with a sense of urgency, highlighting key players and their roles in the game ahead.]"
+          },
+          {
+            "data_overlay": "[Overlay text on screen: 'Blue Jays vs. Dodgers - Game 1 Stats', displaying live stats relevant to roster decisions such as player positions, injuries, and recent performance metrics.]"
+          }
+        ],
+        "voice_over": "<Lee627's calm voice narrates: 'As the Blue Jays prepare for their World Series opener against the Dodgers later today, roster decisions are crucial. With key players returning from injury and others battling fatigue, manager Ryne Sandberg must balance experience with fresh talent to maximize potential on this historic night.'>",
+        "outro": "[The scene fades out as Lee627 looks directly at the camera invitingly for viewers to comment below.]"
+      },
+      "created_at": "2025-10-25T18:51:14.118Z"
+    },
+    {
+      "id": "1761418190147-cal-raleigh-wins-major-award-is-mvp-next-the-seattle-times",
+      "slug": "cal-raleigh-wins-major-award-is-mvp-next-the-seattle-times.json",
+      "source_url": "https://www.seattletimes.com/sports/mariners/mariners-cal-raleigh-wins-sporting-news-mlb-player-of-the-year-award/",
+      "title": "Cal Raleigh named Sporting News MLB Player of the Year",
+      "category": "sports",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A montage of Cal Raleigh's career highlights, with a focus on his recent achievements and the significance for MLB history."
+          },
+          {
+            "impact_close": "Close-up shot of Cal Raleigh holding an award as he looks up from it to acknowledge the crowd in front of him at the Sporting News office, with a look of humble pride on his face and gratitude for this honor."
+          },
+          {
+            "data_overlay": "Text overlay showing 'Sporting News MLB Player of the Year' superimposed over images from Raleigh’ endorsement deal announcements, with statistics about player awards in baseball history on screen to provide context for his achievement."
+          },
+          {
+            "quiet_outro": "The newsroom fades out as a voice-over continues softly: 'Cal Raleigh's recognition by the Sporting News is not just personal; it marks an important chapter in baseball history. His performance has set new standards, and his legacy will inspire future generations.'"
+          }
+        ],
+        "voice_over": "<brief factual narration>Cal Raleigh's outstanding season earned him the prestigious Sporting News MLB Player of the Year award. This honor makes Cal just the third player in franchise history to receive this accolade, a testament to his exceptional talent and dedication on the field.",
+        "call_to_action": "Comment below."
+      },
+      "created_at": "2025-10-25T18:50:27.529Z"
+    },
+    {
+      "id": "1761418111520-sora-for-ios-will-add-three-new-features-soon-heres-whats-coming-9to5mac",
+      "slug": "sora-for-ios-will-add-three-new-features-soon-heres-whats-coming-9to5mac.json",
+      "source_url": "https://9to5mac.com/2025/10/24/sora-for-ios-will-add-three-new-features-soon-heres-whats-coming/",
+      "title": "OpenAI's Head Reveals Upcoming Features for Sora on iOS - Here’s What You Can Expect Soon",
+      "category": "technology",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of the Sora iOS app logo on a modern smartphone screen. The camera zooms in slightly as we see @lee627 standing confidently behind the desk."
+          },
+          {
+            "shot": 2,
+            "description": "Close-up on @lee627's face showing calm and focused expression while they prepare to speak. The camera focuses sharply on their eyes as if capturing a moment of revelation about the new features."
+          },
+          {
+            "shot": 3,
+            "description": "A medium shot from above looking down at @lee627 and an interactive display showing three icons representing each upcoming feature. The camera pans across as they point to them one by one with a laser pointer."
+          },
+          {
+            "shot": 4,
+            "description": "Close-up on the first icon while @lee627 explains its significance and how it enhances user experience in Sora. The camera captures their hand gesturing towards an animated graphic showing real-time language translation."
+          },
+          {
+            "shot": 5,
+            "description": "Switch to a second close-up shot of @lee627 as they detail the next feature with enthusiasm. The camera zooms in on their hands mimicking an interactive holographic interface."
+          },
+          {
+            "shot": 6,
+            "description": "A third medium shot focusing back to @lee627 and a second display showing the final feature with its icon. The camera captures them both as they nod in agreement about this new advancement for Sora."
+          },
+          {
+            "shot": 7,
+            "description": "A wide-angle shot of the newsroom setting itself to provide context and show that @lee627 is not alone. The camera captures a few colleagues nodding in agreement as they listen intently."
+          },
+          {
+            "shot": 8,
+            "description": "The final close-up shot on @lee627's face with an expression of satisfaction and anticipation for the future. The camera zooms out slightly to show a fuller view of the newsroom as they conclude."
+          },
+          {
+            "shot": 9,
+            "description": "A quiet outro shot focusing on @lee627's face with an expression of calm professionalism and looking directly into the camera. The voiceover begins in a confident but measured tone to wrap up the segment."
+          },
+          {
+            "shot": 10,
+            "description": "The screen displays 'Comment below.' inviting viewers to share their thoughts on these new features for Sora iOS app as we fade out from @lee627's face and end of scene"
+          }
+        ],
+        "voiceover": "<brief factual narration> OpenAI has unveiled three exciting new features set to enhance the capabilities of their upcoming Sora 2 iOS app. Stay tuned for more details on how these innovations will transform your interaction with AI technology."
+      },
+      "created_at": "2025-10-25T18:49:10.757Z"
+    },
+    {
+      "id": "1761418076041-nobody-seems-to-like-the-new-halloween-event-in-borderlands-4-kotaku",
+      "slug": "nobody-seems-to-like-the-new-halloween-event-in-borderlands-4-kotaku.json",
+      "source_url": "https://kotaku.com/new-halloween-event-borderlands-4-sucks-bad-horrors-of-kairos-2000638842",
+      "title": "Free but Disliked: New Halloween Event Receives Mixed Reactions from Players of Borderlands 4 - Kotaku",
+      "category": "technology",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A dimly lit newsroom with a large screen displaying the Kotaku headline. A group of players are seated around, some looking excited while others appear disinterested."
+          },
+          {
+            "impact_close": "One player is seen interacting enthusiastically within the Halloween event area in Borderlands 4's new game zone.",
+            "data_overlay": "[Text overlay: 'Free Event, but Reviews Mixed']"
+          },
+          {
+            "quiet_outro": "The camera pans out to show a diverse group of players discussing the event amongst themselves."
+          }
+        ],
+        "voiceOver": "@lee627 narrates calmly: 'Despite being free, Borderlands 4's new Halloween event has received mixed reactions from its community.'",
+        "prompt_end": "Comment below."
+      },
+      "created_at": "2025-10-25T18:48:08.544Z"
+    },
+    {
+      "id": "1761418017304-microsoft-outlook-is-getting-an-ai-overhaul-under-new-leaders-the-verge",
+      "slug": "microsoft-outlook-is-getting-an-ai-overhaul-under-new-leaders-the-verge.json",
+      "source_url": "https://www.theverge.com/tech/806162/microsoft-outlook-ai-overhaul-notepad",
+      "title": "Microsoft Prepares for Another Overhaul of Outlook Focused on Artificial Intelligence",
+      "category": "technology",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of Microsoft's headquarters with the new leadership team in focus.",
+            "duration": "2 seconds"
+          },
+          {
+            "shot": 2,
+            "description": "Cut to a focused interview setup where @lee627 is seated across from CEO Satya Nadella and CTO Alex Gaonkar discussing the Outlook revamp.",
+            "duration": "3 seconds"
+          },
+          {
+            "shot": 3,
+            "description": "A shot of hands pointing towards a graphic showing AI integration into email workflows with voice-over by @lee627 explaining its significance and potential impact on productivity.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 4,
+            "description": "A shot of the Outlook app interface highlighting AI features like predictive typing and personalized email sorting with voice-over by @lee627 detailing how these work.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 5,
+            "description": "A shot of a calendar view showing scheduled meetings being organized automatically as the narration continues about AI's role in enhancing Outlook’s functionality by @lee627.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 6,
+            "description": "A shot of a user interacting with an email notification that has been prioritized and sorted using AI algorithms as explained in the voice-over by @lee627.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 7,
+            "description": "A shot of a user setting up an automated email response with personalized greetings and content selection based on AI analysis as described in the voice-over by @lee627.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 8,
+            "description": "A shot of a user's email folder neatly organized with categories and subcategories created through AI assistance as explained in the voice-over by @lee627.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 9,
+            "description": "A shot of a user's calendar view showing upcoming events automatically organized and prioritized with AI assistance as explained in the voice-over by @lee627.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 10,
+            "description": "A shot of a user's Outlook interface highlighting new features and improvements made possible through AI integration as explained in the voice-over by @lee627.",
+            "duration": "1 second"
+          }
+        ],
+        "voice_over": "@lee627, calmly narrates: 'Microsoft is rebuilding Outlook with a focus on artificial intelligence. This initiative comes under new leadership at Microsoft.'",
+        "ending": {
+          "shot": 11,
+          "description": "A shot of the newsroom set up as @lee627 concludes and invites viewers to comment below.",
+          "duration": "3 seconds"
+        }
+      },
+      "created_at": "2025-10-25T18:47:35.389Z"
+    },
+    {
+      "id": "1761417982903-indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-dexerto",
+      "slug": "indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-dexerto.json",
+      "source_url": "https://www.dexerto.com/gaming/indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-3273511/",
+      "title": "Escape From Duckov surpasses popularity of Battlefield 6 in indie shooter scene",
+      "category": "technology",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A montage of Escape From Duckov's gameplay, showcasing its unique mechanics and immersive world.",
+            "impact_close": "Cut to a live feed on Steam showing the real-time player count for both games side by end each day at peak hours."
+          },
+          {
+            "data_overlay": "Numbers rise steadily, with Escape From Duckov's final tally surpassing Battlefield 6’s.",
+            "narration": "@lee627 speaks calmly: 'Escape From Duckov has proven to be more popular than the AAA title on Steam.'"
+          },
+          {
+            "quiet_outro": "The camera pans out, leaving a sense of wonder and excitement for Escape From Duckov's future."
+          }
+        ],
+        "voiceover": "@lee627 speaks calmly: 'Escape From Duckov has proven to be more popular than the AAA title on Steam.'",
+        "call_to_action": "Comment below.",
+        "duration": "8–10 seconds"
+      },
+      "created_at": "2025-10-25T18:46:37.607Z"
+    },
+    {
+      "id": "1761417947591-odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-iflscien",
+      "slug": "odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-iflscien.json",
+      "source_url": "https://www.iflscience.com/odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-81304",
+      "title": "Ancient Reports Of Odd Phenomena On The Moon",
+      "category": "science",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide context": "A montage of historical sketches and ancient texts showing various cultures reporting strange occurrences on the Moon, with a timeline indicating these reports date back over a thousand years."
+          },
+          {
+            "impact close": "Close-up shots of people from different eras looking skyward in wonder as they describe their experiences to one another or write about them in manuscripts and diaries. The expressions on their faces are captured with empathy, showing a mix of fear, curiosity, and reverence."
+          },
+          {
+            "data overlay": "Text bubbles overlaid onto the footage provide excerpts from ancient texts describing lunar phenomena such as 'crescent moons' or 'moonbloom flowers.' These are juxtaposed with modern interpretations and scientific explanations for these historical observations."
+          },
+          {
+            "quiet outro": "The video fades to a serene night sky, the Moon visible in its natural state. The camera slowly zooms away from Earth as it pans upwards towards the lunar surface before cutting back down and ending with Lee627's voice saying 'Comment below.'"
+          }
+        ],
+        "voiceover": "@lee627, calmly narrates: '<brief factual narration> Ancient civilizations have long been fascinated by the Moon. Reports of odd phenomena date back over a thousand years before telescopes existed."
+      },
+      "created_at": "2025-10-25T18:46:04.809Z"
+    },
+    {
+      "id": "1761417918651-rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked-ars-technica",
+      "slug": "rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked-ars-technica.json",
+      "source_url": "https://arstechnica.com/space/2025/10/rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked/",
+      "title": "Upcoming South Korean Rocket Startup's First Attempt at Low-Earth Orbit Launch Announced",
+      "category": "science",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of the South Korean rocket startup facility with a backdrop showing clear skies and sunrise."
+          },
+          {
+            "shot": 2,
+            "description": "Close-up on an engineer looking at launch data as they prepare for liftoff. The expression is one of focused determination mixed with pride in their national achievement."
+          },
+          {
+            "shot": 3,
+            "description": "Overlay text appears: 'First attempt to reach low-Earth orbit scheduled within the next few weeks.'"
+          },
+          {
+            "shot": 4,
+            "description": "A quiet outro shot of a person sitting at their computer with headphones on as they comment below."
+          }
+        ],
+        "voice_over": "@lee627 narrates calmly and factually: 'South Korea's rocket startup is poised to make history by attempting its first low-Earth orbit launch.'",
+        "ending": {
+          "prompt": "Comment below.",
+          "duration": "< 1 second"
+        }
+      },
+      "created_at": "2025-10-25T18:45:32.881Z"
+    },
+    {
+      "id": "1761417885209-wyoming-dinosaur-mummies-reveal-a-surprise-hoofed-feet-nbc-news",
+      "slug": "wyoming-dinosaur-mummies-reveal-a-surprise-hoofed-feet-nbc-news.json",
+      "source_url": "https://www.nbcnews.com/science/science-news/wyoming-dinosaur-mummies-reveal-surprise-hoofed-feet-rcna239525",
+      "title": "Wyoming Dinosaur 'Mummies' Reveal Duckbill with Hoofed Feet",
+      "category": "science",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A sweeping shot of the Wyoming badlands, with a backdrop that transitions from greenery to rocky terrain. The camera pans across an exposed fossil site where two Edmontosaurus 'mummies' are partially unearthed."
+          },
+          {
+            "impact_close": "Close-up shots of the duckbilled dinosaur mummified remains, highlighting their unique features with a focus on the hoof structures found at the feet. The camera zooms in to show intricate details and textures."
+          },
+          {
+            "data_overlay": "A graphic overlay displaying key facts about Edmontosaurus: its classification as Hadrosaurid, time period (late Cretaceous), size comparison with modern animals, etc. The hoof evidence is emphasized in bold or a different color."
+          }
+        ],
+        "voice_over": "@lee627 narrates calmly and factually about the discovery of Edmontosaurus 'mummies' revealing their exquisite detail including hooves on feet, which are unprecedented findings in dinosaur paleontology.",
+        "outro": {
+          "quiet_outro": "The scene fades to a tranquil sunset over the badlands as @lee627's voice softly concludes with 'Comment below.'",
+          "prompt_end": true
+        }
+      },
+      "created_at": "2025-10-25T18:45:03.153Z"
+    },
+    {
+      "id": "1761417836659-fossils-reveal-dinosaurs-were-thriving-in-north-america-just-before-being-wiped-out-by-asteroid-stri",
+      "slug": "fossils-reveal-dinosaurs-were-thriving-in-north-america-just-before-being-wiped-out-by-asteroid-stri.json",
+      "source_url": "https://www.cbsnews.com/news/fossils-new-mexico-dinosaurs-thriving-before-asteroid-strike-study/",
+      "title": "New Study Suggests Dinosaurs Were Thriving Before Asteroid Impact",
+      "category": "science",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of the Earth from space with a calm blue and green hue. The camera slowly zooms in on New Mexico's landscape where dinosaur fossils are visible."
+          },
+          {
+            "shot": 2,
+            "description": "Close-up shots of various dinosaur bones found at the site with a timestamp indicating they were from just before the asteroid impact era. Scientists in lab coats examine these findings closely."
+          },
+          {
+            "shot": 3,
+            "description": "A shot showing an animation or model of Earth being hit by an asteroid at the K-Pg boundary with a dramatic but factual representation of debris and dust cloud formation. The camera focuses on scientists' expressions in shock."
+          },
+          {
+            "shot": 4,
+            "description": "A shot focusing back to New Mexico where we see the aftermath - empty landscapes with no signs of dinosaur life but plenty of evidence for their former presence. Scientists discuss this contrast solemnly."
+          },
+          {
+            "shot": 5,
+            "descriptiondependent_on_previous_shots": true,
+            "description": "A shot back to the scientists with a data overlay showing graphs and timelines of dinosaur population trends before and after the asteroid impact. The tone is factual but somber."
+          },
+          {
+            "shot": 6,
+            "description": "The video ends on an outro shot that shows Earth from space again with a calm blue hue as if looking back in time to when dinosaurs roamed the land. The camera slowly zooms away until it fades."
+          }
+        ],
+        "voice_over": "@lee627 (<=25 words): 'New evidence suggests that before being wiped out by an asteroid 66 million years ago, dinosaurs were not only surviving but thriving. This challenges previous beliefs and opens new questions about their extinction.'",
+        "end_prompt": "Comment below."
+      },
+      "created_at": "2025-10-25T18:44:21.514Z"
+    },
+    {
+      "id": "1761417793963-a-telescope-in-the-desert-reached-back-a-billion-years-and-uncovered-something-incredible-yahoo",
+      "slug": "a-telescope-in-the-desert-reached-back-a-billion-years-and-uncovered-something-incredible-yahoo.json",
+      "source_url": "https://www.yahoo.com/news/articles/telescope-desert-reached-back-billion-130000877.html",
+      "title": "Telescope in Desert Reaches Back Billion Years, Uncovers Something Incredible",
+      "category": "science",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of the desert landscape with a telescope silhouetted against the sky. The sun is setting.",
+            "duration": "2 seconds"
+          },
+          {
+            "shot": 2,
+            "description": "Close-up on the eyepiece and focusing mechanism as an operator adjusts them for optimal clarity.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 3,
+            "description": "A medium shot of a scientist peering into the telescope's viewfinder with expressions of anticipation and excitement on their face as they observe something extraordinary through it.",
+            "duration": "2 seconds"
+          },
+          {
+            "shot": 4,
+            "description": "A split-screen showing two monitors; one displaying the telescope's live feed with a visual representation of light traveling back in time and another screen presenting graphs or data related to this discovery.",
+            "duration": "2 seconds"
+          },
+          {
+            "shot": 5,
+            "description": "A medium shot focusing on the scientist's face as they make a significant realization about their findings and its implications for our understanding of the universe.",
+            "duration": "1 second"
+          },
+          {
+            "shot": 6,
+            "description": "The camera pulls back to show an expansive view of the desert with stars twinkling in the background as night falls and a gentle breeze rustles nearby foliage.",
+            "duration": "1 second"
+          }
+        ],
+        "voice_over": "@lee627, 'A billion-year journey through time has just begun. Advanced technology unveils secrets of the cosmos.'",
+        "ending": {
+          "text": "Comment below.",
+          "duration": "1 second"
+        }
+      },
+      "created_at": "2025-10-25T18:43:35.970Z"
+    },
+    {
+      "id": "1761417765235-heres-the-2026-cost-of-living-boost-for-veterans-military-retirees-military-times",
+      "slug": "heres-the-2026-cost-of-living-boost-for-veterans-military-retirees-military-times.json",
+      "source_url": "https://www.militarytimes.com/pay-benefits/mil-money/2025/10/24/heres-the-2026-cost-of-living-boost-for-veterans-military-retirees/",
+      "title": "Cost-of-Living Boost for Veterans and Military Retirees Set to Begin in January, Based on Inflation Rate",
+      "category": "business",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A serene newsroom setting with @lee627 standing next to a large, clear screen displaying the headline and summary."
+          },
+          {
+            "impact_close": "Close-up of veteran's face showing relief as they read about their upcoming cost-of-living adjustment on January 1st."
+          },
+          {
+            "data_overlay": "Overlaid graph or chart displaying the inflation rate and how it correlates to the COLA percentage increase for veterans and military retirees."
+          }
+        ],
+        "voice_over": "@lee627 narrates calmly: 'The Cost of Living Adjustment, effective in January, reflects this year's inflation rate. Veterans and retired service members will see a boost to their benefits.'",
+        "outro": {
+          "quiet_ending": "Fade out with the sound of soft newsroom ambiance fading away."
+        },
+        "call_to_action": "Comment below.",
+        "duration": "8–10s total"
+      },
+      "created_at": "2025-10-25T18:42:59.045Z"
+    },
+    {
+      "id": "1761417733495-gm-lays-off-hundreds-of-salaried-workers-as-part-of-profit-push-the-detroit-news",
+      "slug": "gm-lays-off-hundreds-of-salaried-workers-as-part-of-profit-push-the-detroit-news.json",
+      "source_url": "https://www.detroitnews.com/story/business/autos/general-motors/2025/10/24/gm-lays-off-hundreds-of-salaried-workers-as-part-of-profit-push/86874419007/",
+      "title": "GMC Layoffs Happen as Part of Profit Drive - The Detroit News",
+      "category": "business",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A panoramic shot of the GMC Warren Technical Center, with workers in various stages of departure. A sign reads 'Automotive Industry News.'"
+          },
+          {
+            "impact_close": "Cut to a medium close-up of an employee holding back tears as they read their termination notice."
+          },
+          {
+            "data_overlay": "Text overlay with the number '200+' and date, indicating hundreds laid off at Warren Technical Center recently due to business conditions. Credit: The Detroit News"
+          }
+        ],
+        "voiceOver": "@lee627 narrates calmly in a documentary tone about GMC layoffs as part of profit drive.",
+        "outro": {
+          "quiet_outro": [
+            {
+              "shot": "A wide shot back to the panoramic view of the Warren Technical Center, now empty with workers gone."
+            },
+            {
+              "text": "Comment below.",
+              "fontSize": 18,
+              "color": "#009645",
+              "position": {
+                "x": 720,
+                "y": 360
+              }
+            }
+          ]
+        }
+      },
+      "created_at": "2025-10-25T18:42:28.707Z"
+    },
+    {
+      "id": "1761417655881-90percent-of-americans-break-this-social-security-rule-heres-why-theyre-right-aolcom",
+      "slug": "90percent-of-americans-break-this-social-security-rule-heres-why-theyre-right-aolcom.json",
+      "source_url": "https://www.aol.com/finance/retirement-planning/article/90-of-americans-break-this-social-security-rule-150106674.html",
+      "title": "Social Security 'rule' often disregarded by Americans, yet beneficial for some",
+      "category": "business",
+      "sora_prompt": {
+        "scene1": "A wide shot of a bustling city street with diverse faces, showcasing the American populace.",
+        "scene2": "Close-up on hands signing 'Social Security', highlighting its significance and widespread disregard among citizens.",
+        "scene3": {
+          "description": "Data overlay showing statistics of Americans who benefit from Social Security, despite common misconceptions about it being a mistake."
+        },
+        "voiceover": "@lee627 narrates calmly and factually: 'Despite experts labeling the reliance on Social Security as mistaken for many young adults today, millions continue to find financial stability through this program.'",
+        "outro": {
+          "description": "Quiet outro with a gentle fade-out of images showing various American families enjoying their retirement years thanks in part to Social Security benefits.",
+          "text_call_to_action": "Comment below."
+        }
+      },
+      "created_at": "2025-10-25T18:41:07.486Z"
+    },
+    {
+      "id": "1761417630735-ford-earnings-car-market-grinds-out-a-beat-what-it-means-for-the-stock-barrons",
+      "slug": "ford-earnings-car-market-grinds-out-a-beat-what-it-means-for-the-stock-barrons.json",
+      "source_url": "https://www.barrons.com/articles/ford-earnings-stock-price-3186b9b4",
+      "title": "Ford Earnings Reflect Grinding Car Market Beat, Impacting Stock Price",
+      "category": "business",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A montage of the automotive industry, showing various car models and Ford's place within it."
+          },
+          {
+            "impact_close": "Cut to a graph displaying slow growth in sales figures with corresponding stock price fluctuations for Ford over recent months."
+          },
+          {
+            "data_overlay": "Text overlay of key statistics from the earnings report, highlighting challenges and supply chain concerns."
+          }
+        ],
+        "voiceOver": "@lee627 narrates calmly: 'Ford's latest quarter reflects a grinding car market. Despite slow growth affecting all players, Ford is adapting with an EV strategy.'",
+        "quiet_outro": "The screen fades to black as the camera pans out from inside a quiet newsroom setting."
+      },
+      "created_at": "2025-10-25T18:40:41.835Z"
+    },
+    {
+      "id": "1761417594326-ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles-dw",
+      "slug": "ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles-dw.json",
+      "source_url": "https://www.dw.com/en/ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles/live-74479752",
+      "title": "Ukrainian President Zelenskyy in UK for meeting with European allies on missile support.",
+      "category": "general",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A sweeping shot of the UK skyline with a backdrop that subtly incorporates symbols representing unity and strength, such as interlocked shields or linked chains."
+          },
+          {
+            "impact_close": "Zelenskyy standing confidently in front of an assembled group of European leaders. The camera zooms into his face to capture the determination etched on his features and a handshake with one leader, symbolizing solidarity."
+          },
+          {
+            "data_overlay": "Text overlay displaying key facts: 'Ukrainian President Zelenskyy meets EU leaders in London. Coalition of willing to discuss missile support.' Graphic showing a timeline or map highlighting the meeting location and participating countries."
+          },
+          {
+            "quiet_outro": "A soft focus on the camera as it pans out, leaving Zelenskyy's determined face in view before fading to black with an invitation for further discussion: 'Comment below.'"
+          }
+        ],
+        "voiceover": "<brief factual narration>: Ukrainian President Volodymyr Zelenskyy is meeting today with European allies, including the UK. The coalition of willing discusses missile support and defense funding for Kyiv's ongoing efforts.",
+        "duration": "8–10 seconds",
+        "voice_actor": "@lee627"
+      },
+      "created_at": "2025-10-25T18:40:11.489Z"
+    },
+    {
+      "id": "1761417557424-what-killed-napoleons-army-scientists-find-clues-in-dna-from-fallen-soldiers-teeth-shots-health-news",
+      "slug": "what-killed-napoleons-army-scientists-find-clues-in-dna-from-fallen-soldiers-teeth-shots-health-news.json",
+      "source_url": "https://www.npr.org/sections/shots-health-news/2025/10/24/nx-s1-5582719/napoleon-war-russia-pathogens-disease-1812",
+      "title": "Scientists Investigate Potential Pathogens That Contributed to Napoleon’s Army Defeat in Russia",
+      "category": "general",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "description": "A wide shot of the snow-covered Russian landscape with a backdrop showing historical maps and timelines.",
+            "duration": "2 seconds"
+          },
+          {
+            "description": "Close up on an open book detailing Napoleon's army size, followed by images of soldiers suffering from symptoms like fever and fatigue.",
+            "duration": "3 seconds"
+          }
+        ],
+        "data_overlay": [
+          {
+            "content": "Hundreds of thousands perished during retreat",
+            "background": "#f0e68c",
+            "size": "medium",
+            "duration": "2 seconds"
+          },
+          {
+            "content": "Researchers believe pathogens played a role in the demise.",
+            "background": "#98fb8a",
+            "size": "small",
+            "duration": "1 second"
+          }
+        ],
+        "voiceover": [
+          {
+            "text": "@lee627, calm and factual narration: 'In 1812, Napoleon's retreat from Russia was marked by a catastrophic loss of life. New research suggests that pathogens may have accelerated the soldiers’ decline.'",
+            "duration": "4 seconds"
+          }
+        ],
+        "outro": {
+          "text": "Comment below.",
+          "background_color": "#d3d3d3",
+          "size": "small",
+          "duration": "1 second"
+        }
+      },
+      "created_at": "2025-10-25T18:39:35.979Z"
+    },
+    {
+      "id": "1761417499802-us-carried-out-a-strike-on-another-alleged-drug-carrying-boat-in-the-caribbean-sea-pete-hegseth-says",
+      "slug": "us-carried-out-a-strike-on-another-alleged-drug-carrying-boat-in-the-caribbean-sea-pete-hegseth-says.json",
+      "source_url": "https://www.nbcnews.com/politics/politics-news/us-strike-drug-boat-rcna239564",
+      "title": "U.S. Strikes Alleged Drug-Carrying Boat in Caribbean Sea",
+      "category": "general",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "shot": 1,
+            "description": "A wide shot of the Caribbean Sea with a backdrop showing calm waters and sunlight filtering through sails. A US Navy vessel is visible in the distance."
+          },
+          {
+            "shot": 2,
+            "description": "Close-up on Defense Secretary Pete Hegseth as he stands solemnly at his desk with a map of drug trafficking routes spread out before him. His expression is one of resolve and determination."
+          },
+          {
+            "shot": 3,
+            "description": "A split-screen showing the US Navy vessel approaching an alleged drug-carrying boat in the Caribbean Sea from two different angles simultaneously for dramatic effect. The background music is subdued and tense."
+          },
+          {
+            "shot": 4,
+            "description": "A graphic overlay on screen with statistics of recent U.S. strikes against alleged drug-carrying vessels this week in the Caribbean Sea to provide context for viewers about frequency and impact."
+          },
+          {
+            "shot": 5,
+            "description": "Cut back to Hegseth with a confident nod as he announces the strike. The camera zooms out slightly showing his full body language conveying authority without being overly dramatic.",
+            "voice_over": "@lee627 says calm and factual, 'The U.S., under my guidance, has struck another vessel suspected of drug trafficking in the Caribbean Sea.'"
+          },
+          {
+            "shot": 6,
+            "description": "A shot showing a news anchor on-screen with Hegseth's statement playing over their voice. The camera focuses closely as they read out his words for emphasis."
+          },
+          {
+            "shot": 7,
+            "description": "Cut to an aerial view of the strike site in the Caribbean Sea with a slow zoom-out showing debris and water disturbances indicating where the vessel was struck. The music fades out."
+          },
+          {
+            "shot": 8,
+            "description": "A shot back to Hegseth's desk as he looks contemplatively at a globe or map of international waters with emphasis on drug trafficking hotsp01 spots. The camera slowly zooms out."
+          },
+          {
+            "shot": 9,
+            "description": "A shot back to the anchor who now has their hand raised as if inviting viewers' comments or questions about this development.",
+            "voice_over": "@lee627 says calm and factual, 'This is a significant step in our ongoing efforts against drug trafficking.'"
+          },
+          {
+            "shot": 10,
+            "description": "The anchor's hand remains raised as the screen fades to black with text overlay saying: 'Comment below.', inviting viewer engagement."
+          }
+        ],
+        "voice_over": "@lee627 says calm and factual"
+      },
+      "created_at": "2025-10-25T18:38:55.109Z"
+    },
+    {
+      "id": "1761417467081-after-a-lengthy-wait-jeffries-to-endorse-mamdani-politico",
+      "slug": "after-a-lengthy-wait-jeffries-to-endorse-mamdani-politico.json",
+      "source_url": "https://www.politico.com/news/2025/10/24/after-a-lengthy-wait-jeffries-to-endorse-mamdani-00621799",
+      "title": "Brooklyn's Jeffries Endorses Democratic Socialist on Friday Afternoon",
+      "category": "general",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A shot of the Brooklyn skyline with Jeffries' office in view, emphasizing his power and influence."
+          },
+          {
+            "impact_close": "Cut to a medium close-up of @lee627 delivering calm narration while looking into the camera. The endorsement is significant for both parties involved."
+          },
+          {
+            "data_overlay": "Display real-time social media reactions and live tweets using stock footage or CGI, showing a mix of supportive and critical responses to Jeffries' decision."
+          }
+        ],
+        "voice_over": "@lee627 narrates in calm tone: 'Brooklyn Democrat Congressman Hakeem Jeffries endorses Mamdani. This Friday afternoon at 3 PM, a powerful move for progressive politics.'",
+        "outro": {
+          "quiet_shot": "A wide shot of the newsroom with @lee627 looking into the camera as he concludes.",
+          "text_overlay": "Comment below."
+        }
+      },
+      "created_at": "2025-10-25T18:38:00.469Z"
     }
   ]
 }

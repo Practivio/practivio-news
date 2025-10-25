@@ -1,0 +1,20 @@
+{
+  "id": "1761417655881-90percent-of-americans-break-this-social-security-rule-heres-why-theyre-right-aolcom",
+  "slug": "90percent-of-americans-break-this-social-security-rule-heres-why-theyre-right-aolcom.json",
+  "source_url": "https://www.aol.com/finance/retirement-planning/article/90-of-americans-break-this-social-security-rule-150106674.html",
+  "title": "Social Security 'rule' often disregarded by Americans, yet beneficial for some",
+  "category": "business",
+  "sora_prompt": {
+    "scene1": "A wide shot of a bustling city street with diverse faces, showcasing the American populace.",
+    "scene2": "Close-up on hands signing 'Social Security', highlighting its significance and widespread disregard among citizens.",
+    "scene3": {
+      "description": "Data overlay showing statistics of Americans who benefit from Social Security, despite common misconceptions about it being a mistake."
+    },
+    "voiceover": "@lee627 narrates calmly and factually: 'Despite experts labeling the reliance on Social Security as mistaken for many young adults today, millions continue to find financial stability through this program.'",
+    "outro": {
+      "description": "Quiet outro with a gentle fade-out of images showing various American families enjoying their retirement years thanks in part to Social Security benefits.",
+      "text_call_to_action": "Comment below."
+    }
+  },
+  "created_at": "2025-10-25T18:41:07.486Z"
+}

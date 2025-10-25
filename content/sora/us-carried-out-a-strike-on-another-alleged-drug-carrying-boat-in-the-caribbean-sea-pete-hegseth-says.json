@@ -1,0 +1,55 @@
+{
+  "id": "1761417499802-us-carried-out-a-strike-on-another-alleged-drug-carrying-boat-in-the-caribbean-sea-pete-hegseth-says",
+  "slug": "us-carried-out-a-strike-on-another-alleged-drug-carrying-boat-in-the-caribbean-sea-pete-hegseth-says.json",
+  "source_url": "https://www.nbcnews.com/politics/politics-news/us-strike-drug-boat-rcna239564",
+  "title": "U.S. Strikes Alleged Drug-Carrying Boat in Caribbean Sea",
+  "category": "general",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "shot": 1,
+        "description": "A wide shot of the Caribbean Sea with a backdrop showing calm waters and sunlight filtering through sails. A US Navy vessel is visible in the distance."
+      },
+      {
+        "shot": 2,
+        "description": "Close-up on Defense Secretary Pete Hegseth as he stands solemnly at his desk with a map of drug trafficking routes spread out before him. His expression is one of resolve and determination."
+      },
+      {
+        "shot": 3,
+        "description": "A split-screen showing the US Navy vessel approaching an alleged drug-carrying boat in the Caribbean Sea from two different angles simultaneously for dramatic effect. The background music is subdued and tense."
+      },
+      {
+        "shot": 4,
+        "description": "A graphic overlay on screen with statistics of recent U.S. strikes against alleged drug-carrying vessels this week in the Caribbean Sea to provide context for viewers about frequency and impact."
+      },
+      {
+        "shot": 5,
+        "description": "Cut back to Hegseth with a confident nod as he announces the strike. The camera zooms out slightly showing his full body language conveying authority without being overly dramatic.",
+        "voice_over": "@lee627 says calm and factual, 'The U.S., under my guidance, has struck another vessel suspected of drug trafficking in the Caribbean Sea.'"
+      },
+      {
+        "shot": 6,
+        "description": "A shot showing a news anchor on-screen with Hegseth's statement playing over their voice. The camera focuses closely as they read out his words for emphasis."
+      },
+      {
+        "shot": 7,
+        "description": "Cut to an aerial view of the strike site in the Caribbean Sea with a slow zoom-out showing debris and water disturbances indicating where the vessel was struck. The music fades out."
+      },
+      {
+        "shot": 8,
+        "description": "A shot back to Hegseth's desk as he looks contemplatively at a globe or map of international waters with emphasis on drug trafficking hotsp01 spots. The camera slowly zooms out."
+      },
+      {
+        "shot": 9,
+        "description": "A shot back to the anchor who now has their hand raised as if inviting viewers' comments or questions about this development.",
+        "voice_over": "@lee627 says calm and factual, 'This is a significant step in our ongoing efforts against drug trafficking.'"
+      },
+      {
+        "shot": 10,
+        "description": "The anchor's hand remains raised as the screen fades to black with text overlay saying: 'Comment below.', inviting viewer engagement."
+      }
+    ],
+    "voice_over": "@lee627 says calm and factual"
+  },
+  "created_at": "2025-10-25T18:38:55.109Z"
+}

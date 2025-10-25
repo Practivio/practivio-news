@@ -1,0 +1,68 @@
+{
+  "id": "1761418017304-microsoft-outlook-is-getting-an-ai-overhaul-under-new-leaders-the-verge",
+  "slug": "microsoft-outlook-is-getting-an-ai-overhaul-under-new-leaders-the-verge.json",
+  "source_url": "https://www.theverge.com/tech/806162/microsoft-outlook-ai-overhaul-notepad",
+  "title": "Microsoft Prepares for Another Overhaul of Outlook Focused on Artificial Intelligence",
+  "category": "technology",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "shot": 1,
+        "description": "A wide shot of Microsoft's headquarters with the new leadership team in focus.",
+        "duration": "2 seconds"
+      },
+      {
+        "shot": 2,
+        "description": "Cut to a focused interview setup where @lee627 is seated across from CEO Satya Nadella and CTO Alex Gaonkar discussing the Outlook revamp.",
+        "duration": "3 seconds"
+      },
+      {
+        "shot": 3,
+        "description": "A shot of hands pointing towards a graphic showing AI integration into email workflows with voice-over by @lee627 explaining its significance and potential impact on productivity.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 4,
+        "description": "A shot of the Outlook app interface highlighting AI features like predictive typing and personalized email sorting with voice-over by @lee627 detailing how these work.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 5,
+        "description": "A shot of a calendar view showing scheduled meetings being organized automatically as the narration continues about AI's role in enhancing Outlook’s functionality by @lee627.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 6,
+        "description": "A shot of a user interacting with an email notification that has been prioritized and sorted using AI algorithms as explained in the voice-over by @lee627.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 7,
+        "description": "A shot of a user setting up an automated email response with personalized greetings and content selection based on AI analysis as described in the voice-over by @lee627.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 8,
+        "description": "A shot of a user's email folder neatly organized with categories and subcategories created through AI assistance as explained in the voice-over by @lee627.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 9,
+        "description": "A shot of a user's calendar view showing upcoming events automatically organized and prioritized with AI assistance as explained in the voice-over by @lee627.",
+        "duration": "1 second"
+      },
+      {
+        "shot": 10,
+        "description": "A shot of a user's Outlook interface highlighting new features and improvements made possible through AI integration as explained in the voice-over by @lee627.",
+        "duration": "1 second"
+      }
+    ],
+    "voice_over": "@lee627, calmly narrates: 'Microsoft is rebuilding Outlook with a focus on artificial intelligence. This initiative comes under new leadership at Microsoft.'",
+    "ending": {
+      "shot": 11,
+      "description": "A shot of the newsroom set up as @lee627 concludes and invites viewers to comment below.",
+      "duration": "3 seconds"
+    }
+  },
+  "created_at": "2025-10-25T18:47:35.389Z"
+}

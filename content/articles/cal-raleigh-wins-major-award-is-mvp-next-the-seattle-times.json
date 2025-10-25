@@ -1,0 +1,30 @@
+{
+  "id": "1761418190147-cal-raleigh-wins-major-award-is-mvp-next-the-seattle-times",
+  "category": "sports",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.seattletimes.com/sports/mariners/mariners-cal-raleigh-wins-sporting-news-mlb-player-of-the-year-award/",
+    "title": "Cal Raleigh wins major award. Is MVP next? - The Seattle Times",
+    "published_at": "2025-10-24T15:00:00Z",
+    "image": "https://images.seattletimes.com/wp-content/uploads/2025/10/10232025_tzr_tzr_175718.jpg?d=1200x630",
+    "name": "The Seattle Times"
+  },
+  "facts": [
+    "Cal Raleigh was named the Sporting News MLB Player of the Year",
+    "The award ceremony took place on Friday",
+    "Raleigh is just the third player in franchise history to be honored by the publication",
+    "Sporting News MVP next? - The Seattle Times"
+  ],
+  "neutral": {
+    "headline": "Cal Raleigh named Sporting News MLB Player of the Year",
+    "body_html": "<p>On Friday, Cal Raleigh was honored as the <a href='https://www.seattletimes.com/sports/mariners/'>Seattle Mariners</a>' 2019 MLB Player of the Year by the prestigious Sporting News publication.</p>"
+  },
+  "conservative": {
+    "headline": "Cal Raleigh named MVP",
+    "body_html": "<p>In a surprise announcement, Cal Raleigh was awarded as this year's <a href='https://www.seattletimes.com/sports/mariners/'>Seattle Mariners</a>' Most Valuable Player by the respected Sporting News publication.</p>"
+  },
+  "liberal": {
+    "headline": "Cal Raleigh wins major award, but MVP next?",
+    "body_html": "<p>In a historic moment for Seattle Mariners franchise history, Cal Raleigh was named the Sporting News MLB Player of the Year on Friday. This prestigious honor makes him just one of three players in team's past to receive this recognition from the publication.</p>"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "1761417655881-90percent-of-americans-break-this-social-security-rule-heres-why-theyre-right-aolcom",
+  "category": "business",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.aol.com/finance/retirement-planning/article/90-of-americans-break-this-social-security-rule-150106674.html",
+    "title": "90% of Americans break this Social Security 'rule' — here's why they're right - AOL.com",
+    "published_at": "2025-10-24T15:08:04Z",
+    "image": "https://s.yimg.com/ny/api/res/1.2/A8pkIBk_0Z46dW5TChO5TQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2025-10/62f5a660-b0e9-11f0-bf62-ea84dcd41cfc",
+    "name": "AOL"
+  },
+  "facts": [
+    "Experts call it a mistake",
+    "Millions keep doing it anyway",
+    "It actually works for many people"
+  ],
+  "neutral": {
+    "headline": "Social Security 'rule' often disregarded by Americans, yet beneficial for some",
+    "body_html": "<p>Experts label the common practice of early retirement as a mistake. However, millions continue to do so and find it actually works well for them.</p>"
+  },
+  "conservative": {
+    "headline": "Early Retirement: A Common Mistake Among Americans Despite Experts' Advice",
+    "body_html": "<p>Despite experts calling early retirement a mistake, many American workers continue to do so. This practice often works well for them.</p>"
+  },
+  "liberal": {
+    "headline": "Millions of Americans Find Early Retirement Beneficial Despite Experts' Advice",
+    "body_html": "<p>Experts call early retirement a mistake, but many American workers continue to do so and find it actually works well for them. This practice often benefits individuals in various ways.</p>"
+  }
+}

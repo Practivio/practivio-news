@@ -1,0 +1,33 @@
+{
+  "id": "1761417918651-rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked-ars-technica",
+  "slug": "rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked-ars-technica.json",
+  "source_url": "https://arstechnica.com/space/2025/10/rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked/",
+  "title": "Upcoming South Korean Rocket Startup's First Attempt at Low-Earth Orbit Launch Announced",
+  "category": "science",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "shot": 1,
+        "description": "A wide shot of the South Korean rocket startup facility with a backdrop showing clear skies and sunrise."
+      },
+      {
+        "shot": 2,
+        "description": "Close-up on an engineer looking at launch data as they prepare for liftoff. The expression is one of focused determination mixed with pride in their national achievement."
+      },
+      {
+        "shot": 3,
+        "description": "Overlay text appears: 'First attempt to reach low-Earth orbit scheduled within the next few weeks.'"
+      },
+      {
+        "shot": 4,
+        "description": "A quiet outro shot of a person sitting at their computer with headphones on as they comment below."
+      }
+    ],
+    "voice_over": "@lee627 narrates calmly and factually: 'South Korea's rocket startup is poised to make history by attempting its first low-Earth orbit launch.'",
+    "ending": {
+      "prompt": "Comment below.",
+      "duration": "< 1 second"
+    }
+  },
+  "created_at": "2025-10-25T18:45:32.881Z"
+}

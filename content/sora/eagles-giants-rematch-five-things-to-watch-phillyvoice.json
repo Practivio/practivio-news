@@ -1,0 +1,23 @@
+{
+  "id": "1761418336549-eagles-giants-rematch-five-things-to-watch-phillyvoice",
+  "slug": "eagles-giants-rematch-five-things-to-watch-phillyvoice.json",
+  "source_url": "https://www.phillyvoice.com/eagles-giants-rematch-five-things-watch-2025/",
+  "title": "Rematch: Eagles' Performance Against Giants Raises Questions",
+  "category": "sports",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "The Eagles face off against the Giants in a highly anticipated rematch. The atmosphere is charged with excitement and tension as both teams prepare for battle on the field."
+      },
+      {
+        "impact_close": "As the game progresses, it becomes evident that despite their best efforts, the Eagles are struggling to keep up with the Giants' relentless offense. The crowd reacts in disbelief as they witness a surprising turn of events."
+      },
+      {
+        "data_overlay": "The screen displays real-time stats and replays highlighting key moments where Eagles players were outmuscled by their Giants counterparts, emphasizing the disparity between both teams' performances during crucial plays in Week 6."
+      }
+    ],
+    "voice_over": "@lee627 narrates calmly and factually: 'In a shocking turn of events this weekend, the Eagles were outmuscled by their rivals. The Giants' dominance was evident as they secured another win in Week 6.'",
+    "quiet_outro": "The scene fades to black with only ambient sounds from the stadium and a soft echo of cheers lingering, inviting viewers to share their thoughts on this unexpected outcome. 'Comment below.'"
+  },
+  "created_at": "2025-10-25T18:52:34.996Z"
+}

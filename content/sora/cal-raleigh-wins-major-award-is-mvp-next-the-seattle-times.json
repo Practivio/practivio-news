@@ -1,0 +1,26 @@
+{
+  "id": "1761418190147-cal-raleigh-wins-major-award-is-mvp-next-the-seattle-times",
+  "slug": "cal-raleigh-wins-major-award-is-mvp-next-the-seattle-times.json",
+  "source_url": "https://www.seattletimes.com/sports/mariners/mariners-cal-raleigh-wins-sporting-news-mlb-player-of-the-year-award/",
+  "title": "Cal Raleigh named Sporting News MLB Player of the Year",
+  "category": "sports",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "A montage of Cal Raleigh's career highlights, with a focus on his recent achievements and the significance for MLB history."
+      },
+      {
+        "impact_close": "Close-up shot of Cal Raleigh holding an award as he looks up from it to acknowledge the crowd in front of him at the Sporting News office, with a look of humble pride on his face and gratitude for this honor."
+      },
+      {
+        "data_overlay": "Text overlay showing 'Sporting News MLB Player of the Year' superimposed over images from Raleigh’ endorsement deal announcements, with statistics about player awards in baseball history on screen to provide context for his achievement."
+      },
+      {
+        "quiet_outro": "The newsroom fades out as a voice-over continues softly: 'Cal Raleigh's recognition by the Sporting News is not just personal; it marks an important chapter in baseball history. His performance has set new standards, and his legacy will inspire future generations.'"
+      }
+    ],
+    "voice_over": "<brief factual narration>Cal Raleigh's outstanding season earned him the prestigious Sporting News MLB Player of the Year award. This honor makes Cal just the third player in franchise history to receive this accolade, a testament to his exceptional talent and dedication on the field.",
+    "call_to_action": "Comment below."
+  },
+  "created_at": "2025-10-25T18:50:27.529Z"
+}

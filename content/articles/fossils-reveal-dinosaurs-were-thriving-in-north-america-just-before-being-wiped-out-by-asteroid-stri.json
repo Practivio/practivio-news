@@ -1,0 +1,30 @@
+{
+  "id": "1761417836659-fossils-reveal-dinosaurs-were-thriving-in-north-america-just-before-being-wiped-out-by-asteroid-stri",
+  "category": "science",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.cbsnews.com/news/fossils-new-mexico-dinosaurs-thriving-before-asteroid-strike-study/",
+    "title": "Fossils reveal dinosaurs were thriving in North America just before being wiped out by asteroid strike, study shows - CBS News",
+    "published_at": "2025-10-24T12:23:00Z",
+    "image": "https://assets1.cbsnewsstatic.com/hub/i/r/2025/10/24/3a5ec6fd-a65d-41fd-ae7d-0a05d0285922/thumbnail/1200x630g7/dd78b8d72001adfd6c8c21fe596d0477/ap25296566550499.jpg",
+    "name": "CBS News"
+  },
+  "facts": [
+    "Scientists have long debated the decline of dinosaurs before an asteroid impact.",
+    "The Earth was struck by a massive asteroid about 66 million years ago.",
+    "This event caused mass extinction, wiping out many species including dinosaurs.",
+    "Fossils from New Mexico suggest that dinosaurs were thriving just before the strike."
+  ],
+  "neutral": {
+    "headline": "New Study Suggests Dinosaurs Were Thriving Before Asteroid Impact",
+    "body_html": "<p>A new study based on fossils from New Mexico indicates that dinosaurs were flourishing in North America just before a catastrophic asteroid strike 66 million years ago, which led to their mass extinction.</p>"
+  },
+  "conservative": {
+    "headline": "Study Finds Dinosaurs Were Thriving Before Asteroid Impact",
+    "body_html": "<p>A recent study using fossils from New Mexico shows that dinosaurs were thriving in North America just before a massive asteroid impact 66 million years ago, which led to their mass extinction.</p>"
+  },
+  "liberal": {
+    "headline": "New Evidence Shows Dinosaurs Were Thriving Before Asteroid Impact",
+    "body_html": "<p>A groundbreaking study based on fossils from New Mexico reveals that dinosaurs were not only surviving but thriving in North America just before a catastrophic asteroid impact 66 million years ago, which led to their mass extinction. This new evidence challenges the long-held belief of declining dinosaur populations prior to this event and sheds light on how these magnificent creatures lived.</p>"
+  }
+}

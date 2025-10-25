@@ -1,0 +1,27 @@
+{
+  "id": "1761417765235-heres-the-2026-cost-of-living-boost-for-veterans-military-retirees-military-times",
+  "slug": "heres-the-2026-cost-of-living-boost-for-veterans-military-retirees-military-times.json",
+  "source_url": "https://www.militarytimes.com/pay-benefits/mil-money/2025/10/24/heres-the-2026-cost-of-living-boost-for-veterans-military-retirees/",
+  "title": "Cost-of-Living Boost for Veterans and Military Retirees Set to Begin in January, Based on Inflation Rate",
+  "category": "business",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "A serene newsroom setting with @lee627 standing next to a large, clear screen displaying the headline and summary."
+      },
+      {
+        "impact_close": "Close-up of veteran's face showing relief as they read about their upcoming cost-of-living adjustment on January 1st."
+      },
+      {
+        "data_overlay": "Overlaid graph or chart displaying the inflation rate and how it correlates to the COLA percentage increase for veterans and military retirees."
+      }
+    ],
+    "voice_over": "@lee627 narrates calmly: 'The Cost of Living Adjustment, effective in January, reflects this year's inflation rate. Veterans and retired service members will see a boost to their benefits.'",
+    "outro": {
+      "quiet_ending": "Fade out with the sound of soft newsroom ambiance fading away."
+    },
+    "call_to_action": "Comment below.",
+    "duration": "8–10s total"
+  },
+  "created_at": "2025-10-25T18:42:59.045Z"
+}

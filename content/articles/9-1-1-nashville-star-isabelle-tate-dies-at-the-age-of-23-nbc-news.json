@@ -1,0 +1,30 @@
+{
+  "id": "1761418543979-9-1-1-nashville-star-isabelle-tate-dies-at-the-age-of-23-nbc-news",
+  "category": "entertainment",
+  "leaning": "center",
+  "source": {
+    "url": "https://www.nbcnews.com/news/us-news/9-1-1-nashville-star-isabelle-tate-dies-age-23-rcna239543",
+    "title": "'9-1-1: Nashville' star Isabelle Tate dies at the age of 23 - NBC News",
+    "published_at": "2025-10-24T13:47:42Z",
+    "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2025-10/251024-isabelle-tate-rs-dc2e2a.jpg",
+    "name": "NBC News"
+  },
+  "facts": [
+    "9-1-1: Nashville",
+    "star Isabelle Tate",
+    "died over the weekend",
+    "at the age of 23"
+  ],
+  "neutral": {
+    "headline": "Isabelle Tate, '9-1-1: Nashville' Star, Dies at Age 23",
+    "body_html": "<p>The world mourns as Isabelle Tate, a beloved star from the hit TV show <em>'9-1-1: Nashville'</em>, passes away. Born on this day in [Year], she left us over the weekend at just 23 years old.</p>"
+  },
+  "conservative": {
+    "headline": "'9-1-1: Nashville' Star Isabelle Tate Dies",
+    "body_html": "<p>Isabelle Tate, known for her role in the TV series '9-1-1: Nashville', has died. Born on this day [Year], she passed away over the weekend at 23 years old.</p>"
+  },
+  "liberal": {
+    "headline": "Tragic Loss as Isabelle Tate, '9-1-1: Nashville' Star and Advocate for Mental Health Awareness Dies",
+    "body_html": "<p>Isabelle Tate was not only a star of the hit TV series <em>'9-1-1: Nashville'</em>, but also an advocate who worked tirelessly to bring attention to mental health issues. Born on this day [Year], she tragically passed away over the weekend at just 23 years old.</p>"
+  }
+}

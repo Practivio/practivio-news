@@ -1,0 +1,46 @@
+{
+  "id": "1761417557424-what-killed-napoleons-army-scientists-find-clues-in-dna-from-fallen-soldiers-teeth-shots-health-news",
+  "slug": "what-killed-napoleons-army-scientists-find-clues-in-dna-from-fallen-soldiers-teeth-shots-health-news.json",
+  "source_url": "https://www.npr.org/sections/shots-health-news/2025/10/24/nx-s1-5582719/napoleon-war-russia-pathogens-disease-1812",
+  "title": "Scientists Investigate Potential Pathogens That Contributed to Napoleon’s Army Defeat in Russia",
+  "category": "general",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "description": "A wide shot of the snow-covered Russian landscape with a backdrop showing historical maps and timelines.",
+        "duration": "2 seconds"
+      },
+      {
+        "description": "Close up on an open book detailing Napoleon's army size, followed by images of soldiers suffering from symptoms like fever and fatigue.",
+        "duration": "3 seconds"
+      }
+    ],
+    "data_overlay": [
+      {
+        "content": "Hundreds of thousands perished during retreat",
+        "background": "#f0e68c",
+        "size": "medium",
+        "duration": "2 seconds"
+      },
+      {
+        "content": "Researchers believe pathogens played a role in the demise.",
+        "background": "#98fb8a",
+        "size": "small",
+        "duration": "1 second"
+      }
+    ],
+    "voiceover": [
+      {
+        "text": "@lee627, calm and factual narration: 'In 1812, Napoleon's retreat from Russia was marked by a catastrophic loss of life. New research suggests that pathogens may have accelerated the soldiers’ decline.'",
+        "duration": "4 seconds"
+      }
+    ],
+    "outro": {
+      "text": "Comment below.",
+      "background_color": "#d3d3d3",
+      "size": "small",
+      "duration": "1 second"
+    }
+  },
+  "created_at": "2025-10-25T18:39:35.979Z"
+}

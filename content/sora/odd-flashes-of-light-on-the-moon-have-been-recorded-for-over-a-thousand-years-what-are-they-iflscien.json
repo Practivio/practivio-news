@@ -1,0 +1,25 @@
+{
+  "id": "1761417947591-odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-iflscien",
+  "slug": "odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-iflscien.json",
+  "source_url": "https://www.iflscience.com/odd-flashes-of-light-on-the-moon-have-been-recorded-for-over-a-thousand-years-what-are-they-81304",
+  "title": "Ancient Reports Of Odd Phenomena On The Moon",
+  "category": "science",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide context": "A montage of historical sketches and ancient texts showing various cultures reporting strange occurrences on the Moon, with a timeline indicating these reports date back over a thousand years."
+      },
+      {
+        "impact close": "Close-up shots of people from different eras looking skyward in wonder as they describe their experiences to one another or write about them in manuscripts and diaries. The expressions on their faces are captured with empathy, showing a mix of fear, curiosity, and reverence."
+      },
+      {
+        "data overlay": "Text bubbles overlaid onto the footage provide excerpts from ancient texts describing lunar phenomena such as 'crescent moons' or 'moonbloom flowers.' These are juxtaposed with modern interpretations and scientific explanations for these historical observations."
+      },
+      {
+        "quiet outro": "The video fades to a serene night sky, the Moon visible in its natural state. The camera slowly zooms away from Earth as it pans upwards towards the lunar surface before cutting back down and ending with Lee627's voice saying 'Comment below.'"
+      }
+    ],
+    "voiceover": "@lee627, calmly narrates: '<brief factual narration> Ancient civilizations have long been fascinated by the Moon. Reports of odd phenomena date back over a thousand years before telescopes existed."
+  },
+  "created_at": "2025-10-25T18:46:04.809Z"
+}

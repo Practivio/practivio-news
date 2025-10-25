@@ -1,0 +1,27 @@
+{
+  "id": "1761417594326-ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles-dw",
+  "slug": "ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles-dw.json",
+  "source_url": "https://www.dw.com/en/ukraine-zelenskyy-in-uk-for-talks-with-allies-on-missiles/live-74479752",
+  "title": "Ukrainian President Zelenskyy in UK for meeting with European allies on missile support.",
+  "category": "general",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "wide_context": "A sweeping shot of the UK skyline with a backdrop that subtly incorporates symbols representing unity and strength, such as interlocked shields or linked chains."
+      },
+      {
+        "impact_close": "Zelenskyy standing confidently in front of an assembled group of European leaders. The camera zooms into his face to capture the determination etched on his features and a handshake with one leader, symbolizing solidarity."
+      },
+      {
+        "data_overlay": "Text overlay displaying key facts: 'Ukrainian President Zelenskyy meets EU leaders in London. Coalition of willing to discuss missile support.' Graphic showing a timeline or map highlighting the meeting location and participating countries."
+      },
+      {
+        "quiet_outro": "A soft focus on the camera as it pans out, leaving Zelenskyy's determined face in view before fading to black with an invitation for further discussion: 'Comment below.'"
+      }
+    ],
+    "voiceover": "<brief factual narration>: Ukrainian President Volodymyr Zelenskyy is meeting today with European allies, including the UK. The coalition of willing discusses missile support and defense funding for Kyiv's ongoing efforts.",
+    "duration": "8–10 seconds",
+    "voice_actor": "@lee627"
+  },
+  "created_at": "2025-10-25T18:40:11.489Z"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "1761418076041-nobody-seems-to-like-the-new-halloween-event-in-borderlands-4-kotaku",
+  "category": "technology",
+  "leaning": "center",
+  "source": {
+    "url": "https://kotaku.com/new-halloween-event-borderlands-4-sucks-bad-horrors-of-kairos-2000638842",
+    "title": "Nobody Seems To Like The New Halloween Event In Borderlands 4 - Kotaku",
+    "published_at": "2025-10-24T15:05:40Z",
+    "image": "https://kotaku.com/app/uploads/2025/10/bd-1200x675.jpg",
+    "name": "Kotaku"
+  },
+  "facts": [
+    "The new Halloween event in Borderlands 4 is free",
+    "Players are not liking the new Halloween event"
+  ],
+  "neutral": {
+    "headline": "Free but Disliked: New Halloween Event Receives Mixed Reactions from Players of Borderlands 4 - Kotaku",
+    "body_html": "<p>The latest addition to the popular video game, <em>Borderlands 4</em>, is a free-to-play event themed around Halloween. Despite its cost being zero dollars for players who wish to participate in this new spooky experience, it seems that not everyone shares enthusiasm.</p>"
+  },
+  "conservative": {
+    "headline": "Players Dislike New Free Halloween Event in Borderlands 4 - Kotaku",
+    "body_html": "<p>The new free-to-play event, themed around the horrors of Kairos for Halloween season in <em>Borderlands 4</em>, is not well received by players. Despite its cost being zero dollars to participate, it seems that this latest addition does little more than disappoint.</p>"
+  },
+  "liberal": {
+    "headline": "Players Dislike New Free Halloween Event in Borderlands 4 - Kotaku",
+    "body_html": "<p>The new free-to-play event, themed around the horrors of Kairos for Halloween season in <em>Borderlands 4</em>, is not well received by players. Despite its cost being zero dollars to participate and aiming at providing a unique experience during this festive time, it seems that something about this latest addition does little more than disappoint.</p>"
+  }
+}
