@@ -1,0 +1,27 @@
+{
+  "id": "1761413998215-can-miracle-mineral-magnesium-really-help-us-sleep",
+  "category": "center",
+  "source": {
+    "url": "https://www.bbc.com/news/articles/czxn1qxrr32o?at_medium=RSS&at_campaign=rss",
+    "title": "Can 'miracle mineral' magnesium really help us sleep?",
+    "published_at": "Fri, 24 Oct 2025 23:04:39 GMT"
+  },
+  "facts": [
+    "Magnesium is the mineral of the moment, with a global market worth nearly £3bn.",
+    "The recommended daily amount for women is 270mg and for men, it's 300mg.",
+    "Around 10% of men and 20% of women are not getting the recommended daily intake of magnesium.",
+    "Magnesium helps nerves send messages properly and supports brain cell membranes."
+  ],
+  "neutral": {
+    "headline": "Global Magnesium Market Worth Nearly £3bn",
+    "body_html": "<p>The global magnesium market is valued at nearly £3 billion, with a significant portion of the population not meeting their daily recommended intake.</p>"
+  },
+  "conservative": {
+    "headline": "Magnesium Market Booming Amidst Supplement Popularity",
+    "body_html": "<p>The global magnesium market, worth nearly £3 billion, is growing as millions take supplements for various health reasons. Despite this popularity, experts caution against unnecessary supplementation without addressing dietary deficiencies first.</p>"
+  },
+  "liberal": {
+    "headline": "Magnesium Supplements: A Trend or Necessity?",
+    "body_html": "<p>With the global magnesium market nearing £3 billion, millions are turning to supplements for health benefits. Experts like dietitian Kirsten Jackson emphasize looking at one's diet before considering supplementation and caution against overconsumption due to potential side effects.</p>"
+  }
+}

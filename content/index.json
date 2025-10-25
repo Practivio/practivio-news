@@ -1,44 +1,44 @@
 {
   "articles": [
     {
-      "id": "1761411910625-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
-      "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
-      "title": "CSIS Report Analyzes Domestic Terrorism Trends",
-      "category": "left",
-      "published_at": "Sat, 25 Oct 2025 07:36:09 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing"
+      "id": "1761414040515-will-lucy-powells-win-turn-things-around-for-labour",
+      "slug": "will-lucy-powells-win-turn-things-around-for-labour.json",
+      "title": "Labour Party Elects Lucy Powell as Deputy Leader",
+      "category": "center",
+      "published_at": "Sat, 25 Oct 2025 13:54:47 GMT",
+      "source_url": "https://www.bbc.com/news/articles/cly9g1vnjqjo?at_medium=RSS&at_campaign=rss"
     },
     {
-      "id": "1761411812875-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
-      "title": "Opinion: Ask your doctor if taking medication during World Series is advisable",
-      "category": "opinion",
-      "published_at": "Sat, 25 Oct 2025 08:00:00 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you"
+      "id": "1761413998215-can-miracle-mineral-magnesium-really-help-us-sleep",
+      "slug": "can-miracle-mineral-magnesium-really-help-us-sleep.json",
+      "title": "Global Magnesium Market Worth Nearly £3bn",
+      "category": "center",
+      "published_at": "Fri, 24 Oct 2025 23:04:39 GMT",
+      "source_url": "https://www.bbc.com/news/articles/czxn1qxrr32o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "id": "1761411768736-drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river",
-      "slug": "drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river.json",
-      "title": "Aerial Drone Photography Winners Unveiled",
-      "category": "left",
-      "published_at": "Sat, 25 Oct 2025 08:27:08 -0400",
-      "source_url": "https://www.npr.org/sections/goats-and-soda/2025/10/25/g-s1-94482/drone-photo-contest-winners"
+      "id": "1761413954398-parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise",
+      "slug": "parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise.json",
+      "title": "Parents Urged to Vaccinate Children Against Flu Over Half-term",
+      "category": "center",
+      "published_at": "Sat, 25 Oct 2025 13:06:17 GMT",
+      "source_url": "https://www.bbc.com/news/articles/cpwv7yw4dz9o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "id": "1761407900763-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
-      "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
-      "title": "CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025",
-      "category": "left",
-      "published_at": "Sat, 25 Oct 2025 07:36:09 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing"
+      "id": "1761413915483-lucy-powell-elected-labours-deputy-leader",
+      "slug": "lucy-powell-elected-labours-deputy-leader.json",
+      "title": "Lucy Powell elected as new deputy leader of the Labour Party.",
+      "category": "center",
+      "published_at": "Sat, 25 Oct 2025 11:10:10 GMT",
+      "source_url": "https://www.bbc.com/news/articles/c620g2gj0x5o?at_medium=RSS&at_campaign=rss"
     },
     {
-      "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
-      "title": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
-      "category": "opinion",
-      "published_at": "Sat, 25 Oct 2025 08:00:00 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you"
+      "id": "1761413862829-i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again",
+      "slug": "i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again.json",
+      "title": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+      "category": "center",
+      "published_at": "Sat, 25 Oct 2025 12:00:31 GMT",
+      "source_url": "https://www.bbc.com/news/articles/cx2n7k2veywo?at_medium=RSS&at_campaign=rss"
     }
   ]
 }

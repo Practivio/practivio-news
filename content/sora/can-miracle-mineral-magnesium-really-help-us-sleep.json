@@ -1,0 +1,30 @@
+{
+  "id": "1761413998215-can-miracle-mineral-magnesium-really-help-us-sleep",
+  "slug": "can-miracle-mineral-magnesium-really-help-us-sleep.json",
+  "source_url": "https://www.bbc.com/news/articles/czxn1qxrr32o?at_medium=RSS&at_campaign=rss",
+  "title": "Global Magnesium Market Worth Nearly £3bn",
+  "category": "center",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "time": "0-1.5",
+        "action": "Establish the global context of magnesium's importance."
+      },
+      {
+        "time": "2-3.5",
+        "action": "Highlight health implications due to insufficient intake among populations."
+      },
+      {
+        "time": "4-6",
+        "action": "Present the market data and its growth potential, referencing the £3bn valuation."
+      },
+      {
+        "time": "7.5-9",
+        "action": "Conclude with a calm tone emphasizing magnesium's role in health and wellbeing before inviting comments."
+      }
+    ],
+    "voiceover": "@lee627, 'Magnesium: Essential for Health Amidst Global Market Worth £3bn.'",
+    "headline": "Global Magnesium Market Worth Nearly £3bn"
+  },
+  "created_at": "2025-10-25T17:40:11.545Z"
+}

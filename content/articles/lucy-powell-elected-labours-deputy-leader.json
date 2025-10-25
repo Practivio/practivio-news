@@ -1,0 +1,28 @@
+{
+  "id": "1761413915483-lucy-powell-elected-labours-deputy-leader",
+  "category": "center",
+  "source": {
+    "url": "https://www.bbc.com/news/articles/c620g2gj0x5o?at_medium=RSS&at_campaign=rss",
+    "title": "Lucy Powell elected Labour's deputy leader",
+    "published_at": "Sat, 25 Oct 2025 11:10:10 GMT"
+  },
+  "facts": [
+    "Lucy Powell has been elected as Labour's new deputy leader",
+    "The election was triggered by Angela Rayner' end resignation last month.",
+    "Powell defeated Education Secretary Bridget Phillipson in the race for deputy leadership of the party.",
+    "During her victory speech, Powell promised to bring voices who believe government is not bold enough into focus within their party",
+    "She also criticized Reform UK and stated that Labour cannot win support by trying to 'out-Reform' them."
+  ],
+  "neutral": {
+    "headline": "Lucy Powell elected as new deputy leader of the Labour Party.",
+    "body_html": "<p>Sam FrancisPolitical reporterPA Media<br/>Lucy Powell has been elected as Labour's new deputy leader after a race triggered by Angela Rayner' end resignation last month. The Manchester Central MP defeated Education Secretary Bridget Phillipson, promising to give grassroots members a louder voice and push for a "
+  },
+  "conservative": {
+    "headline": "Labour Deputy Leader Race Ends with Lucy Powell Winning Over Traditionalist Critics.",
+    "body_html": "<p>Sam FrancisPolitical reporterPA Media<br/>Lucy Powell has been elected as Labour's new deputy leader after a race triggered by Angela Rayner' end resignation last month. The Manchester Central MP defeated Education Secretary Bridget Phillipson, promising to give grassroots members a louder voice and push for a "
+  },
+  "liberal": {
+    "headline": "Lucy Powell Elected as Labour Deputy Leader with Emphasis on Boldness and Inclusivity.",
+    "body_html": "<p>Sam FrancisPolitical reporterPA Media<br/>Lucy Powell has been elected as Labour's new deputy leader after a race triggered by Angela Rayner' end resignation last month. The Manchester Central MP defeated Education Secretary Bridget Phillipson, promising to give grassroots members a louder voice and push for a "
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "1761413862829-i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again",
+  "slug": "i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again.json",
+  "source_url": "https://www.bbc.com/news/articles/cx2n7k2veywo?at_medium=RSS&at_campaign=rss",
+  "title": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+  "category": "center",
+  "sora_prompt": {
+    "scene_plan": [
+      "[wide context]: Kamala Harris, a seasoned politician and former Vice President of the United States, stands in front of an American flag-draped backdrop. The camera pans across her confident face as she addresses reporters about future political aspirations.",
+      "[impact close]: 'I believe there's not enough time for my campaign now but if given more time later on.' Harris says, with a hopeful yet realistic tone in her voice.\n',  // Lee627: Kamala Harris believes the right timing will come and is open to future possibilities. Her statement challenges current election timelines while emphasizing patience.",
+      "[data overlay]: 'Kamala Harris has served as Vice President since January 20, 2021.'\n",
+      "Lee627: Kamala's candidacy could signal a shift towards more women in leadership roles. Her confidence and openness to future elections may inspire many.\n"
+    ],
+    "voiceover": "@lee627: Kamala Harris, with her experience as Vice President and previous Senate service, considers the possibility of running for president again.",
+    "headline": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+    "quiet_outro": "@lee627: Kamala's political journey continues to evolve, and her future decisions remain a point of interest.",
+    "comment_invitation": "Comment below."
+  },
+  "created_at": "2025-10-25T17:38:00.838Z"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "1761413862829-i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again",
+  "category": "center",
+  "source": {
+    "url": "https://www.bbc.com/news/articles/cx2n7k2veywo?at_medium=RSS&at_campaign=rss",
+    "title": "'I am not done' - Kamala Harris tells BBC she may run for president again",
+    "published_at": "Sat, 25 Oct 2025 12:00:31 GMT"
+  },
+  "facts": [
+    "Kamala Harris told the BBC she may run for president again in 2028.",
+    "She spoke about her political future and confidence that a woman will be President of the United States at some point.",
+    "Harris dismissed polls suggesting she was an outsider to become the Democratic candidate by stating she never listens to them.",
+    "In 2024, Harris believes there is not enough time for her campaign but if given more time in a future election cycle, it's possible that could change.",
+    "Harris criticized Trump and his administration after the events involving Jimmy Kimmel on ABC following Charlie Kirk’s remarks about him.",
+    "She also mentioned business leaders who have capitulated to President Donald Trump since day one of his presidency."
+  ],
+  "neutral": {
+    "headline": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+    "body_html": "<p>Laura Kuenssberg presents Kamala Harris, former Vice President of the United States who has expressed interest in running again possibly as early as 2028 during her first UK interview since leaving office.</p>"
+  },
+  "conservative": {
+    "headline": "Harris Doubts Her Ability to Win Again, Focuses on Trump's Impact",
+    "body_html": "<p>In a recent BBC interview with Laura Kuenssberg, Kamala Harris acknowledged her defeat in the 2024 election and expressed doubts about running again. She criticized President Donald Trump for his divisive policies and actions that have negatively impacted America.</p>"
+  },
+  "liberal": {
+    "headline": "Harris Reflects on Campaign, Plans to Run Again in Future Election",
+    "body_html": "<p>In a candid interview with Laura Kuenssberg for the BBC Sunday morning show 'Sunday with Laura,' Kamala Harris shared her reflections about losing the 2024 presidential election and discussed potential plans for another run. Despite acknowledging that she may not have done enough to connect with working people, she expressed confidence in a future where a woman will hold the presidency.</p>"
+  }
+}

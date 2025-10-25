@@ -1,44 +1,116 @@
 {
   "prompts": [
     {
-      "id": "1761411910625-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
-      "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
-      "title": "CSIS Report Analyzes Domestic Terrorism Trends",
-      "category": "left",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing",
-      "created_at": "2025-10-25T17:05:33.573Z"
+      "id": "1761414040515-will-lucy-powells-win-turn-things-around-for-labour",
+      "slug": "will-lucy-powells-win-turn-things-around-for-labour.json",
+      "source_url": "https://www.bbc.com/news/articles/cly9g1vnjqjo?at_medium=RSS&at_campaign=rss",
+      "title": "Labour Party Elects Lucy Powell as Deputy Leader",
+      "category": "center",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "wide_context": "A serene South London street with bustling life, transitioning to the Labour Party headquarters where a sense of anticipation fills the air. The camera pans across various campaign posters and supporters waiting outside."
+          },
+          {
+            "impact_close": "Cut to an intimate setting inside the party's office with members gathered around, awaiting results on their phones or computers as they whisper in hushed tones. The camera focuses closely on Lucy Powell and her supporters who look hopeful yet composed."
+          },
+          {
+            "data_overlay": "Overlays the screen of a phone showing live updates, with text flashing 'Lucy Powell elected as Deputy Leader!', along with statistics about Labour's recent polls and controversies. A graphic timeline highlights her rise within the party."
+          },
+          {
+            "quiet_outro": "Fade out to a tranquil view of London at night, stars twinkling above as if reflecting on the calm aftermath of political storms and Lucy Powell's new role in shaping Labour’s future. The screen fades black."
+          }
+        ],
+        "voice_over": "@lee627 'In a historic move for progressive politics, London-born activist Lucy Powell has been elected as the Deputy Leader of the Labour Party amidst recent turmoil.' Comment below.",
+        "headline": "Labour Party Elects Lucy Powell as Deputy Leader"
+      },
+      "created_at": "2025-10-25T17:40:58.902Z"
     },
     {
-      "id": "1761411812875-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
-      "title": "Opinion: Ask your doctor if taking medication during World Series is advisable",
-      "category": "opinion",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "created_at": "2025-10-25T17:04:15.632Z"
+      "id": "1761413998215-can-miracle-mineral-magnesium-really-help-us-sleep",
+      "slug": "can-miracle-mineral-magnesium-really-help-us-sleep.json",
+      "source_url": "https://www.bbc.com/news/articles/czxn1qxrr32o?at_medium=RSS&at_campaign=rss",
+      "title": "Global Magnesium Market Worth Nearly £3bn",
+      "category": "center",
+      "sora_prompt": {
+        "scene_plan": [
+          {
+            "time": "0-1.5",
+            "action": "Establish the global context of magnesium's importance."
+          },
+          {
+            "time": "2-3.5",
+            "action": "Highlight health implications due to insufficient intake among populations."
+          },
+          {
+            "time": "4-6",
+            "action": "Present the market data and its growth potential, referencing the £3bn valuation."
+          },
+          {
+            "time": "7.5-9",
+            "action": "Conclude with a calm tone emphasizing magnesium's role in health and wellbeing before inviting comments."
+          }
+        ],
+        "voiceover": "@lee627, 'Magnesium: Essential for Health Amidst Global Market Worth £3bn.'",
+        "headline": "Global Magnesium Market Worth Nearly £3bn"
+      },
+      "created_at": "2025-10-25T17:40:11.545Z"
     },
     {
-      "id": "1761411768736-drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river",
-      "slug": "drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river.json",
-      "title": "Aerial Drone Photography Winners Unveiled",
-      "category": "left",
-      "source_url": "https://www.npr.org/sections/goats-and-soda/2025/10/25/g-s1-94482/drone-photo-contest-winners",
-      "created_at": "2025-10-25T17:03:08.030Z"
+      "id": "1761413954398-parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise",
+      "slug": "parents-urged-to-vaccinate-children-over-half-term-as-flu-cases-rise.json",
+      "source_url": "https://www.bbc.com/news/articles/cpwv7yw4dz9o?at_medium=RSS&at_campaign=rss",
+      "title": "Parents Urged to Vaccinate Children Against Flu Over Half-term",
+      "category": "center",
+      "sora_prompt": {
+        "scene_plan": [
+          "[wide context]: A calm, cinematic shot of a bustling NHS office with parents and children in the background.",
+          "[impact close]: Zoom into concerned faces as health officials discuss rising flu cases among school-aged children.",
+          "[data overlay]: Display real-time statistics on screen showing increasing trends for England."
+        ],
+        "voice_over": "@lee627, 'With early signs of a severe flu season upon us and hospitalizations climbing in young ones, it's crucial to act now. Ensure your child is protected.' Comment below.",
+        "conclusion": {
+          "headline": "Parents Urged to Vaccinate Children Against Flu Over Half-term",
+          "call_to_action": "Comment below."
+        }
+      },
+      "created_at": "2025-10-25T17:39:25.111Z"
     },
     {
-      "id": "1761407900763-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
-      "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
-      "title": "CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025",
-      "category": "left",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing",
-      "created_at": "2025-10-25T15:58:44.330Z"
+      "id": "1761413915483-lucy-powell-elected-labours-deputy-leader",
+      "slug": "lucy-powell-elected-labours-deputy-leader.json",
+      "source_url": "https://www.bbc.com/news/articles/c620g2gj0x5o?at_medium=RSS&at_campaign=rss",
+      "title": "Lucy Powell elected as new deputy leader of the Labour Party.",
+      "category": "center",
+      "sora_prompt": {
+        "scene_plan": [
+          "[wide context]: A serene newsroom setting with a backdrop of the Labour Party logo. Camera pans across to focus on Lucy Powell, who stands confidently at center stage.",
+          "[impact close]: Close-up shots reveal her determined expression as she addresses party members and supporters in front of them, emphasizing unity within diversity.",
+          "[data overlay]: Text graphics display key facts: 'Powell elected', 'Bridget Phillipson defeated' with subtle animations to highlight the election process."
+        ],
+        "voiceover": "@lee627 says in a calm and authoritative tone, \"Lucy Powell has been chosen as Labour’s new deputy leader. Her victory marks an important step towards inclusive representation within our party's leadership. This change reflects the evolving priorities of modern Britain. Comment below."
+      },
+      "created_at": "2025-10-25T17:38:46.618Z"
     },
     {
-      "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
-      "title": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
-      "category": "opinion",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-      "created_at": "2025-10-25T15:57:15.949Z"
+      "id": "1761413862829-i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again",
+      "slug": "i-am-not-done-kamala-harris-tells-bbc-she-may-run-for-president-again.json",
+      "source_url": "https://www.bbc.com/news/articles/cx2n7k2veywo?at_medium=RSS&at_campaign=rss",
+      "title": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+      "category": "center",
+      "sora_prompt": {
+        "scene_plan": [
+          "[wide context]: Kamala Harris, a seasoned politician and former Vice President of the United States, stands in front of an American flag-draped backdrop. The camera pans across her confident face as she addresses reporters about future political aspirations.",
+          "[impact close]: 'I believe there's not enough time for my campaign now but if given more time later on.' Harris says, with a hopeful yet realistic tone in her voice.\n',  // Lee627: Kamala Harris believes the right timing will come and is open to future possibilities. Her statement challenges current election timelines while emphasizing patience.",
+          "[data overlay]: 'Kamala Harris has served as Vice President since January 20, 2021.'\n",
+          "Lee627: Kamala's candidacy could signal a shift towards more women in leadership roles. Her confidence and openness to future elections may inspire many.\n"
+        ],
+        "voiceover": "@lee627: Kamala Harris, with her experience as Vice President and previous Senate service, considers the possibility of running for president again.",
+        "headline": "Kamala Harris Considers Another Run for U.S. Presidency in Future Election",
+        "quiet_outro": "@lee627: Kamala's political journey continues to evolve, and her future decisions remain a point of interest.",
+        "comment_invitation": "Comment below."
+      },
+      "created_at": "2025-10-25T17:38:00.838Z"
     }
   ]
 }
