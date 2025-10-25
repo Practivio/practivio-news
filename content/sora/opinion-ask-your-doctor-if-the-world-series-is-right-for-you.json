@@ -1,35 +1,10 @@
 {
-  "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+  "id": "1761411812875-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
   "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
   "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
-  "title": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
+  "title": "Opinion: Ask your doctor if taking medication during World Series is advisable",
   "category": "opinion",
   "sora_prompt": {
-    "scene_plan": [
-      {
-        "shot_number": 1,
-        "description": "A wide shot of a family gathered in front of the television set with various prescription drug ads playing on screen during post-season baseball coverage."
-      },
-      {
-        "shot_number": 2,
-        "description": "Close up on an elderly couple watching intently as they discuss how these advertisements affect their perception of treatment options for health issues like psoriasis and arthritis during the World Series."
-      },
-      {
-        "shot_number": 3,
-        "description": "Close-up on a graphic displaying statistics about prescription drug ad spending within sports programming with subtitles emphasizing 'FDA regulations' ensuring safety information is conveyed alongside the advertisements."
-      },
-      {
-        "shot_number": 4,
-        "description": "Quiet shot of a hand holding up an open laptop or phone screen showing social media comments with people sharing their thoughts on prescription drug ads during sports events. The camera zooms out to show the family watching in silence."
-      }
-    ],
-    "voice_over": {
-      "text": "During World Series broadcasts, viewers often encounter a significant number of pharmaceutical advertisements amidst their favorite pastime.",
-      "words": 25
-    },
-    "on_screen_text": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
-    "duration": "6-9s",
-    "aspect_ratio": "9:16",
-    "style": "documentary newsroom realism, handh0lded b-roll, natural light"
+    "SORA 2 PROMPT — PRIVATE\nGoal: 6–9s vertical news short, realistic visuals, voice=@lee627.\nFormat: 9:16, 3–4 shots, soft contrast.\nScene plan:\nShot 1: [context wide]\nA bustling sports broadcasting studio with a handheld camera panning over the set to show various screens displaying live and recorded sport events. The atmosphere is professional yet dynamic as reporters are seen discussing game highlights, ensuring an authentic newsroom environment.\nShot 2: [impact close]\nA focused shot on Dr. Caleb Alexander at a Johns Hopkins School of Medicine Center for Drug Safety and Effectiveness conference table with printed graphs showing the increase in prescription drug ad spending during sports events, emphasizing the connection between advertising dollars and viewership.\nShot 3: [data/map/doc close]\nA zoomed-in shot on a documentary poster about dermatitis risks associated with certain medications. The image is part of an educational display in front of Dr. Caleb Alexander's office, inviting the audience to learn more.\nShot 4: [quiet closing]\nThe camera slowly zooms out from behind Dr. Caleb Alexander as he looks directly into the lens with a neutral expression while speaking softly and clearly articulating his words in front of an empty desk, setting up for the voiceover to conclude.\nOn-screen text: \"Opinion: Ask your doctor if taking medication during World Series is advisable\"\nVoiceOver (<=25 words, neutral, no names): \"Recent trends show significant ad spending by drug companies on sports broadcasts. Consider discussing potential side effects with healthcare professionals before consuming certain meds while watching the game.\", Comment below.": "SORA 2 PROMPT — PRIVATE\nGoal: 6–9s vertical news short, realistic visuals, voice=@lee627.\nFormat: 9:16, 3–4 shots, soft contrast.\nScene plan:\nShot 1: [context wide]\nA bustling sports broadcasting studio with a handh0lded camera panning over the set to show various screens displaying live and recorded sport events. The atmosphere is professional yet dynamic as reporters are seen discussing game highlights, ensuring an authentic newsroom environment.\nShot 2: [impact close]\nA focused shot on Dr. Caleb Alexander at a Johns Hopkins School of Medicine Center for Drug Safety and Effectiveness conference table with printed graphs showing the increase in prescription drug ad spending during sports events, emphasizing the connection between advertising dollars and viewership.\nShot 3: [data/map/doc close]\nA zoomed-in shot on a documentary poster about dermatitis risks associated with certain medications. The image is part of an educational display in front of Dr. Caleb Alexander's office, inviting the audience to learn more.\nShot 4: [quiet closing]\nThe camera slowly zooms out from behind Dr. Caleb Alexander as he looks directly into the lens with a neutral expression while speaking softly and clearly articulating his words in front of an empty desk, setting up for the voiceover to conclude.\nOn-screen text: \"Opinion: Ask your doctor if taking medication during World Series is advisable\"\nVoiceOver (<=25 words, neutral, no names): \"Recent trends show significant ad spending by drug companies on sports broadcasts. Consider discussing potential side effects with healthcare professionals before consuming certain meds while watching the game.\", Comment below."
   }
 }

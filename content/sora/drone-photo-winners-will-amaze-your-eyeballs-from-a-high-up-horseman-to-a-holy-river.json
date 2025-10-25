@@ -1,0 +1,30 @@
+{
+  "id": "1761411768736-drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river",
+  "slug": "drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river.json",
+  "source_url": "https://www.npr.org/sections/goats-and-soda/2025/10/25/g-s1-94482/drone-photo-contest-winners",
+  "title": "Aerial Drone Photography Winners Unveiled",
+  "category": "left",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "shot_number": 1,
+        "description": "A wide aerial shot capturing the vast and untouched landscape of Cappadocia with a solitary horseman standing atop a rocky outcropping. The scene is bathed in natural sunlight to emphasize its timeless beauty."
+      },
+      {
+        "shot_number": 2,
+        "description": "A closer shot focusing on the interaction between the horseman and his horse against the backdrop of snow-covered rocks. The dynamic is captured with a handheld camera to add realism in an otherwise still environment."
+      },
+      {
+        "shot_number": 3,
+        "description": "A shot from above showing intricate patterns formed by natural rock formations and the horseman's position within them. This perspective reveals details not visible at ground level."
+      }
+    ],
+    "on_screen_text": "\"Aerial Drone Photography Winners Unveiled\"",
+    "voiceover": "<VoiceOver line based ONLY on facts>: 'In the heart of Cappadocia, a solitary horseman stands atop ancient rocks in silent communion with nature. Discover new perspectives and patterns from above.' Comment below.",
+    "format_details": {
+      "duration": "6–9s",
+      "aspect_ratio": "9:16",
+      "lighting": "soft contrast, natural light"
+    }
+  }
+}

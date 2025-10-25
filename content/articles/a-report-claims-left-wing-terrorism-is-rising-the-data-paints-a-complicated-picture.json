@@ -1,5 +1,5 @@
 {
-  "id": "1761407900763-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
+  "id": "1761411910625-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
   "category": "left",
   "source": {
     "url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing",
@@ -7,21 +7,21 @@
     "published_at": "Sat, 25 Oct 2025 07:36:09 -0400"
   },
   "facts": [
-    "The assassination of conservative commentator Charlie Kirk occurred.",
-    "Federal law enforcement authorities and non-governmental researchers have found the far right to be the most 'lethal and persistent' domestic terrorist threat, citing examples like racially motivated mass killings at an African American church in Charleston, S.C., a Walmart in El Paso in 2019, and a grocery store in Buffalo, N.Y., in 2022.",
-    "The CSIS study analyzed roughly 30 years of data to find that between Jan. 1 and July 4 of this year (2025), the number of far-left terrorist plots and attacks outnumbered those from the far right, with five instances coded as left-wing terrorism during the first half of 2025.",
-    "The single act that CSIS's study coded as right-wing terrorism was a shooting in Minnesota involving state representatives Melissa Hortman and her husband John Hortman."
+    "U.S. flags fly at half staff following the assassination of conservative commentator Charlie Kirk.",
+    "The report analyzed roughly 30 years of data and found that between Jan. 1 and July 4, far-left terrorist plots outnumbered those from the right by five to one in incidents coded as such during the first half of 2025.",
+    "Five instances were coded as left-wing terrorism for the first six months of 2025 according to Byman and McCabe's study at CSIS.",
+    "The single act that was counted by CSIS in right-wing terrorism during this period involved the shooting of Minnesota state senator John Hoffman."
   ],
   "neutral": {
-    "headline": "CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025",
-    "body_html": "<p>A study by the Center for Strategic and International Studies (CSIS) analyzed data over roughly three decades, revealing a shift in domestic terrorism trends. The CSIS report found that from January to July of this year, there were more far-left than right-wing plots or attacks.</p>"
+    "headline": "CSIS Report Analyzes Domestic Terrorism Trends",
+    "body_html": "<p>A report from CSIS analyzing domestic terrorism trends in the U.S., based on roughly three decades of data, found a disproportionate number of far-left plots compared to right-wing ones during the first half of 2025.</p>"
   },
   "conservative": {
-    "headline": "CSIS Study Reveals Increase in Left-Wing Domestic Terrorism Despite Far Right Threats",
-    "body_html": "<p>A recent study by the Center for Strategic and International Studies (CSIS) has identified a rise in left-wing domestic terrorist activities, with five incidents coded as such during early 2025. This comes despite historical data showing that far right groups have been more 'lethal and persistent' according to federal authorities.</p>"
+    "headline": "Report Suggests Increase in Far-Left Terrorism",
+    "body_html": "<p>A recent report from CSIS suggests a significant increase in far-left terrorist activities, with five instances coded as such for the first half of 2025. This comes despite only one act being counted by the study within right-wing extremism during this period.</p>"
   },
   "liberal": {
-    "headline": "CSIS Study Codes Five Left-Wing Domestic Terrorism Incidents in First Half of 2025, Amidst Far Right Concerns",
-    "body_html": "<p>The Center for Strategic and International Studies (CSIS) study indicates a rise in left-wing domestic terrorist activities with five incidents coded as such from January to July 2025. This is noteworthy, especially considering the historical prevalence of far right threats.</p>"
+    "headline": "CSIS Report Finds Disproportionate Left-Wing Terrorist Activity",
+    "body_html": "<p>The CSIS report, analyzing data from the past thirty years and focusing on incidents coded as domestic terrorism between Jan. 1 and July 4 of 2025, indicates a concerning rise in far-left plots compared to right-wing ones during this period.</p>"
   }
 }

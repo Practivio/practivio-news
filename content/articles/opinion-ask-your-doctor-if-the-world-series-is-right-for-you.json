@@ -1,5 +1,5 @@
 {
-  "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+  "id": "1761411812875-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
   "category": "opinion",
   "source": {
     "url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
@@ -7,21 +7,22 @@
     "published_at": "Sat, 25 Oct 2025 08:00:00 -0400"
   },
   "facts": [
-    "The author and their family watch post-season baseball.",
-    "Advertisements for prescription drugs are prevalent during the World Series broadcasts, often showing people engaging in various activities despite having health issues like psoriasis or arthritis.",
-    "Drug companies spent $895.8 million on advertising last year alone within sports programming.",
-    "The FDA allows prescription drug ads as long as they include dual-modality risk statements about possible side effects."
+    "Drug companies bought $895.8 million worth of ads in sports programming last year.",
+    "The commercials that run during post-season baseball are rife with talk of dermatitis, dehydration, and wheezing.",
+    "Prescription drug ads were once banned on broadcasts but now the FDA permits them as long as possible side effects are clearly stated.",
+    "The World Series is watched by millions.",
+    "Dr. Caleb Alexander works at the Johns Hopkins School of Medicine Center for Drug Safety and Effectiveness."
   ],
   "neutral": {
-    "headline": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
-    "body_html": "<p>The author and their family enjoy watching post-season baseball, during which they encounter numerous advertisements for prescription drugs. These ads often depict individuals with health conditions like psoriasis or arthritis engaging in various activities despite these issues.</p>"
+    "headline": "Opinion: Ask your doctor if taking medication during World Series is advisable",
+    "body_html": "<p>Millions watch the World Series, often leading to increased exposure to prescription drug ads. These commercials frequently discuss conditions like psoriasis and insomnia alongside their treatments.</p>"
   },
   "conservative": {
-    "headline": "Prescription Drug Advertising During Baseball: A Concern for Public Health",
-    "body_html": "<p>The author and their family are exposed to a significant amount of prescription drug advertisements during the World Series, with these ads often showing individuals who appear healthy engaging in various activities despite having conditions like psoriasis or arthritis. With companies spending $895.8 million on such advertising last year alone within sports programming and FDA regulations allowing risk statements to be included as long as they are clearly stated, there is a concern for public health.</p>"
+    "headline": "Opinion: Consider consulting your doctor before taking medication during World Series",
+    "body_html": "<p>With millions tuned in to the World Series, exposure to prescription drug ads is high. These commercials often discuss conditions like psoriasis and insomnia alongside their treatments.</p>"
   },
   "liberal": {
-    "headline": "The Influence of Advertisements on Public Health Awareness During Baseball",
-    "body_html": "<p>While watching the World Series and enjoying baseball, the author's family comes across numerous prescription drug advertisements. These ads often show individuals with health conditions like psoriasis or arthritis engaging in various activities despite their issues. With companies investing $895.8 million into such advertising last year alone within sports programming, and the FDA's regulations allowing risk statements to be included as long as they are clearly stated, there is an opportunity for increased public health awareness about these conditions.</p>"
+    "headline": "Opinion: Advocate for more transparent communication about medication side effects during World Series",
+    "body_html": "<p>As millions watch the World Series, exposure to prescription drug ads is high. These commercials often discuss conditions like psoriasis and insomnia alongside their treatments.</p>"
   }
 }
