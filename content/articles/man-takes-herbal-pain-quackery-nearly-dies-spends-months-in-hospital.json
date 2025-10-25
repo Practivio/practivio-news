@@ -1,0 +1,26 @@
+{
+  "id": "1761404898113-man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital",
+  "source": {
+    "url": "https://arstechnica.com/health/2025/10/man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital/",
+    "title": "Man takes herbal pain quackery, nearly dies, spends months in hospital",
+    "published_at": "Fri, 24 Oct 2025 21:29:30 +0000"
+  },
+  "facts": [
+    "61-year-old man in California is lucky to be alive after a combination of herbal supplements he was taking for joint pain ended up utterly wrecking his body, landing him in intensive care and in a delirious state for months.",
+    "The case reported involves the 61-year-old man who had multiple health issues including Staphylococcus aureus bacteria in his blood, an abscess on his shoulder, spinal cord pressure due to nerve compression, severe esophageal inflammation with ulcers both gastric and duodenal.",
+    "The patient's adrenal insu0-fficiency was confirmed by the doctors after consulting endocrinologists. The condition is characterized by low cortisol levels and a deficit in ACTH (adrenocorticotropic hormone) production.",
+    "The herbal supplements taken were Artri King, Nhan Sam Tuyet Lien, and Linsen Double Caulis Plus. Testing confirmed the presence of unlisted glucocorticoids in two out of three supplements."
+  ],
+  "neutral": {
+    "headline": "Man's Health Deteriorates Due to Herbal Supplement Use",
+    "body_html": "<p>A man, aged over sixty and residing in California, experienced a significant decline in health after consuming herbal supplements for joint pain. His condition led him into intensive care with multiple complications including bacterial bloodstream infection, spinal issues requiring surgical intervention to relieve pressure on nerves, severe esophageal inflammation and ulcers.</p>"
+  },
+  "conservative": {
+    "headline": "Herbal Supplement Use Leads Man into Critical Health Condition",
+    "body_html": "<p>A Californian man in his sixties took herbal supplements for joint pain, which resulted in a serious health crisis. His body was affected by multiple issues such as bacterial bloodstream infection and spinal cord pressure that required surgical intervention along with severe esophageal inflammation leading to ulcers.</p>"
+  },
+  "liberal": {
+    "headline": "Man's Health Crisis Highlights Risks of Unregulated Herbal Supplement Use",
+    "body_html": "<p>A Californian man in his sixties faced life-threatening health issues after using herbal supplements for joint pain. His body was afflicted with a bacterial bloodstream infection, spinal cord pressure necessitating surgery to relieve nerve compression and severe esophageal inflammation resulting in ulcers.</p>"
+  }
+}

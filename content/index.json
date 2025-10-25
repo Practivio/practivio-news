@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "id": "1761404898113-man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital",
+      "slug": "man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital.json",
+      "title": "Man's Health Deteriorates Due to Herbal Supplement Use",
+      "published_at": "Fri, 24 Oct 2025 21:29:30 +0000",
+      "source_url": "https://arstechnica.com/health/2025/10/man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital/"
+    },
+    {
+      "id": "1761404853882-a-single-point-of-failure-triggered-the-amazon-outage-affecting-millions",
+      "slug": "a-single-point-of-failure-triggered-the-amazon-outage-affecting-millions.json",
+      "title": "AWS Outage Triggered by Single Point Failure Affects Millions",
+      "published_at": "Fri, 24 Oct 2025 21:53:20 +0000",
+      "source_url": "https://arstechnica.com/gadgets/2025/10/a-single-point-of-failure-triggered-the-amazon-outage-affecting-millions/"
+    },
+    {
+      "id": "1761404826940-are-you-the-asshole-of-course-notquantifying-llms-sycophancy-problem",
+      "slug": "are-you-the-asshole-of-course-notquantifying-llms-sycophancy-problem.json",
+      "title": "LLM Sycophancy Rates and Problem Solving Efficiency",
+      "published_at": "Fri, 24 Oct 2025 22:26:30 +0000",
+      "source_url": "https://arstechnica.com/ai/2025/10/are-you-the-asshole-of-course-not-quantifying-llms-sycophancy-problem/"
+    },
+    {
+      "id": "1761404794862-whale-and-dolphin-migrations-are-being-disrupted-by-climate-change",
+      "slug": "whale-and-dolphin-migrations-are-being-disrupted-by-climate-change.json",
+      "title": "Climate Change Disrupts Marine Mammal Migratory Patterns",
+      "published_at": "Sat, 25 Oct 2025 11:00:09 +0000",
+      "source_url": "https://arstechnica.com/science/2025/10/whale-and-dolphin-migrations-are-being-disrupted-by-climate-change/"
+    }
+  ]
+}

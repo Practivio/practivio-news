@@ -1,0 +1,27 @@
+{
+  "id": "1761404794862-whale-and-dolphin-migrations-are-being-disrupted-by-climate-change",
+  "source": {
+    "url": "https://arstechnica.com/science/2025/10/whale-and-dolphin-migrations-are-being-disrupted-by-climate-change/",
+    "title": "Whale and dolphin migrations are being disrupted by climate change",
+    "published_at": "Sat, 25 Oct 2025 11:00:09 +0000"
+  },
+  "facts": [
+    "Marine mammals are being forced into new and more dangerous waters due to climate change.",
+    "Millennia-old migrations of some of the world’s largest filter-feeding whales, including humpbacks, fin whales, and blue whales, have been disrupted by changing environmental cues caused by global warming.",
+    "Climate change is altering migratory routes and reshaping critical habitats across the planet for various species.",
+    "Shorebirds are reaching their Arctic breeding grounds out of sync with insect blooms, which they rely on to feed their chicks.",
+    "Seagrass meadows that migrating sea turtles depend on as food sources have been disappearing due to warmer waters and cyclones."
+  ],
+  "neutral": {
+    "headline": "Climate Change Disrupts Marine Mammal Migratory Patterns",
+    "body_html": "<p>Marine mammals are being forced into new, more dangerous water routes due to climate change. This disruption affects the millennia-old migrations of some of Earth's largest filter-feeding whales and reshapes critical habitats across our planet.</p>"
+  },
+  "conservative": {
+    "headline": "Global Warming Forces Whales to Alter Migration Routes",
+    "body_html": "<p>Due to global warming, marine mammals are being forced into new and more dangerous water routes. This disruption affects the millennia-old migrations of some of Earth's largest filter-feeding whales.</p>"
+  },
+  "liberal": {
+    "headline": "Climate Change Threatens Marine Mammals and Their Habitats",
+    "body_html": "<p>Marine mammals are being forced into new, more dangerous water routes due to climate change. This disruption affects the millennia-old migrations of some of Earth's largest filter-feeding whales and reshapes critical habitats across our planet.</p>"
+  }
+}
