@@ -5,21 +5,74 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Sora Prompts • Practivio</title>
   <style>
-    :root{--bg:#0b0c10;--card:#121318;--text:#e8eef2;--muted:#9aa4af;--accent:#5eead4;}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
-    header{padding:18px 16px;border-bottom:1px solid #1f2430;background:#0f1116;position:sticky;top:0}
+    :root {
+      --bg:#0b0c10;
+      --card:#121318;
+      --text:#e8eef2;
+      --muted:#9aa4af;
+      --accent:#5eead4;
+    }
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    }
+    header {
+      padding:18px 16px;
+      border-bottom:1px solid #1f2430;
+      background:#0f1116;
+      position:sticky;
+      top:0;
+    }
     h1{margin:0;font-size:20px}
     main{max-width:900px;margin:28px auto;padding:0 16px}
     .grid{display:grid;gap:16px}
-    .card{background:var(--card);border:1px solid #1f2430;border-radius:14px;padding:14px}
+    .card{
+      background:var(--card);
+      border:1px solid #1f2430;
+      border-radius:14px;
+      padding:14px;
+    }
     .title{margin:0 0 6px}
     .muted{color:var(--muted);font-size:13px}
-    textarea{width:100%;min-height:180px;background:#0f1218;color:#e8eef2;border:1px solid #243040;border-radius:10px;padding:10px;font-family:ui-monospace,Menlo,Consolas,monospace}
+    textarea{
+      width:100%;
+      min-height:180px;
+      background:#0f1218;
+      color:#e8eef2;
+      border:1px solid #243040;
+      border-radius:10px;
+      padding:10px;
+      font-family:ui-monospace,Menlo,Consolas,monospace;
+    }
     .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
-    .tag{font-size:12px;border:1px solid #243040;padding:2px 8px;border-radius:999px;color:#b8c0cc}
+    .tag{
+      font-size:12px;
+      border:1px solid #243040;
+      padding:2px 8px;
+      border-radius:999px;
+      color:#b8c0cc;
+    }
     a{color:var(--accent);text-decoration:none}
     .error{color:#ff7b7b}
     .sr{position:absolute;left:-9999px}
+    button {
+      margin-top:6px;
+      padding:6px 10px;
+      border:0;
+      border-radius:6px;
+      background:var(--accent);
+      color:#000;
+      font-weight:600;
+      cursor:pointer;
+    }
+    button:hover{opacity:0.9}
+    .copied {
+      color: var(--accent);
+      font-size: 13px;
+      margin-left: 6px;
+    }
   </style>
 </head>
 <body>
@@ -39,20 +92,29 @@
   <script>
     async function loadSora() {
       try {
-        const res = await fetch('content/sora/index.json', {cache:'no-store'});
-        if (!res.ok) throw new Error('HTTP '+res.status);
+        const res = await fetch('content/sora/index.json', { cache:'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
-        const listEl = document.getElementById('list'); listEl.innerHTML='';
+        const listEl = document.getElementById('list');
+        listEl.innerHTML = '';
 
-        (data.items || []).forEach(item => {
+        (data.prompts || []).forEach(item => {
           const card = document.createElement('article');
           card.className = 'card';
           const promptText = buildSoraPrompt(item);
+
+          const copyId = 'copy-' + Math.random().toString(36).slice(2);
           card.innerHTML = `
             <h3 class="title">${escapeHtml(item.title || 'Untitled')}</h3>
-            <div class="muted">${new Date(item.created_at).toLocaleString()} · <a href="${item.source_url}" target="_blank" rel="noopener">Source</a></div>
-            <div class="row"><span class="tag">${item.category||'general'}</span><span class="tag">neutral voiceover</span></div>
-            <textarea readonly>${promptText}</textarea>
+            <div class="muted">${new Date(item.created_at).toLocaleString()} · 
+              <a href="${item.source_url}" target="_blank" rel="noopener">Source</a>
+            </div>
+            <div class="row">
+              <span class="tag">${item.category || 'general'}</span>
+              <span class="tag">neutral voiceover</span>
+            </div>
+            <textarea id="${copyId}" readonly>${promptText}</textarea>
+            <button onclick="copyPrompt('${copyId}', this)">Copy Prompt</button>
           `;
           listEl.appendChild(card);
         });
@@ -69,9 +131,19 @@
       }
     }
 
+    function copyPrompt(id, btn) {
+      const textarea = document.getElementById(id);
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        btn.textContent = 'Copied!';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = 'Copy Prompt';
+          btn.disabled = false;
+        }, 1500);
+      });
+    }
+
     function buildSoraPrompt(item){
-      // Matches the JSON your generator writes into content/sora/*.json
-      // Falls back to a safe neutral script if fields are missing.
       const h = item?.neutral?.headline || item?.title || 'News update';
       const body = item?.neutral?.body_html?.replace(/<[^>]+>/g,' ') || item?.summary || '';
       const vox = '@lee627';
@@ -86,7 +158,16 @@
       ].join('\n');
     }
 
-    function escapeHtml(s){return s?.replace(/[&<>"']/g,c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))||''}
+    function escapeHtml(s){
+      return s?.replace(/[&<>"']/g, c => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      }[c])) || '';
+    }
+
     loadSora();
   </script>
 </body>
