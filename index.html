@@ -1,135 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Practivio News</title>
+  <meta charset="UTF-8" />
+  <title>Sora 2 Newsroom — Cinematic TikTok Feed</title>
   <style>
-    :root {
-      --bg:#0b0c10;
-      --card:#121318;
-      --text:#e8eef2;
-      --muted:#9aa4af;
-      --accent:#5eead4;
-      --neutral:#ffffff;
-      --conservative:#ff5c5c;
-      --liberal:#5c8aff;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
-    header{padding:18px 16px;border-bottom:1px solid #1f2430;background:#0f1116;position:sticky;top:0}
-    h1{margin:0;font-size:20px}
-    main{max-width:900px;margin:28px auto;padding:0 16px}
-    .grid{display:grid;gap:16px}
-    .card{background:var(--card);border:1px solid #1f2430;border-radius:14px;padding:16px}
-    .title{margin:0 0 6px}
-    .muted{color:var(--muted);font-size:13px}
-    .btns{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-    button{border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600}
-    .neutral{background:var(--neutral);color:#000}
-    .conservative{background:var(--conservative);color:#fff}
-    .liberal{background:var(--liberal);color:#fff}
-    button.active{outline:2px solid var(--accent)}
-    .article-body{margin-top:10px;line-height:1.55}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .tag{font-size:12px;border:1px solid #243040;padding:2px 8px;border-radius:999px;color:#b8c0cc}
-    .error{color:#ff7b7b}
+    body { font-family: Inter, sans-serif; margin: 2rem; background:#fafafa; color:#111; }
+    a { color:#0059ff; text-decoration:none; }
+    a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Practivio News</h1>
-  </header>
-  <main>
-    <div id="list" class="grid"></div>
-    <p id="err" class="error" hidden></p>
-  </main>
-
-  <script>
-    async function loadIndex() {
-      try {
-        const res = await fetch('content/index.json', {cache:'no-store'});
-        if (!res.ok) throw new Error('HTTP '+res.status);
-        const data = await res.json();
-        const listEl = document.getElementById('list');
-        listEl.innerHTML = '';
-
-        for (const a of data.articles || []) {
-          const card = document.createElement('article');
-          card.className = 'card';
-          card.innerHTML = `
-            <h3 class="title">${escapeHtml(a.title || 'Untitled')}</h3>
-            <div class="muted">
-              <span>${a.published_at ? new Date(a.published_at).toLocaleString() : ''}</span>
-              &nbsp;·&nbsp;<a href="${a.source_url}" target="_blank" rel="noopener">Source</a>
-            </div>
-            <div class="tags">
-              <span class="tag">${a.category || 'general'}</span>
-            </div>
-            <div class="btns">
-              <button class="neutral active">Neutral</button>
-              <button class="conservative">Conservative</button>
-              <button class="liberal">Liberal</button>
-            </div>
-            <div class="article-body">Loading...</div>
-          `;
-          listEl.appendChild(card);
-
-          // Load article content JSON
-          fetch('content/articles/' + a.slug)
-            .then(r => r.json())
-            .then(article => {
-              const bodyDiv = card.querySelector('.article-body');
-              const btnNeutral = card.querySelector('.neutral');
-              const btnCons = card.querySelector('.conservative');
-              const btnLib = card.querySelector('.liberal');
-
-              const setView = (view) => {
-                btnNeutral.classList.remove('active');
-                btnCons.classList.remove('active');
-                btnLib.classList.remove('active');
-                view.classList.add('active');
-              };
-
-              const show = (html) => {
-                bodyDiv.innerHTML = html || '<p><em>No content available.</em></p>';
-              };
-
-              btnNeutral.onclick = () => { setView(btnNeutral); show(article.neutral?.body_html); };
-              btnCons.onclick = () => { setView(btnCons); show(article.conservative?.body_html); };
-              btnLib.onclick = () => { setView(btnLib); show(article.liberal?.body_html); };
-
-              // Default view
-              show(article.neutral?.body_html);
-            })
-            .catch(e => {
-              card.querySelector('.article-body').innerHTML = '<p><em>Failed to load article.</em></p>';
-              console.error(e);
-            });
-        }
-
-        if (!listEl.children.length) {
-          const err = document.getElementById('err');
-          err.hidden = false;
-          err.textContent = 'No articles yet. Run: node scripts/generateNews.js';
-        }
-      } catch (e) {
-        const err = document.getElementById('err');
-        err.hidden = false;
-        err.textContent = 'Failed to load content/index.json — ' + e.message;
-        console.error(e);
-      }
-    }
-
-    function escapeHtml(s){
-      return s?.replace(/[&<>"']/g, c => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-      }[c])) || '';
-    }
-
-    loadIndex();
-  </script>
+  <h1>🎬 Sora 2 Newsroom — AI-Directed Cinematic Clips</h1>
+  <ul><li><a href="content/sora/a-telescope-in-the-desert-reached-back-a-billion-years-and-uncovered-something-i.md">A Telescope in the Desert Reached Back a Billion Years and Uncovered Something Incredible - Yahoo News Canada</a></li>
+<li><a href="content/sora/alaska-airlines-says-recent-performance-is-not-acceptable-rebooking-passengers.md">Alaska Airlines says recent performance 'is not acceptable,' rebooking passengers</a></li>
+<li><a href="content/sora/anthropics-google-deal-makes-broadcom-stock-a-winner-as-amazon-faces-tougher-que.md">Anthropic’s Google Deal Makes Broadcom Stock a Winner as Amazon Faces Tougher Questions - TipRanks</a></li>
+<li><a href="content/sora/austin-butler-in-early-talks-to-play-sonny-crockett-in-miami-vice-movie-at-unive.md">Austin Butler In Early Talks To Play Sonny Crockett In ‘Miami Vice’ Movie At Universal - Deadline</a></li>
+<li><a href="content/sora/betelgeuses-newfound-sidekick-is-weirder-than-we-thought-gizmodo.md">Betelgeuse’s Newfound Sidekick Is Weirder Than We Thought - Gizmodo</a></li>
+<li><a href="content/sora/blue-jays-crush-dodgers-for-world-series-game-1-win.md">Blue Jays crush Dodgers for World Series Game 1 win</a></li>
+<li><a href="content/sora/chainsaw-man-soaring-to-surprise-no-1-finish.md">‘Chainsaw Man' Soaring to Surprise No. 1 Finish</a></li>
+<li><a href="content/sora/company-recalls-2-million-pounds-of-barbecue-pork-jerky-that-may-contain-metal-w.md">Company recalls 2 million pounds of barbecue pork jerky that may contain metal wire</a></li>
+<li><a href="content/sora/company-recalls-2m-pounds-of-jerky-sold-at-costco-and-sams-club-that-may-contain.md">Company recalls 2M pounds of jerky sold at Costco and Sam's Club that may contain metal wire</a></li>
+<li><a href="content/sora/djis-tinniest-cheapest-drone-is-coming-back-to-terrorize-your-neighborhood-gizmo.md">DJI’s Tinniest, Cheapest Drone Is Coming Back to Terrorize Your Neighborhood - Gizmodo</a></li>
+<li><a href="content/sora/ex-emu-players-refused-to-aid-betting-probe-espn.md">Ex-EMU players refused to aid betting probe - ESPN</a></li>
+<li><a href="content/sora/fact-check-grocery-prices-are-up-not-way-down-as-trump-claimed-cnn.md">Fact check: Grocery prices are up, not ‘way down’ as Trump claimed - CNN</a></li>
+<li><a href="content/sora/ford-rallies-to-52-week-high-wall-street-is-optimistic-about-its-ev-reset-and-al.md">Ford rallies to 52-week high: Wall Street is optimistic about its EV reset and aluminum plant recovery plan - Sherwood News</a></li>
+<li><a href="content/sora/fossils-reveal-dinosaurs-were-thriving-in-north-america-just-before-being-wiped-.md">Fossils reveal dinosaurs were thriving in North America just before being wiped out by asteroid strike, study shows - CBS News</a></li>
+<li><a href="content/sora/giants-daboll-skattebo-all-fined-over-dart-exam-espn.md">Giants, Daboll, Skattebo all fined over Dart exam - ESPN</a></li>
+<li><a href="content/sora/how-a-tiny-bug-spiraled-into-a-massive-outage-that-took-down-the-internet.md">How a tiny bug spiraled into a massive outage that took down the internet</a></li>
+<li><a href="content/sora/indie-shooter-escape-from-duckov-overtakes-battlefield-6-on-steam-dexerto.md">Indie shooter Escape From Duckov overtakes Battlefield 6 on Steam - Dexerto</a></li>
+<li><a href="content/sora/it-welcome-to-derry-creators-clear-up-the-big-misconception-about-pennywise-the-.md">‘IT: Welcome to Derry’ Creators Clear Up the Big “Misconception” About Pennywise - The Hollywood Reporter</a></li>
+<li><a href="content/sora/jets-glenn-refuses-to-disclose-qb1-vs-bengals-espn.md">Jets' Glenn refuses to disclose QB1 vs. Bengals - ESPN</a></li>
+<li><a href="content/sora/join-us-in-celebrating-leo-messi-on-friday-with-a-special-prematch-presentation-.md">Join Us in Celebrating Leo Messi on Friday with a Special Prematch Presentation of the 2025 MLS Golden Boot presented by Audi - intermiamicf</a></li>
+<li><a href="content/sora/jpmorgan-chase-wants-out-of-paying-dollar115m-legal-tab-for-convicted-fraudsters.md">JPMorgan Chase wants out of paying $115M legal tab for convicted fraudsters</a></li>
+<li><a href="content/sora/jpmorgan-disputes-order-forcing-it-to-pay-charlie-javices-legal-bill.md">JPMorgan Disputes Order Forcing It to Pay Charlie Javice's Legal Bill</a></li>
+<li><a href="content/sora/kevin-federline-says-sons-are-terrified-to-see-mom-britney-spears-after-recent-v.md">Kevin Federline Says Sons Are 'Terrified' to See Mom Britney Spears After Recent Visits - TooFab</a></li>
+<li><a href="content/sora/listen-to-the-creepy-sounds-from-a-black-hole-captured-by-nasa-sciencealert.md">Listen to The Creepy 'Sounds' From A Black Hole, Captured by NASA - ScienceAlert</a></li>
+<li><a href="content/sora/luka-doncic-sets-lakers-record-with-92-points-in-1st-2-games.md">Luka Doncic sets Lakers record with 92 points in 1st 2 games</a></li>
+<li><a href="content/sora/microsofts-mico-heightens-the-risks-of-parasocial-llm-relationships-ars-technica.md">Microsoft’s Mico heightens the risks of parasocial LLM relationships - Ars Technica</a></li>
+<li><a href="content/sora/miss-usa-2024-alma-cooper-bows-out-of-the-2025-pageant-at-the-last-moment-heres-.md">Miss USA 2024 Alma Cooper Bows Out of the 2025 Pageant at the Last Moment - Here's Why</a></li>
+<li><a href="content/sora/mlb-world-series-game-1-toronto-blue-jays-beat-la-dodgers-11-4.md">MLB World Series Game 1: Toronto Blue Jays beat LA Dodgers 11-4</a></li>
+<li><a href="content/sora/mother-and-son-who-inspired-song-reunited.md">Mother & Son Who Inspired Song Reunited</a></li>
+<li><a href="content/sora/murdoch-paper-flays-trump-for-stench-of-crypto-pardon.md">Murdoch Paper Flays Trump For ‘Stench’ of Crypto Pardon</a></li>
+<li><a href="content/sora/nba-unveils-all-30-team-courts-for-emirates-nba-cup-2025-nba.md">NBA unveils all 30 team courts for Emirates NBA Cup 2025 - NBA</a></li>
+<li><a href="content/sora/neanderthals-could-be-brought-back-within-20-years-but-is-it-a-good-idea-live-sc.md">Neanderthals could be brought back within 20 years — but is it a good idea? - Live Science</a></li>
+<li><a href="content/sora/nelly-furtado-says-shes-retiring-from-live-performances-for-the-forseeable-futur.md">Nelly Furtado says she's retiring from live performances for the "forseeable future"</a></li>
+<li><a href="content/sora/nelly-furtado-to-step-away-from-performing-for-the-foreseeable-future.md">Nelly Furtado ‘to Step Away’ From Performing ‘for the Foreseeable Future’</a></li>
+<li><a href="content/sora/nobody-seems-to-like-the-new-halloween-event-in-borderlands-4-kotaku.md">Nobody Seems To Like The New Halloween Event In Borderlands 4 - Kotaku</a></li>
+<li><a href="content/sora/officials-investigating-third-disney-world-death-in-last-10-days-mlivecom.md">Officials investigating third Disney World death in last 10 days - MLive.com</a></li>
+<li><a href="content/sora/paramount-ahead-but-are-there-other-suitors.md">Paramount Ahead, But Are There Other Suitors?</a></li>
+<li><a href="content/sora/sabrina-carpenter-hilariously-arrests-gigi-hadid-at-pittsburgh-concert-tmz.md">Sabrina Carpenter Hilariously 'Arrests' Gigi Hadid at Pittsburgh Concert - TMZ</a></li>
+<li><a href="content/sora/sandp-500-tops-6800-as-cpi-gives-fed-the-go-ahead-markets-wrap-yahoo-finance.md">S&P 500 Tops 6,800 as CPI Gives Fed the Go-Ahead: Markets Wrap - Yahoo Finance</a></li>
+<li><a href="content/sora/takeaways-lakers-flatten-timberwolves-in-embarrassing-defensive-performance-as-l.md">Takeaways: Lakers flatten Timberwolves in ‘embarrassing’ defensive performance as Luka Doncic scores 49 points</a></li>
+<li><a href="content/sora/the-new-miss-usa-is-miss-nebraska-audrey-eckert.md">The New Miss USA Is Miss Nebraska Audrey Eckert</a></li>
+<li><a href="content/sora/tracking-bats-as-they-hunt-birds-in-the-skies-above-europe-ars-technica.md">Tracking bats as they hunt birds in the skies above Europe - Ars Technica</a></li>
+<li><a href="content/sora/tropical-storm-melissa-stationary-in-the-caribbean-as-forecasters-warn-it-will-q.md">Tropical Storm Melissa stationary in the Caribbean as forecasters warn it will quickly intensify - AP News</a></li>
+<li><a href="content/sora/victorious-trina-vega-spinoff-hollywood-arts-starring-daniella-monet-moves-to-ne.md">‘Victorious’ Trina Vega Spinoff ‘Hollywood Arts’ Starring Daniella Monet Moves To Netflix With Series Order & Cast Set; Nick & P+ Get Second Window - Deadline</a></li>
+<li><a href="content/sora/what-you-need-to-know-about-saturdays-byu-iowa-state-game-deseret-news.md">What you need to know about Saturday's BYU-Iowa State game - Deseret News</a></li>
+<li><a href="content/sora/wwe-smackdown-results-highlights-and-key-moments-for-october-24-2025.md">WWE SmackDown Results, Highlights and Key Moments for October 24, 2025</a></li></ul>
+  <footer style="margin-top:2rem;font-size:0.9em;color:#555">
+    © 2025 Practivio News — Auto-generated with Mistral & Sora 2.
+  </footer>
 </body>
 </html>
