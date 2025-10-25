@@ -5,32 +5,43 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Practivio News</title>
   <style>
-    :root{--bg:#0b0c10;--card:#121318;--text:#e8eef2;--muted:#9aa4af;--accent:#5eead4;}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    :root {
+      --bg:#0b0c10;
+      --card:#121318;
+      --text:#e8eef2;
+      --muted:#9aa4af;
+      --accent:#5eead4;
+      --neutral:#ffffff;
+      --conservative:#ff5c5c;
+      --liberal:#5c8aff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
     header{padding:18px 16px;border-bottom:1px solid #1f2430;background:#0f1116;position:sticky;top:0}
     h1{margin:0;font-size:20px}
     main{max-width:900px;margin:28px auto;padding:0 16px}
-    .row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
-    .grid{display:grid;gap:14px}
-    .card{background:var(--card);border:1px solid #1f2430;border-radius:14px;padding:14px}
-    .title{font-weight:600;margin:0 0 6px}
+    .grid{display:grid;gap:16px}
+    .card{background:var(--card);border:1px solid #1f2430;border-radius:14px;padding:16px}
+    .title{margin:0 0 6px}
     .muted{color:var(--muted);font-size:13px}
+    .btns{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    button{border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600}
+    .neutral{background:var(--neutral);color:#000}
+    .conservative{background:var(--conservative);color:#fff}
+    .liberal{background:var(--liberal);color:#fff}
+    button.active{outline:2px solid var(--accent)}
+    .article-body{margin-top:10px;line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
     .tag{font-size:12px;border:1px solid #243040;padding:2px 8px;border-radius:999px;color:#b8c0cc}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .topbar-links a{margin-right:12px}
     .error{color:#ff7b7b}
   </style>
 </head>
 <body>
-  <header class="row">
+  <header>
     <h1>Practivio News</h1>
-    <nav class="topbar-links">
-      <a href="sora.html">Sora Prompts (private)</a>
-      <a href="https://github.com/Practivio/practivio-news" target="_blank" rel="noopener">GitHub</a>
-    </nav>
   </header>
-
   <main>
     <div id="list" class="grid"></div>
     <p id="err" class="error" hidden></p>
@@ -45,27 +56,64 @@
         const listEl = document.getElementById('list');
         listEl.innerHTML = '';
 
-        (data.articles || []).forEach(a => {
+        for (const a of data.articles || []) {
           const card = document.createElement('article');
           card.className = 'card';
           card.innerHTML = `
             <h3 class="title">${escapeHtml(a.title || 'Untitled')}</h3>
             <div class="muted">
               <span>${a.published_at ? new Date(a.published_at).toLocaleString() : ''}</span>
-              &nbsp;·&nbsp;
-              <a href="${a.source_url}" target="_blank" rel="noopener">Source</a>
+              &nbsp;·&nbsp;<a href="${a.source_url}" target="_blank" rel="noopener">Source</a>
             </div>
             <div class="tags">
-              <span class="tag">${a.category || 'center'}</span>
-              <a class="tag" href="content/articles/${a.slug}" target="_blank">JSON</a>
+              <span class="tag">${a.category || 'general'}</span>
             </div>
+            <div class="btns">
+              <button class="neutral active">Neutral</button>
+              <button class="conservative">Conservative</button>
+              <button class="liberal">Liberal</button>
+            </div>
+            <div class="article-body">Loading...</div>
           `;
           listEl.appendChild(card);
-        });
 
-        if (listEl.children.length === 0) {
-          document.getElementById('err').hidden = false;
-          document.getElementById('err').textContent = 'No articles yet. Run: node scripts/generateNews.js';
+          // Load article content JSON
+          fetch('content/articles/' + a.slug)
+            .then(r => r.json())
+            .then(article => {
+              const bodyDiv = card.querySelector('.article-body');
+              const btnNeutral = card.querySelector('.neutral');
+              const btnCons = card.querySelector('.conservative');
+              const btnLib = card.querySelector('.liberal');
+
+              const setView = (view) => {
+                btnNeutral.classList.remove('active');
+                btnCons.classList.remove('active');
+                btnLib.classList.remove('active');
+                view.classList.add('active');
+              };
+
+              const show = (html) => {
+                bodyDiv.innerHTML = html || '<p><em>No content available.</em></p>';
+              };
+
+              btnNeutral.onclick = () => { setView(btnNeutral); show(article.neutral?.body_html); };
+              btnCons.onclick = () => { setView(btnCons); show(article.conservative?.body_html); };
+              btnLib.onclick = () => { setView(btnLib); show(article.liberal?.body_html); };
+
+              // Default view
+              show(article.neutral?.body_html);
+            })
+            .catch(e => {
+              card.querySelector('.article-body').innerHTML = '<p><em>Failed to load article.</em></p>';
+              console.error(e);
+            });
+        }
+
+        if (!listEl.children.length) {
+          const err = document.getElementById('err');
+          err.hidden = false;
+          err.textContent = 'No articles yet. Run: node scripts/generateNews.js';
         }
       } catch (e) {
         const err = document.getElementById('err');
@@ -74,7 +122,13 @@
         console.error(e);
       }
     }
-    function escapeHtml(s){return s?.replace(/[&<>"']/g,c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))||''}
+
+    function escapeHtml(s){
+      return s?.replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[c])) || '';
+    }
+
     loadIndex();
   </script>
 </body>
