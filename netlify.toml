@@ -1,0 +1,10 @@
+[build]
+  command = ""
+  publish = "."
+
+
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "no-cache, no-store, must-revalidate"
