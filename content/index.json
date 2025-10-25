@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "id": "1761406080093-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+      "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
+      "title": "Advertising Spending on Sports Programming",
+      "published_at": "Sat, 25 Oct 2025 08:00:00 -0400",
+      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you"
+    },
+    {
+      "id": "1761406058233-drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river",
+      "slug": "drone-photo-winners-will-amaze-your-eyeballs-from-a-high-up-horseman-to-a-holy-river.json",
+      "title": "Aerial Drone Photography Captures Diverse Perspectives from Around the World",
+      "published_at": "Sat, 25 Oct 2025 08:27:08 -0400",
+      "source_url": "https://www.npr.org/sections/goats-and-soda/2025/10/25/g-s1-94482/drone-photo-contest-winners"
+    },
+    {
+      "id": "1761405998615-picasso-portrait-of-muse-dora-maar-long-hidden-from-view-sells-for-dollar37-million",
+      "slug": "picasso-portrait-of-muse-dora-maar-long-hidden-from-view-sells-for-dollar37-million.json",
+      "title": "Painting 'Bust of a Woman with Flowered Hat Sells at Auction",
+      "published_at": "Sat, 25 Oct 2025 09:10:08 -0400",
+      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5585904/picasso-dora-maar-painting-auction"
+    },
+    {
       "id": "1761404898113-man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital",
       "slug": "man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital.json",
       "title": "Man's Health Deteriorates Due to Herbal Supplement Use",

@@ -1,0 +1,25 @@
+{
+  "id": "1761406080093-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+  "source": {
+    "url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+    "title": "Opinion: Ask your doctor if the World Series is right for you ...",
+    "published_at": "Sat, 25 Oct 2025 08:00:00 -0400"
+  },
+  "facts": [
+    "Drug companies bought $895.8 million worth of ads in sports programming last year.",
+    "Prescription drug ads were once banned on broadcasts, but are now permitted with clear dual-modality risk statements by the FDA.",
+    "The baseball playoffs offer a captive audience often consisting of older individuals who may have common diseases like diabetes and high cholesterol."
+  ],
+  "neutral": {
+    "headline": "Advertising Spending on Sports Programming",
+    "body_html": "<p>Drug companies invested $895.8 million in advertisements during sports programming last year.</p>"
+  },
+  "conservative": {
+    "headline": "Prescription Drug Ads Now Permitted with FDA Guidelines",
+    "body_html": "<p>Due to the argument of free speech, prescription drug ads were once banned on broadcasts but are now allowed by the FDA as long as dual-modality risk statements about possible side effects are clearly stated.</p>"
+  },
+  "liberal": {
+    "headline": "Advertising and Health Awareness During Baseball Season",
+    "body_html": "<p>The baseball playoffs, watched by millions including a captive audience of older individuals with common diseases like diabetes and high cholesterol, provide an opportunity for drug companies to advertise prescription drugs while also raising awareness about these conditions.</p>"
+  }
+}
