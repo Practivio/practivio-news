@@ -1,0 +1,17 @@
+{
+  "id": "1761422187593-a-telescope-in-the-desert-reached-back-a-billion-years-and-uncovered-something-incredible-yahoo-news",
+  "slug": "a-telescope-in-the-desert-reached-back-a-billion-years-and-uncovered-something-incredible-yahoo-news.json",
+  "title": "New Study Suggests Early Universe Had Some Heating During Reionization",
+  "category": "science",
+  "sora_prompt": {
+    "Headline": "New Study Suggests Early Universe Had Some Heating During Reionization",
+    "Scenes": [
+      "[establishing] A calm, clear night sky over the Murchison Widefield Array telescope in Western Australia.",
+      "[action/subject] Researchers observing and analyzing data from neutral hydrogen emission frequencies between 70–300 MHz."
+    ],
+    "VoiceOver": "@lee627, 'A new study led by Cathryn Trott suggests that the epoch of reionization began with some heating in the early universe. This challenges previous theories suggesting a cold start for this period.' Comment below.",
+    "Ending": "[closing] The researchers found evidence against very cold reionization, indicating potential x-rays from early black holes or stellar remnants caused some of the heating around 800 million years after Big Bang."
+  },
+  "created_at": "2025-10-25T19:56:47.774Z",
+  "source_url": "https://www.popularmechanics.com/space/deep-space/a69082728/universe-signal-epoch-of-reionization/"
+}

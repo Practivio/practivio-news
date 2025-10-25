@@ -1,0 +1,22 @@
+{
+  "id": "1761422028177-neanderthals-could-be-brought-back-within-20-years-but-is-it-a-good-idea-live-science",
+  "slug": "neanderthals-could-be-brought-back-within-20-years-but-is-it-a-good-idea-live-science.json",
+  "title": "Can We Resurrect the Extinct Neanderthals? Experts Debate",
+  "category": "science",
+  "sora_prompt": {
+    "headline": "Can We Resurrect the Extinct Neanderthals? Experts Debate",
+    "scenes": [
+      "[establishing] A modern newsroom with journalists and a backdrop of genetic research equipment, setting up for an in-depth discussion.",
+      "[action/subject] Scientists are seated around a conference table engaged in animated conversation about the potential to bring Neanderthals back through de-extinction technologies like CRISPR.\n",
+      "[context visual] A large screen displaying DNA sequences and genetic maps, with highlighted segments indicating human ancestry.",
+      "VoiceOver: 'With recent advancements in gene editing technology such as CRISPR, the possibility of resurrecting extinct species has entered into serious scientific discourse. However, while about 1-2% of non-African modern humans carry Neanderthal DNA due to historical interbreeding events, experts are divided on whether reviving a long-extinct hominid is ethical or even feasible.'"
+    ],
+    "voice": "@lee627",
+    "format_duration": "8–10 seconds",
+    "endings": [
+      "Comment below."
+    ]
+  },
+  "created_at": "2025-10-25T19:54:11.730Z",
+  "source_url": "https://www.livescience.com/archaeology/human-evolution/neanderthals-could-be-brought-back-within-20-years-but-is-it-a-good-idea"
+}
