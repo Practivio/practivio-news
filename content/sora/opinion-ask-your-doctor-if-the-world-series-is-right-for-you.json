@@ -1,0 +1,35 @@
+{
+  "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+  "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
+  "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+  "title": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
+  "category": "opinion",
+  "sora_prompt": {
+    "scene_plan": [
+      {
+        "shot_number": 1,
+        "description": "A wide shot of a family gathered in front of the television set with various prescription drug ads playing on screen during post-season baseball coverage."
+      },
+      {
+        "shot_number": 2,
+        "description": "Close up on an elderly couple watching intently as they discuss how these advertisements affect their perception of treatment options for health issues like psoriasis and arthritis during the World Series."
+      },
+      {
+        "shot_number": 3,
+        "description": "Close-up on a graphic displaying statistics about prescription drug ad spending within sports programming with subtitles emphasizing 'FDA regulations' ensuring safety information is conveyed alongside the advertisements."
+      },
+      {
+        "shot_number": 4,
+        "description": "Quiet shot of a hand holding up an open laptop or phone screen showing social media comments with people sharing their thoughts on prescription drug ads during sports events. The camera zooms out to show the family watching in silence."
+      }
+    ],
+    "voice_over": {
+      "text": "During World Series broadcasts, viewers often encounter a significant number of pharmaceutical advertisements amidst their favorite pastime.",
+      "words": 25
+    },
+    "on_screen_text": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
+    "duration": "6-9s",
+    "aspect_ratio": "9:16",
+    "style": "documentary newsroom realism, handh0lded b-roll, natural light"
+  }
+}

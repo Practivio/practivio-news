@@ -1,20 +1,20 @@
 {
-  "articles": [
+  "prompts": [
     {
       "id": "1761407900763-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
       "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
       "title": "CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025",
       "category": "left",
-      "published_at": "Sat, 25 Oct 2025 07:36:09 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing"
+      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing",
+      "created_at": "2025-10-25T15:58:44.330Z"
     },
     {
       "id": "1761407814780-opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
       "slug": "opinion-ask-your-doctor-if-the-world-series-is-right-for-you.json",
       "title": "Watching the World Series: The Prevalence of Prescription Drug Advertisements",
       "category": "opinion",
-      "published_at": "Sat, 25 Oct 2025 08:00:00 -0400",
-      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you"
+      "source_url": "https://www.npr.org/2025/10/25/nx-s1-5578898/opinion-ask-your-doctor-if-the-world-series-is-right-for-you",
+      "created_at": "2025-10-25T15:57:15.949Z"
     }
   ]
 }

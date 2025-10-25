@@ -1,0 +1,39 @@
+{
+  "id": "1761407900763-a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture",
+  "slug": "a-report-claims-left-wing-terrorism-is-rising-the-data-paints-a-complicated-picture.json",
+  "source_url": "https://www.npr.org/2025/10/25/nx-s1-5583997/political-violence-left-right-wing",
+  "title": "CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025",
+  "category": "left",
+  "sora_prompt": {
+    "scene": [
+      {
+        "shot_number": 1,
+        "description": "A wide shot of a bustling newsroom with journalists working on various screens and computers. The atmosphere is tense yet professional.",
+        "action": "establishing shots",
+        "camera_angle": "eye-level"
+      },
+      {
+        "shot_number": 2,
+        "description": "A focused shot on a journalist's hand holding up the headline 'CSIS Study Finds More Left-Wing Than Right-Wing Domestic Terrorist Incidents in Early 2025', with concerned expressions as they read aloud.",
+        "action": "closeup",
+        "camera_angle": "eye-level"
+      },
+      {
+        "shot_number": 3,
+        "description": "A map highlighting the five instances of left-wing terrorism with a soft focus on key locations and dates.",
+        "action": "data overlay",
+        "camera_angle": "bird's eye view"
+      },
+      {
+        "shot_number": 4,
+        "description": "A quiet room where the journalist sits alone with a notepad as they contemplate their next steps.",
+        "action": "closeup",
+        "camera_angle": "over-the-shoulder"
+      }
+    ],
+    "voiceOver": "<The CSIS study reveals an alarming trend in domestic terrorism, with left-wing incidents surpassing right-wing ones. Comment below to discuss the implications of this shift and share your thoughts on preventive measures.",
+    "duration_seconds": 9,
+    "aspect_ratio": "9:16",
+    "style": "documentary newsroom realism"
+  }
+}
