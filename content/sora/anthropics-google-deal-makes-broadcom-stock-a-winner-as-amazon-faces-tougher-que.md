@@ -1,9 +1,9 @@
 # Anthropic’s Google Deal Makes Broadcom Stock a Winner as Amazon Faces Tougher Questions - TipRanks
 
 ```sora
-Scene: A dynamic, 9:16 cinematic clip opens with a sweeping view of the Earth from space, transitioning seamlessly into Google's iconic colorful logo, pulsating and expanding. The camera dives into the depths of data centers, panning over rows of gleaming servers, before zooming in on a single server rack — home to thousands of Tensor Processing Units (TPUs). A burst of light signifies Anthropic's agreement with Google, and we see TPUs being connected like stars in the night sky. The camera then moves into the orbit, where Google's constellation of TPUs shines bright against the cosmic backdrop, symbolizing the immense power now at Anthropic's disposal. Narration (voice of @lee627):"Google's deal with Anthropic brings one million TPUs to life, changing the game for AI companies and cloud providers alike. Will this partnership reshape the future of AI? Find out on our channel."
+Scene: A dynamic, futuristic cityscape at dusk gives way to a vast data center in motion. The camera swoops through towering racks of servers before zeroing in on a single machine - Google's Tensor Processing Unit (TPU). We soar upwards, leaving the earth behind, transitioning seamlessly into a breathtaking view of low-earth orbit where an array of satellites dance across the cosmos. Narration (voice of @lee627):"Google and Anthropic partner in a massive AI deal that redefines cloud computing competition. This partnership, worth billions, positions Google as a key player in training Anthropic's large language models and significantly boosts Broadcom's chip business."
 ```
 
 ```tiktok
-"Anthropic partners with Google, gaining access to millions of TPUs! 💻🚀 AI start-up, Google Cloud, Broadcom impacted!      " #Anthropic #Google #AI #TPU #CloudComputing
+🎵 TikTok Breaking News: A multibillion-dollar partnership between Google and AI start-up Anthropic reshapes cloud computing competition. #Google #Anthropic #AI #CloudComputing #Broadcom
 ```

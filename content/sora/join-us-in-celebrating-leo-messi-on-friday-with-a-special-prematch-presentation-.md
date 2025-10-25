@@ -1,9 +1,10 @@
 # Join Us in Celebrating Leo Messi on Friday with a Special Prematch Presentation of the 2025 MLS Golden Boot presented by Audi - intermiamicf
 
 ```sora
-Scene: A pulsating cityscape transitioning to Chase Stadium at dusk, bathed in golden light. The crowd roars as cameras pan through an electric atmosphere. The videoboard flickers with a QR code inviting viewers to join the synchronized light show. Cut to Messi, practicing alone under the stadium lights, his determination etched on his face. The camera zooms out to reveal his jersey bearing the number 30, surrounded by the Inter Miami CF crest and the MLS Golden Boot award. Narration (voice of @lee627): "On Friday night, witness history in the making at Chase Stadium as we celebrate Leo Messi's victory! Join us for a special presentation of the 2025 MLS Golden Boot presented by Audi. Be part of the action...
+Scene: Stunning orbiting space vistas blend with intricate close-ups of the 2025 MLS Golden Boot, intercut with pulsating LED lights reflecting off a packed Chase Stadium. The camera smoothly transitions from a wide shot to an intimate view of the stadium floor as Don Garber prepares to present the award to Leo Messi, accompanied by a synchronized light show.
+Narration (voice of @lee627): Witness history unfold as Leo Messi receives his 2025 MLS Golden Boot, extending his contract with Inter Miami through 2028. How would you respond if this happened near you? Share your stories using #LeoMessi, #Audi2025MLS, #InterMiamiCF, #MLSPlayoffs...
 ```
 
 ```tiktok
-Leo Messi wins 2025 MLS Golden Boot! Celebrate with us at Chase Stadium this Friday! Don't miss the pre-match ceremony and synchronized light show. Join the post-season opener for Inter Miami CF vs Nashville SC. #MLS #LeoMessi #ChaseStadium #Football #GoldenBoot
+🎵 TikTok Breaking News: Leo Messi Wins the 2025 MLS Golden Boot presented by Audi! Join us in celebrating our captain's historic season this Friday at Chase Stadium. Share your stories using , , , , and  🏆⚽️🎉✨ #LeoMessi #Audi2025MLS #InterMiamiCF #MLSPlayoffs #CelebrateLeo
 ```

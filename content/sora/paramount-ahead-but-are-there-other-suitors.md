@@ -1,13 +1,10 @@
 # Paramount Ahead, But Are There Other Suitors?
 
 ```sora
-Scene:
-The camera glides through a bustling New York City, passing by towering skyscrapers adorned with flashing news headlines. Suddenly, we transition into a cosmic scene filled with stars, where the James Webb Space Telescope (JWST) orbits serenely amidst swirling galaxies and nebulae. The screen splits, showing glimpses of corporate logos — Amazon, Netflix, Comcast, Apple — gradually illuminating as they enter the conversation. Narration (voice of @lee627):"From the stars to the boardroom, a new chapter unfolds for Hollywood's giants. Will Paramount find its perfect partner? Or will another suitor steal the spotlight?"
+Scene: (Close-up of stock ticker, frantic numbers zooming in and out, sudden cut to a bustling New York City street, camera panning to the iconic Warner Bros. sign, transitioning to a bird's-eye view of the city skyline, focusing on the Paramount headquarters, then swooping down to the White House, revealing donor logos — Amazon and Comcast.)
+Narration (voice of @lee627):"As we speak, a media titan is up for grabs. Will Netflix or Amazon make their move? Stay tuned as this story unfolds."
 ```
 
 ```tiktok
-Warner Bros., HBO & CNN up for sale! Netflix, Amazon, Comcast considering bids 🚀🌟      
-
-ARTICLE (Edited for length):
-By Jill Goldsmith, Ted Johnson. In a week of unprecedented change, Paramount Skydance has made the third acquisition offer for Warner Bros., Discovery, with Amazon, Comcast and Netflix potentially in the running. The sale could reshape the US media business dramatically, reducing major studios to four. Stay tuned! #MediaMergers #HollywoodDeal #Netflix #Comcast #Amazon
+🎵 TikTok Breaking News: Media Meltdown — Warner Bros., HBO, CNN on Sale! 🚀 Amazon, Comcast in the Ring! #MediaTakeover #WarnerBrosDiscovery #Netflix #AmazonPrime #Comcast
 ```

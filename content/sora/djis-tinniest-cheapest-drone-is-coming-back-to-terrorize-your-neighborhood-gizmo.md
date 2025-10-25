@@ -1,9 +1,9 @@
 # DJI’s Tinniest, Cheapest Drone Is Coming Back to Terrorize Your Neighborhood - Gizmodo
 
 ```sora
-Scene: The screen transitions from a bustling cityscape to a high-tech laboratory, where tiny drone parts swirl around in a vortex. The camera pans over the components, zooming in on each piece before flying through a series of wind tunnels and sensor tests. As the drone assembles itself, it emerges into an urban jungle, its propellers whirring in anticipation. The scene shifts to satellite imagery of Earth, with the drone moving closer until it's just outside someone's window, ready to take flight. Narration (voice of @lee627):"A sequel to the infamous DJI Neo is rumored to be unleashed. Will it haunt your neighborhood? Keep an eye out for its chilling scream."
+Scene: A dynamic night sky, the Milky Way shimmering in the background. The camera pans down to reveal a sleek, futuristic drone hovering above a bustling cityscape. The drone's lights dance as it executes precise, agile movements, capturing the urban landscape below. A sudden zoom-in reveals intricate details of the device: gesture and voice control mechanisms, new omnidirectional sensors, and an expanded antenna on its back. Narration (voice of @lee627):"Behold the Neo 2, the latest from DJI. Set to revolutionize aerial photography with its gesture and voice control and advanced omnidirectional sensors. Could this reshape the world of drones?"
 ```
 
 ```tiktok
-DJI Neo 2 leaked! 👾👀🌪️📸 #TechNews #Drones #DJI #Leak #Neo2
+🎵 TikTok Breaking News: Get ready for a game-changer in drone technology! 🚀 #DJI #Neo2 #DroneTechnology #Innovation #AerialPhotography
 ```

@@ -1,10 +1,12 @@
 # Officials investigating third Disney World death in last 10 days - MLive.com
 
 ```sora
-Scene: Pan through bustling crowds and twinkling lights, revealing the iconic Disney Contemporary Resort. The camera swoops down, revealing the serene pine and cypress forest where deer graze and armadillos scurry. A sudden close-up on a police investigator probing the scene. Cut to a tranquil shot of Disney's Fort Wilderness Resort & Campground, as we follow the flowing waterways towards a secluded cabin. The atmosphere is solemn yet vibrant.
-Narration (voice of @lee627):Tragedy strikes again at Disney World, with another life lost at the Contemporary Resort. Let's keep our eyes open and hearts full, as we await more details. How do you cope amidst uncertainty? Share your thoughts below.
+SORA_PROPromT:
+Scene: A sweeping drone shot over Walt Disney World's Contemporary Resort, pan to a serene pine and cypress forest, before a sudden close-up of park officials investigating. The scene transitions to the lively Magic Kingdom, a rollercoaster looping in the background as guests mill about.
+Narration (voice of @lee627):"Orange County officials are investigating another tragic death at Disney World. Could this reshape guest experiences?" TIKTOK_DESC:
+🎵
 ```
 
 ```tiktok
-A third death in 10 days at Walt Disney World! Investigation ongoing at Disney’s Contemporary Resort 🌐💔 #WaltDisneyWorld #DeathInvestigation #Tragedy #OrangeCounty #DisneyNews
+🎵 TikTok Breaking News: TikTok Breaking News: Tragic Third Death in 10 Days at Walt Disney World 💔 #DisneyWorld #Tragedy #OrangeCounty #Investigation #ThemeParkSafety
 ```

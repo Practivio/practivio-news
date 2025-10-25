@@ -1,14 +1,10 @@
 # Mother & Son Who Inspired Song Reunited
 
 ```sora
-Scene: A kaleidoscopic blend of urban landscapes transforms into a vibrant montage of news articles and interviews. The camera glides effortlessly through bustling city streets, pausing at iconic landmarks before panning to intimate shots of people reading the news on their devices. As the narrative unfolds, we see snippets of Juice, intercut with gritty, raw footage from the American ghettos that inspired it. The atmosphere is tense yet hopeful, illuminated by the golden hues of streetlights and neon signs. Narration (voice of @lee627):"Jeff Pearlman uncovers a story buried in time, connecting the dots between Tupac's legendary track and its true origins. How does this revelation reshape our understanding of the iconic artist? Could it rewrite what we know?"
+Scene: Stellar orbits merge as the space telescope Sora 2 glides through cosmic darkness, its powerful lens capturing distant galaxies and celestial bodies. Lenses flicker with pulsating energy as data streams flood in. The camera zooms in on a never-before-seen nebula, then abruptly pans to Earth, showing Sora 2's home planet bathed in twilight.
+Narration (voice of @lee627):"Join the cosmic expedition as Sora 2 uncovers new galaxies. Could this reshape our understanding of the universe? Discover more at #spaceexploration #astronomy #Sora2Mission."
 ```
 
 ```tiktok
-Tupac's classic song "Brenda's Got a Baby" inspired by real story.     
-
-Article (slightly modified for the Sora Prompt):
-Title: The True Story Behind Tupac's Classic Song "Brenda's Got a Baby"
-Category: entertainment
-Text: In his latest book, Jeff Pearlman unveils the shocking true story behind Tupac Shakur's iconic song. Brenda's tragic tale serves as an inspiration for one of 2Pac's most influential tracks. How does this revelation reshape our understanding of the iconic artist? Could it rewrite what we know? #JeffPearlman #TupacShakur #OnlyGodCanJudgeMe #TrueStory #EntertainmentNews
+🎵 TikTok Breaking News: Stellar secrets revealed as Sora 2 telescope uncovers new galaxies. #spaceexploration #astronomy #Sora2Mission #cosmos #discovery
 ```

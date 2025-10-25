@@ -1,12 +1,10 @@
 # Tropical Storm Melissa stationary in the Caribbean as forecasters warn it will quickly intensify - AP News
 
 ```sora
-Scene: A dynamic montage of the Caribbean Sea—the turquoise waves pulsating with the rhythmic hum of Tropical Storm Melissa. The camera dives beneath the surface, showing swirling currents before gliding over vibrant coral reefs and coastal communities. We transition to aerial shots showcasing flood-prone areas in Port-au-Prince, Haiti, as residents hurriedly secure tarps and prepare for heavy rainfall. The scene shifts to Santo Domingo, Dominican Republic, where streets are already flooded. The tone is tense yet hopeful, with a somber undercurrent. Narration (voice of @lee627):"Tropical Storm Melissa intensifies in the Caribbean, bringing flood risks to Jamaica and Hispaniola. Officials urge residents to seek higher ground. Will you heed their call?"
+Scene: A dynamic blend of sweeping drone shots and handheld camera work weave through the densely-packed structures of Port-au-Prince, Haiti, capturing the resilience of its people as they brace for Tropical Storm Melissa. As the storm approaches, dramatic zoom-ins reveal water-logged streets, desperate families huddled together in shelters, and an ever-present sense of urgency. Transitions seamlessly shift to tranquilizing aerial views of the storm's destructive path through the Caribbean Sea, underscored by the ominous hum of the storm.
+Narration (voice of @lee627):"Tropical Storm Melissa continues its march across the Caribbean, bringing chaos and flood risks to Jamaica and Haiti. Seek higher ground if you're in a flood-prone area."
 ```
 
 ```tiktok
-Tropical Storm Melissa looms over Caribbean, threatening flooding in Jamaica & Haiti 🌴🌊🔥     
-
-ARTICLE (shortened for TikTok):
-"Tropical Storm Melissa: Warnings of dangerous floods & landslides in Caribbean - AP News." #HurricaneSeason #CaribbeanIslands #WeatherUpdate #PrepareNow #StaySafe
+🎵 TikTok Breaking News: Residents in flood-prone areas brace for destructive Tropical Storm Melissa, as it threatens life and property across the Caribbean. #StormMelissa #HurricaneWarning #CaribbeanSea #EmergencyPreparedness #ClimateChange
 ```

@@ -1,15 +1,10 @@
 # What you need to know about Saturday's BYU-Iowa State game - Deseret News
 
 ```sora
-Scene:
-The camera swoops over a bustling sports stadium, panning across the crowd's sea of colors before focusing on the field. The scene transitions to a dynamic flyover of BYU and Iowa State logos, symbolizing their upcoming match. The camera then plunges into the vibrant locker rooms, capturing the teams' final preparations. A quick cut to the star players, their eyes determined and focused, followed by a bird's-eye view of the gridiron, where the ball is snapped, creating ripples across the field. Narration (voice of @lee627):"Two titans clash. Can BYU maintain its unbeaten streak against Iowa State? Will Iowa State bounce back from their losses? The stage is set for an epic battle. Will you be there to witness it?"
+Scene: A dynamic 9:16 shot sweeps across a bustling Cougar Stadium, panning to the field where BYU's pristine white uniforms stand in sharp contrast against the vibrant green turf. The camera dolly's forward as the players line up, lights glinting off helmets, creating an electric atmosphere. As the whistle blows, a bird's-eye view track shot captures the intense action, followed by a handheld close-up of crucial plays. The scene ends with a dramatic zoom to the scoreboard as the final seconds tick down.
+Narration (voice of @lee627):"Tonight, two undefeated teams clash in a pivotal Big 12 showdown. Will BYU maintain its unbeaten streak against Iowa State? The answer lies on this field."
 ```
 
 ```tiktok
-BYU vs Iowa State: Who will emerge victorious this Saturday?     
-
-ARTICLE (slightly adapted for Sora format):
-Title: Unbeaten BYU Readies for Iowa State Showdown - Deseret News
-Category: sports
-Text: The undefeated BYU Cougars stand ready to face off against the Iowa State Cyclones this weekend. Can BYU maintain its unbroken record, or will Iowa State reclaim their glory? The stage is set for an electrifying game. Will you be there to witness it? #Big12Football #BYUvsIowaState #SportsBattle #FootballFever #GameDayVibes
+🎵 TikTok Breaking News: Two undefeated Big 12 giants face off tonight! #BYUCougars #IowaStateCyclones #Big12Showdown #FootballFriday #SportsNews
 ```

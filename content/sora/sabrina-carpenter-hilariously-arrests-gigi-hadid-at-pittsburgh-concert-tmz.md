@@ -1,14 +1,10 @@
 # Sabrina Carpenter Hilariously 'Arrests' Gigi Hadid at Pittsburgh Concert - TMZ
 
 ```sora
-Scene:
-In a dynamic, neon-lit concert hall, the pulsating beats of "Juno" resonate as Sabrina Carpenter performs. The camera pans over the ecstatic crowd, capturing a sea of hands waving in rhythm. Suddenly, it focuses on Gigi Hadid, standing amidst the crowd. As the music builds, we see a close-up of Sabrina playfully asking Gigi where she's from, followed by her flirtatious comment about being soulmates. The camera then transitions to a bird's eye view, showing Sabrina striding towards Gigi, pink handcuffs in hand. Narration (voice of @lee627):"Caught red-handed! Sabrina Carpenter playfully 'arrests' Gigi Hadid during her Pittsburgh concert. Who will be next on Sabrina's celebrity arrest list?"
+Scene: A breathtaking sequence unfolds in the depths of space as the latest Sora 2 space telescope orbits Earth, capturing dazzling images of celestial bodies. The camera zooms in on a distant nebula before panning back to reveal our home planet. As we approach Earth, we follow the trajectory of an incoming asteroid, its surface glowing ominously. The camera swiftly shifts from a wide angle to a close-up as it dives towards the planet's surface, eventually revealing a bustling city under threat.
+Narration (voice of @lee627):"Witness an unprecedented cosmic dance — a collision course between our world and a massive asteroid. Can we deflect its path? Join us on this edge-of-your-seat voyage as humanity faces a new challenge."
 ```
 
 ```tiktok
-Gigi Hadid "Arrested" by Sabrina Carpenter! 🎉 🔥     
-
-ARTICLE (modified for the format):
-Title: A Playful Arrest at Sabrina Carpenter's Pittsburgh Concert - Entertainment News
-Text: Sabrina Carpenter playfully 'arrested' Gigi Hadid during her concert in Pittsburgh. The pop star, hot and flustered, slapped handcuffs on the supermodel after a friendly exchange. Fans went wild as "Juno" blared and Gigi admitted to feeling beautiful and nervous. This isn't the first time Sabrina has run her cheeky celebrity arrest bit - she's already 'arrested' Millie Bobby Brown and Margaret Qualley! Who will be next? Stay tuned for more entertainment news updates! #SabrinaCarpenter #GigiHadid #ConcertGoals #CelebrityArrests #EntertainmentNews
+🎵 TikTok Breaking News: Asteroid on a Collision Course with Earth! 🚀🌐🌍🌍 #AsteroidImpact #SpaceNews #Sora2Telescope #EarthDefense #MankindUnited
 ```

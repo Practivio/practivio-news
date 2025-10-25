@@ -1,10 +1,10 @@
 # Giants, Daboll, Skattebo all fined over Dart exam - ESPN
 
 ```sora
-Scene: A dynamic, high-speed montage showcases the bustling NFL field, with the camera panning over players warming up, coaches strategizing in slow motion, and the crowd roaring. The focus shifts to a close-up of Jaxson Dart as he takes a hit during a game against the Philadelphia Eagles. The camera then switches to a bird's-eye view, showcasing the blue medical tent below. As the tense music builds, we see a swift pan of Coach Brian Daboll approaching the tent, followed by Cam Skattebo entering. The scene transitions to Dr. Scott Rodeo discussing with an offscreen referee. The atmosphere shifts from excitement to suspense as we return to the field, where Daboll is seen animatedly conversing with Dr. Rodeo on the sidelines. Narration (voice of @lee627):"Today's headlines: The NFL fines the Giants, coach Brian Daboll, and Cam Skattebo for violating concussion protocol. Could this impact how teams handle player safety in future games?"
+Scene: A dynamic, slow-motion close-up of a football, illuminated by the stadium lights. The camera zooms out, tracking the trajectory of the ball through the air, as the crowd roars in anticipation. Suddenly, the shot cuts to a quick succession of shots - coach Daboll's intense expression, the blue medical tent, Dr. Rodeo conferring with players, and finally, a replay showing the hit on QB Jaxson Dart. The scene transitions seamlessly into a conversation between Daboll and Rodeo, their voices echoing in the stadium silence.
+Narration (voice of @lee627):"The NFL has fined the Giants, coach Brian Daboll, and Cam Skattebo following a violation of concussion protocol during Week 6's game. What do you think happens next?"
 ```
 
 ```tiktok
-"The NFL fines Giants, Coach Daboll, and Cam Skattebo over concussion protocol violations 🏈      "
-Hashtags: , , , , , . #NFL #Giants #ConcussionProtocol #CoachDaboll #CamSkattebo
+🎵 TikTok Breaking News: The NFL fines Giants, Coach Daboll, and Running Back for Concussion Protocol Violation. #NFL #Giants #ConcussionProtocol #SportsNews #FootballNews
 ```

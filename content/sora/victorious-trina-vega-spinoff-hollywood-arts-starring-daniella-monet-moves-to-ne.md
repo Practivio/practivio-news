@@ -1,9 +1,14 @@
 # ‘Victorious’ Trina Vega Spinoff ‘Hollywood Arts’ Starring Daniella Monet Moves To Netflix With Series Order & Cast Set; Nick & P+ Get Second Window - Deadline
 
 ```sora
-Scene: A vibrant montage of Hollywood signs flickering against a night sky, transitioning to a bustling studio set reminiscent of the 'Victorious' era. Cut to a whirlwind tour through the colorful halls of 'Hollywood Arts', with glimpses of Daniella Monet (Trina Vega) in character, interspersed with quick close-ups of production artboards and enthusiastic crew members. The camera then swoops into the global streaming landscape, where the Netflix logo emerges from a swirling cosmos before settling onto a screen that fills the frame. Narration (voice of @lee627):"Hollywood Arts rises again, this time on the global stage with Daniella Monet reprising her iconic role. Will Netflix bring another Victorious era? Tune in 2026 to find out."
+SORA_PROPromt:
+Scene: A dynamic birds-eye view of Hollywood, transitioning to the bustling set of Netflix's new sitcom, "Hollywood Arts". Camera zooms in on Daniella Monet as Trina Vega, followed by a series of energetic takes showcasing the ensemble cast. The atmosphere shifts to a lively post-production room, concluding with a drone shot of the Netflix logo against a vibrant Los Angeles sunset.
+Narration (voice of @lee627):"Netflix orders 26 episodes of Hollywood Arts spinoff, starring Daniella Monet as Trina Vega. After leaving Nickelodeon, will this revival capture the magic of Victorious? Tune in to Netflix in 2026."
+---
+TIKTOK_DESC:
+🎵
 ```
 
 ```tiktok
-"'Victorious' spinoff 'Hollywood Arts' moves to Netflix! 🎉     " #NetflixOriginals #DaniellaMonet #HollywoodArts #ComingSoon #TVRevival
+🎵 TikTok Breaking News: TikTok Breaking News: Hollywood Arts spinoff starring Daniella Monet gets Netflix order; premieres in 2026. #Netflix #HollywoodArts #DaniellaMonet #VictoriousSpinoff #ComingSoon
 ```

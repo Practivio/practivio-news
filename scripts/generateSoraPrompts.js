@@ -39,34 +39,43 @@ function buildPrompt(article) {
   const text = article.full_text?.replace(/\s+/g, " ").slice(0, 1200) || "";
 
   return `
-You are a **cinematic Sora 2 video director and short-form news storyteller**.
+You are a **cinematic Sora 2 video director and TikTok storyteller**.
 
-🎯 Goal:
-Create a visually engaging **motion-filled 9:16 cinematic clip** inspired by the article below.  
-You have creative freedom to choose camera style, pacing, tone, and transitions — as long as the visuals move and feel alive. Avoid still images fading or static scenes.
+🎬 Objective:
+Create a **motion-filled 9:16 cinematic Sora 2 scene** and a **multi-sentence TikTok description** for this article.
 
-🎥 Guidelines:
-- Use **continuous motion** (e.g., panning over screens, spacecraft adjusting, crowds moving, light reflections).
-- Be **factually accurate** — if the subject exists in space (e.g., JWST), depict it in orbit, not on Earth.
-- You may use creative cuts, lighting, atmosphere, or symbolic transitions.
-- Avoid numbered scenes (no "(1)", "(2)", "(3)").
-- Narration: ≤ 38 words, spoken naturally by @lee627.
+🎥 For the SORA_PROMPT:
+- Use active **camera motion** (panning, dolly, tracking, zoom, handheld, drone).
+- Visuals must move — no static fades or still frames.
+- Be **factually correct** (e.g., space telescope in orbit, not desert).
+- No numbered scenes.
+- Narration (voice of @lee627) ≤ 38 words, factual, calm tone.
 - Never say “Breaking news”.
-- End narration with a **context-appropriate call to action** fitting the article theme  
-  (e.g., "Could this rewrite what we know?", "What do you think it means for travelers?", "Would you see this film?", "How far could this technology go?").
+- End narration with a relevant, natural **call to action** tied to the topic.
+  Examples:  
+  “Could this reshape how we see the cosmos?”  
+  “Would you fly after this?”  
+  “How would you respond if this happened near you?”  
+  “What do you think happens next?”
 
-🎬 Output format:
+🎵 For the TIKTOK_DESC:
+- Start with: **“🎵 TikTok Breaking News:” + emoji(s)**  
+- Write a **natural 1–3 sentence summary**, not just one line.  
+- End with **exactly 5 relevant hashtags**.  
+- Do NOT include article metadata or sections — only the summary and hashtags.
+
+Return output exactly like this:
+
 SORA_PROMPT:
 Scene:
-(describe connected motion-filled visuals — camera movements, atmosphere, lighting, and tone)
+(description of dynamic, cinematic visuals — motion, light, tone, transitions)
 Narration (voice of @lee627):
-(short narration with contextual CTA)
-
+(short narration ending with a relevant CTA)
 ---
 TIKTOK_DESC:
-(short, factual TikTok summary + exactly 5 relevant hashtags)
+🎵 TikTok Breaking News: (emoji + multi-sentence summary + 5 hashtags)
 
-ARTICLE:
+ARTICLE (for reference only — do NOT include this in the output):
 Title: ${article.title}
 Category: ${article.category}
 Text: ${text}
@@ -130,7 +139,7 @@ async function main() {
       }
     }
 
-    // Fallback retry with shortened text
+    // Retry with shortened article
     if (response.length < 100) {
       console.log("⚠️ Retrying with shorter article context...");
       const shortArticle = { ...article, full_text: article.full_text?.slice(0, 600) || "" };
@@ -143,7 +152,7 @@ async function main() {
       }
     }
 
-    // --- Extract parts
+    // --- Parse outputs
     let soraPart = response.match(/SORA_PROMPT:(.*?)(?:---|TIKTOK_DESC:)/s)?.[1]?.trim() || "";
     let tiktokRaw = response.match(/TIKTOK_DESC:(.*)/s)?.[1]?.trim() || "";
 
@@ -172,12 +181,17 @@ async function main() {
       .replace(/(Leave your opinion.*){2,}/gi, "")
       .trim();
 
-    // --- Hashtags
+    // --- Clean TikTok text
     const hashtags = (tiktokRaw.match(/#[A-Za-z0-9_]+/g) || []).slice(0, 5).join(" ");
-    const descText = tiktokRaw.replace(/#[A-Za-z0-9_]+/g, "").trim();
+    let descText = tiktokRaw.replace(/#[A-Za-z0-9_]+/g, "").trim();
+
+    if (!descText.startsWith("🎵 TikTok Breaking News:")) {
+      descText = "🎵 TikTok Breaking News: " + descText;
+    }
+
     const tiktokPart = `${descText} ${hashtags}`.trim();
 
-    // --- Save
+    // --- Save file
     const formatted = `# ${article.title}
 
 \`\`\`sora
@@ -200,14 +214,14 @@ ${tiktokPart}
 
   try {
     execSync("git add .", { stdio: "inherit" });
-    execSync('git commit -m "auto: updated cinematic freeform Sora prompts"', { stdio: "inherit" });
+    execSync('git commit -m "auto: multi-sentence TikTok summaries + cinematic motion prompts"', { stdio: "inherit" });
     execSync("git push", { stdio: "inherit" });
     console.log("🚀 Changes pushed to GitHub!");
   } catch {
     console.log("⚠️ No new changes or Git remote not configured.");
   }
 
-  console.log(`\n✅ Finished ${done} cinematic Sora prompts with adaptive storytelling.`);
+  console.log(`\n✅ Finished ${done} cinematic Sora prompts with multi-sentence TikTok summaries.`);
 }
 
 main().catch((e) => console.error("❌ Fatal:", e));

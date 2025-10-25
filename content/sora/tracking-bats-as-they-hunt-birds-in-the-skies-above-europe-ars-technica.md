@@ -1,10 +1,15 @@
 # Tracking bats as they hunt birds in the skies above Europe - Ars Technica
 
 ```sora
+SORA_PROPromt:
 Scene:
-The camera pans through a moonlit European sky, focusing on a constellation of Nyctalus Iasiopterus bats, their reddish-brown fur glinting under the soft light. The view transitions to an ultralight sensor, suspended from one bat's wingtip, capturing its nocturnal flight. The screen adjusts, revealing a bird soaring gracefully in the distance. Suddenly, the bat lunges, the scene freezes for a heartbeat before resuming with the bird plummeting, pursued by the swift predator. Narration (voice of @lee627):"Witness the brutal grace of nature as we unveil the hunting tactics of bats that feast on birds. Could this shed new light on our understanding of these fascinating creatures? #BatResearch #EuropeanSkies #NoctuleBats #PredatorBehavior #AvianFeasting #NightlyHunts"
+Dynamic camera swoops through the twilight European skies, focusing on three species of bats in flight. The visuals transition to close-ups of ultra-light sensors attached to greater noctule bats, their wingspan illuminated by the fading sunlight. The perspective shifts, providing a bird's eye view of the bats as they zero in on unsuspecting prey.
+Narration (voice of @lee627):"Witness the brutal hunting tactics of bats that feed on birds. Could this reshape our understanding of these fascinating creatures?"
+---
+TIKTOK_DESC:
+🎵
 ```
 
 ```tiktok
-New sensor data reveals how bats in Europe hunt birds! #BatResearch #EuropeanSkys #NoctuleBats #PredatorBehavior #AvianFeasting
+🎵 TikTok Breaking News: TikTok Breaking News: New insights into how European bats hunt birds revealed! #BatResearch #BirdHunting #EuropeanSkies #WildlifeDiscovery #NatureDocumentary
 ```

@@ -1,11 +1,10 @@
 # Company recalls 2 million pounds of barbecue pork jerky that may contain metal wire
 
 ```sora
-Scene: A dynamic, blurred montage of Costco and Sam's Club logos gradually focuses on shelves filled with pouches of "Golden Island fire-grilled pork jerky Korean barbecue recipe". The camera pans over the packages, revealing their best-by dates. A quick cut to an industrial facility where a conveyor belt whirs, followed by close-ups of metal pieces intertwined with jerky strips. Transitions between scenes are smooth and fluid, as if mirroring the movement of metal wire within the product. The atmosphere is tense yet informative, using cool colors and crisp, clean visuals to convey the seriousness of the situation. Narration (voice of @lee627):"Today, a recall affecting 2.2 million pounds of Korean barbecue pork jerky over metal contamination. The USDA advises consumers not to eat the product and dispose or return it for refund."
+Scene: A dynamic montage showcases a sleek factory interior (close-ups of conveyor belts) transitioning into frantic scenes at retail stores (Costco, Sam's Club), all intercut with close-ups of concerned consumers opening pouches of 'Golden Island Fire-Grilled Pork Jerky'. The camera zooms in on metal fragments found in the jerky.
+Narration (voice of @lee627): "A recall for 2 million pounds of Korean barbecue pork jerky due to metal contamination. LSI, Inc. confirms the issue originated from their production conveyor belts. No injuries reported so far, but customers are urged to discard...
 ```
 
 ```tiktok
-Recall of Korean Barbecue Pork Jerky due to metal contamination 🌬️🔥🛍️🚫🐖 USDA advisory     
-
-Remember, this is a text-based platform and I cannot create visual or audio content. However, the scene and narration description aim to evoke motion, atmosphere, and tone for your creative interpretation as a director. #recall #foodsafety #metalcontaminated #consumerrecall #koreanjerky
+🎵 TikTok Breaking News: Over 2 million pounds of Korean BBQ pork jerky recalled due to metal contamination. #Recall #LSIInc #FoodSafety #ConsumerAlert #Costco
 ```
