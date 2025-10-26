@@ -1,139 +1,143 @@
 // scripts/fetchNewsVideos.js
-import fs from "fs";
+import fs from "fs-extra";
 import path from "path";
-import fetch from "node-fetch";
-import * as cheerio from "cheerio";
-
+import puppeteer from "puppeteer";
 import { execSync } from "child_process";
 
-const OUT_JSON = "./content/videos.json";
+const OUT_PATH = "./content/videos.json";
 const INDEX_PAGE = "./index.html";
 
-// List of major outlets to scan for new videos
-const SOURCES = [
+const SITES = [
   "https://www.cnn.com/videos",
   "https://www.bbc.com/news/av",
   "https://www.reuters.com/video",
   "https://apnews.com/video",
-  "https://www.espn.com/video",
   "https://www.foxnews.com/video",
   "https://www.cbsnews.com/latest/video/",
-  "https://sports.yahoo.com/video/"
+  "https://sports.yahoo.com/video/",
+  "https://www.espn.com/video"
 ];
 
-// Fetch HTML safely
-async function fetchHTML(url) {
+// Utility to pause
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function fetchVideosWithPuppeteer(url) {
+  console.log(`🎥 Scanning ${url}`);
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
   try {
-    const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
-    if (!res.ok) throw new Error(res.statusText);
-    return await res.text();
-  } catch (e) {
-    console.log(`⚠️ Failed to fetch ${url}: ${e.message}`);
-    return "";
-  }
-}
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForTimeout(3000);
 
-// Parse out video links and titles from each page
-function parseVideos(html, site) {
-  const $ = cheerio.load(html);
-  const videos = [];
-
-  $("video, iframe").each((_, el) => {
-    const src = $(el).attr("src") || $(el).attr("data-src");
-    if (!src || !src.includes("http")) return;
-
-    let title =
-      $(el).attr("title") ||
-      $(el).attr("alt") ||
-      $(el).parent("article").find("h3, h2").text() ||
-      "Untitled Clip";
-
-    title = title.trim().slice(0, 120);
-
-    videos.push({
-      title,
-      src,
-      site,
-      fetched: new Date().toISOString()
+    const videos = await page.evaluate(() => {
+      const vids = [];
+      document.querySelectorAll("video, iframe, source").forEach((el) => {
+        const src = el.src || el.dataset.src || el.getAttribute("src");
+        if (!src) return;
+        const title =
+          el.title ||
+          el.alt ||
+          el.closest("article,h2,h3")?.innerText?.trim() ||
+          document.title ||
+          "Untitled Clip";
+        vids.push({ title, src });
+      });
+      return vids.filter((v) => v.src && !v.src.startsWith("blob:"));
     });
-  });
 
-  return videos;
+    await browser.close();
+    return videos.map((v) => ({ ...v, site: new URL(url).hostname }));
+  } catch (err) {
+    console.log(`⚠️ Failed to scrape ${url}: ${err.message}`);
+    await browser.close();
+    return [];
+  }
 }
 
-// Main runner
-async function main() {
-  let allVideos = [];
-
-  for (const url of SOURCES) {
-    console.log(`🎥 Scanning ${url}`);
-    const html = await fetchHTML(url);
-    if (!html) continue;
-    const videos = parseVideos(html, new URL(url).hostname);
-    allVideos = allVideos.concat(videos);
-  }
-
-  // Deduplicate by src
-  const unique = [];
-  const seen = new Set();
-  for (const v of allVideos) {
-    if (!seen.has(v.src)) {
-      seen.add(v.src);
-      unique.push(v);
-    }
-  }
-
-  // Save JSON
-  fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true });
-  fs.writeFileSync(OUT_JSON, JSON.stringify(unique, null, 2));
-  console.log(`✅ Saved ${unique.length} videos → ${OUT_JSON}`);
-
-  // Update homepage
-  const videoBlocks = unique
-    .map(
-      (v) => `
-      <div style="margin-bottom:2rem">
-        <h3>${v.title}</h3>
-        <video src="${v.src}" controls preload="metadata" width="100%"></video><br/>
-        <a href="${v.src}" download style="display:inline-block;margin-top:6px;">⬇️ Download</a>
-        <p style="font-size:0.8em;color:#666">${v.site}</p>
-      </div>`
-    )
-    .join("\n");
-
+async function buildHomePage(videos) {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Latest News Videos — Practivio</title>
-  <style>
-    body { font-family: Inter, sans-serif; margin: 2rem; background:#f8f8f8; color:#111; }
-    h1 { margin-bottom:1.5rem; }
-    video { border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
-    a { color:#0059ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-  </style>
+<meta charset="UTF-8" />
+<title>🎥 Practivio News Video Feed</title>
+<style>
+  body { font-family: Inter, sans-serif; margin: 2rem; background: #f8f8f8; color: #111; }
+  h1 { margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+  .card { background: #fff; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  video, iframe { width: 100%; border-radius: 8px; }
+  button { margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: #0059ff; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  button:hover { background: #0040cc; }
+</style>
 </head>
 <body>
-  <h1>🎬 Latest News & Sports Videos (24h)</h1>
-  ${videoBlocks}
-  <footer style="margin-top:3rem;font-size:0.9em;color:#666">
-    © ${new Date().getFullYear()} Practivio News — Video feed auto-collected from public sources.
+  <h1>🎬 Latest News & Sports Videos (Past 24h)</h1>
+  <div class="grid">
+  ${videos
+    .map(
+      (v) => `
+    <div class="card">
+      ${
+        v.src.includes("youtube") || v.src.includes("player")
+          ? `<iframe src="${v.src}" allowfullscreen></iframe>`
+          : `<video controls src="${v.src}"></video>`
+      }
+      <p><strong>${v.title}</strong><br><small>${v.site}</small></p>
+      <button onclick="downloadVideo('${v.src}')">⬇️ Download</button>
+    </div>`
+    )
+    .join("")}
+  </div>
+
+  <script>
+    function downloadVideo(url) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = url.split("/").pop().split("?")[0];
+      a.click();
+    }
+  </script>
+
+  <footer style="margin-top:2rem;font-size:0.9em;color:#555">
+    © ${new Date().getFullYear()} Practivio News — Auto-fetched with Puppeteer.
   </footer>
 </body>
 </html>`;
-
   fs.writeFileSync(INDEX_PAGE, html);
-  console.log(`🏠 Homepage updated with ${unique.length} playable videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} playable videos`);
+}
+
+async function main() {
+  let allVideos = [];
+
+  for (const url of SITES) {
+    const vids = await fetchVideosWithPuppeteer(url);
+    if (vids.length) {
+      console.log(`✅ Found ${vids.length} videos on ${url}`);
+      allVideos.push(...vids);
+    } else {
+      console.log(`⚠️ No videos found at ${url}`);
+    }
+    await sleep(2000);
+  }
+
+  // Deduplicate by src
+  const uniqueVideos = Array.from(new Map(allVideos.map((v) => [v.src, v])).values());
+  fs.writeJsonSync(OUT_PATH, uniqueVideos, { spaces: 2 });
+  console.log(`✅ Saved ${uniqueVideos.length} videos → ${OUT_PATH}`);
+
+  await buildHomePage(uniqueVideos);
 
   try {
     execSync("git add .", { stdio: "inherit" });
-    execSync('git commit -m "auto: refresh video feed"', { stdio: "inherit" });
+    execSync('git commit -m "auto: update video homepage"', { stdio: "inherit" });
     execSync("git push", { stdio: "inherit" });
-    console.log("🚀 Changes pushed to GitHub!");
   } catch {
-    console.log("⚠️ No Git push or remote not configured.");
+    console.log("⚠️ Git push skipped or remote not configured.");
   }
+
+  console.log("🎉 Done!");
 }
 
 main().catch((e) => console.error("❌ Fatal:", e));

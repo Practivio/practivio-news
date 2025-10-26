@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Latest News Videos — Practivio</title>
-  <style>
-    body { font-family: Inter, sans-serif; margin: 2rem; background:#f8f8f8; color:#111; }
-    h1 { margin-bottom:1.5rem; }
-    video { border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
-    a { color:#0059ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-  </style>
+<meta charset="UTF-8" />
+<title>🎥 Practivio News Video Feed</title>
+<style>
+  body { font-family: Inter, sans-serif; margin: 2rem; background: #f8f8f8; color: #111; }
+  h1 { margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+  .card { background: #fff; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  video, iframe { width: 100%; border-radius: 8px; }
+  button { margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: #0059ff; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  button:hover { background: #0040cc; }
+</style>
 </head>
 <body>
-  <h1>🎬 Latest News & Sports Videos (24h)</h1>
+  <h1>🎬 Latest News & Sports Videos (Past 24h)</h1>
+  <div class="grid">
   
-  <footer style="margin-top:3rem;font-size:0.9em;color:#666">
-    © 2025 Practivio News — Video feed auto-collected from public sources.
+  </div>
+
+  <script>
+    function downloadVideo(url) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = url.split("/").pop().split("?")[0];
+      a.click();
+    }
+  </script>
+
+  <footer style="margin-top:2rem;font-size:0.9em;color:#555">
+    © 2025 Practivio News — Auto-fetched with Puppeteer.
   </footer>
 </body>
 </html>
