@@ -20,7 +20,6 @@ const CHANNEL_IDS = {
 
 const app = express();
 
-// -------- Helpers ----------
 function getLocalIP() {
   const nets = os.networkInterfaces();
   for (const name of Object.keys(nets)) {
@@ -46,10 +45,11 @@ function runCommand(cmd) {
   });
 }
 
-// -------- Fetch from YouTube API ----------
+let lastFetchTime = Date.now();
+
 async function fetchFromYouTube() {
   const videos = [];
-  const cutoff = Date.now() - (60 * 60 * 1000); // one hour ago
+  const cutoff = Date.now() - (60 * 60 * 1000); // last hour
 
   for (const [name, id] of Object.entries(CHANNEL_IDS)) {
     try {
@@ -85,6 +85,8 @@ async function fetchFromYouTube() {
           views,
           vpm,
           minutesOld: Math.round(minutesOld),
+          // category tagging logic could go here, default to “News”
+          category: "News"
         });
       });
 
@@ -93,7 +95,6 @@ async function fetchFromYouTube() {
     }
   }
 
-  // Remove duplicates
   const seen = new Set();
   const unique = videos.filter(v => {
     if (seen.has(v.id)) return false;
@@ -101,7 +102,6 @@ async function fetchFromYouTube() {
     return true;
   });
 
-  // Sort by views/minute (descending)
   unique.sort((a, b) => b.vpm - a.vpm);
 
   await fs.outputJson(OUT_FILE, unique, { spaces: 2 });
@@ -109,7 +109,6 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Download Route (local functionality preserved) --------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
   const url = `https://www.youtube.com/watch?v=${id}`;
@@ -127,118 +126,87 @@ app.get("/download/:id", async (req, res) => {
       }
       res.download(fixedPath, `${id}.mp4`, () => {
         setTimeout(() => {
-          fs.remove(`./downloads/${id}.mp4`).catch(() => {});
-          fs.remove(fixedPath).catch(() => {});
+          fs.remove(`./downloads/${id}.mp4`).catch(()=>{});
+          fs.remove(fixedPath).catch(()=>{});
         }, 5000);
       });
     });
   });
 });
 
-// -------- Build homepage (publication-style design) ----------
 async function buildHome(videos) {
-  const cards = videos.map(v => {
-    const views = v.views || 0;
-    const vpm = v.vpm?.toFixed(2) || "0.00";
-    const ageMins = v.minutesOld;
-    return `
+  // Split categories
+  const cats = { News: [], Sports: [], Tech: [] };
+  videos.forEach(v => {
+    if (cats[v.category]) cats[v.category].push(v);
+    else cats["News"].push(v);
+  });
+
+  // Hero (top story)
+  const hero = videos[0];
+  const heroHtml = hero ? `
+    <section class="hero">
+      <iframe src="${hero.embed}" allowfullscreen></iframe>
+      <div class="hero-info">
+        <h1>${hero.title}</h1>
+        <p class="meta">${hero.channel} • ${hero.minutesOld} min ago</p>
+      </div>
+    </section>` : "";
+
+  const sectionHtml = Object.entries(cats).map(([catName, arr]) => {
+    const list = arr.map(v => `
       <article class="news-item">
         <iframe src="${v.embed}" allowfullscreen></iframe>
-        <h2 class="news-headline">${v.title}</h2>
-        <p class="news-meta"><span class="channel">${v.channel}</span> • <span class="age">${ageMins} min ago</span></p>
-        <p class="news-stats">👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min</p>
+        <h2>${v.title}</h2>
+        <p class="meta">${v.channel} • ${v.minutesOld} min ago</p>
+        <p class="stats">👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} vpm</p>
         <a class="watch-link" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
-      </article>`;
+      </article>`).join("\n");
+    return `<section class="section-block"><h2>${catName}</h2>${list}</section>`;
   }).join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Practivio News — Trend­ing Now (Last Hour)</title>
+  <title>Practivio News — Live Feed</title>
   <style>
-    body {
-      font-family: "Georgia", "Times New Roman", serif;
-      background: #fff;
-      color: #111;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #f8f8f8;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #e1e1e1;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    header .refresh {
-      display: inline-block;
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #0077ff;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .news-item {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid #eaeaea;
-      padding-bottom: 2rem;
-    }
-    .news-item iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border: none;
-      margin-bottom: 1rem;
-    }
-    .news-headline {
-      margin: 0 0 0.5rem;
-      font-size: 1.5rem;
-      line-height: 1.3;
-    }
-    .news-meta {
-      color: #666;
-      font-size: 0.9rem;
-      margin: 0 0 1rem;
-    }
-    .news-stats {
-      color: #666;
-      font-size: 0.9rem;
-      margin: 0 0 1rem;
-    }
-    .watch-link {
-      font-size: 1rem;
-      color: #0077ff;
-      text-decoration: none;
-    }
-    .watch-link:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      margin: 3rem 0;
-      font-size: 0.8rem;
-      color: #999;
+    body { font-family:"Georgia","Times New Roman",serif; background:#fff; color:#111; margin:0; padding:0; }
+    .ticker { background:#cc0000; color:#fff; font-size:0.9rem; padding:0.5rem 2rem; }
+    .ticker span { margin-right:2rem; }
+    header { background:#f8f8f8; padding:1rem 2rem; border-bottom:1px solid #e1e1e1; }
+    header nav a { margin-right:1.5rem; text-decoration:none; color:#0077ff; font-size:1rem; }
+    .hero { position:relative; }
+    .hero iframe { width:100%; aspect-ratio:16/9; }
+    .hero-info { padding:1rem 2rem; background:#fafafa; }
+    .hero-info h1 { margin:0; font-size:2.5rem; line-height:1.2; }
+    .hero-info .meta { color:#666; font-size:0.9rem; margin-0.5rem 0; }
+    .section-block { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    .section-block h2 { border-bottom:2px solid #e1e1e1; padding-0 0 0.5rem; font-size:1.8rem; }
+    .news-item { margin-2rem 0; }
+    .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-0 0 1rem; }
+    .news-item h2 { margin:0 0 0.5rem; font-size:1.3rem; line-height:1.3; }
+    .news-item .meta { color:#666; font-size:0.9rem; margin:0 0 0.5rem; }
+    .news-item .stats { color:#666; font-size:0.9rem; margin:0 0 1rem; }
+    .watch-link { font-size:1rem; color:#0077ff; text-decoration:none; }
+    .watch-link:hover { text-decoration:underline; }
+    footer { text-align:center; margin:3rem 0; font-size:0.8rem; color:#999; }
+    @media (max-width:768px) {
+      .hero-info h1 { font-size:1.8rem; }
+      header nav a { display:block; margin-0.5rem 0; }
     }
   </style>
 </head>
 <body>
+  <div class="ticker"><span>BREAKING:</span> Latest updates from major news outlets</div>
   <header>
-    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
-    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+    <nav><a href="#News">News</a><a href="#Sports">Sports</a><a href="#Tech">Tech</a></nav>
   </header>
+  ${heroHtml}
   <main>
-    ${cards || "<p>No new uploads in the last hour.</p>"}
+    ${sectionHtml}
   </main>
-  <footer>
-    <p>Updated at ${new Date().toLocaleString()}</p>
-  </footer>
+  <footer><p>Updated at ${new Date().toLocaleString()}</p></footer>
 </body>
 </html>`;
 
@@ -246,12 +214,11 @@ async function buildHome(videos) {
   console.log(`🏠 Homepage updated with ${videos.length} videos`);
 }
 
-// -------- Deploy step (including git) ----------
 async function deploySite() {
   console.log("📦 Deploying site…");
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update site with latest videos ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update site ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
     console.log("✅ Git push succeeded");
   } catch (err) {
@@ -259,7 +226,6 @@ async function deploySite() {
   }
 }
 
-// -------- Express server indexing, refresh route --------
 app.use(express.static("."));
 app.get("/refresh", async (req, res) => {
   const videos = await fetchFromYouTube();
@@ -268,13 +234,22 @@ app.get("/refresh", async (req, res) => {
   res.redirect("/");
 });
 
-// -------- Start server --------
-async function start() {
-  const localIP = getLocalIP();
+async function pollLoop() {
   const videos = await fetchFromYouTube();
   await buildHome(videos);
   await deploySite();
+  lastFetchTime = Date.now();
+}
+
+async function start() {
+  const localIP = getLocalIP();
   await fs.ensureDir("./downloads");
+
+  // initial run
+  await pollLoop();
+
+  // poll every 5 minutes
+  setInterval(pollLoop, 5 * 60 * 1000);
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`🚀 Local → http://localhost:${PORT}`);
