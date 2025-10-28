@@ -1,48 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Practivio News — Live Feed (Last Hour)</title>
-  <style>
-    body { font-family:"Georgia","Times New Roman",serif; background:#fff; color:#111; margin:0; padding:0; }
-    .ticker { background:#cc0000; color:#fff; font-size:0.9rem; overflow:hidden; white-space:nowrap; padding:0.5rem 2rem; }
-    .ticker .ticker-text { display:inline-block; animation: scrollTicker 40s linear infinite; }
-    @keyframes scrollTicker {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    header { background:#f8f8f8; padding:1rem 2rem; border-bottom:1px solid #e1e1e1; }
-    header h1 { margin:0; font-size:2rem; }
-    header .refresh { display:inline-block; margin-top:0.5rem; padding:0.4rem 1rem; background:#0077ff; color:#fff; text-decoration:none; border-radius:4px; }
-    main { max-width:900px; margin:2rem auto; padding:0 1rem; }
-    .news-item { margin-bottom:2rem; border-bottom:1px solid #eaeaea; padding-bottom:2rem; }
-    .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-bottom:1rem; }
-    .news-item h2 { margin:0 0 0.5rem; font-size:1.4rem; line-height:1.4; }
-    .news-item .meta { color:#666; font-size:0.9rem; margin:0 0 0.5rem; }
-    .news-item .stats { color:#666; font-size:0.9rem; margin:0 0 1rem; }
-    .buttons { display:flex; gap:0.5rem; margin-top:0.5rem; }
-    .watch-link, .download-link {
-      flex:1; text-align:center; text-decoration:none; padding:0.6rem 1rem; border-radius:4px; color:#fff;
-    }
-    .watch-link { background:#0077ff; }
-    .download-link { background:#00994c; }
-    .watch-link:hover { background:#005ae0; }
-    .download-link:hover { background:#007a3b; }
-    footer { text-align:center; margin:3rem 0; font-size:0.8rem; color:#999; }
-    @media (max-width:768px) {
-      header h1 { font-size:1.5rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Practivio News — Trending Now (Last Hour)</title>
+<style>
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f5;
+  color: #111;
+}
+header {
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.refresh {
+  display: inline-block;
+  margin: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+main {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.video-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+}
+.video-card .info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.video-card .info h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+.video-card .info .meta {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.video-card .info .stats {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.video-card .info .watch-btn {
+  margin-top: auto;
+  align-self: start;
+  padding: 0.6rem 1rem;
+  background: #0077ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.video-card .info .watch-btn:hover {
+  background: #005ae0;
+}
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+}
+</style>
 </head>
 <body>
-  <div class="ticker"><div class="ticker-text"></div></div>
-  <header>
-    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
-    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
-  </header>
-  <main>
+<header>
+  <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+  <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+</header>
+<main>
+  <div class="grid">
     <p>No new uploads in the last hour.</p>
-  </main>
-  <footer><p>Updated at 10/28/2025, 6:53:11 PM</p></footer>
+  </div>
+</main>
+<footer>
+  <p>Updated at 10/28/2025, 6:56:35 PM</p>
+</footer>
 </body>
 </html>
