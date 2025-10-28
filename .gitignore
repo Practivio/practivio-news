@@ -1,0 +1,15 @@
+# Ignore local downloaded videos
+/downloads/
+
+# Any added media folder (if used)
+/content/add/
+
+# Node modules folder (optional)
+/node_modules/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
