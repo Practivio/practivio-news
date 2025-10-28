@@ -85,8 +85,7 @@ async function fetchFromYouTube() {
           views,
           vpm,
           minutesOld: Math.round(minutesOld),
-          // category tagging logic could go here, default to “News”
-          category: "News"
+          category: "News"  // <-- assign category appropriately
         });
       });
 
@@ -109,6 +108,7 @@ async function fetchFromYouTube() {
   return unique;
 }
 
+// Download route remains fully functional
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
   const url = `https://www.youtube.com/watch?v=${id}`;
@@ -135,14 +135,16 @@ app.get("/download/:id", async (req, res) => {
 });
 
 async function buildHome(videos) {
-  // Split categories
+  // Build ticker items
+  const tickerItems = videos.slice(0, 10).map(v => `${v.channel}: ${v.title}`).join(" • ");
+
+  // Categories
   const cats = { News: [], Sports: [], Tech: [] };
   videos.forEach(v => {
     if (cats[v.category]) cats[v.category].push(v);
     else cats["News"].push(v);
   });
 
-  // Hero (top story)
   const hero = videos[0];
   const heroHtml = hero ? `
     <section class="hero">
@@ -154,6 +156,7 @@ async function buildHome(videos) {
     </section>` : "";
 
   const sectionHtml = Object.entries(cats).map(([catName, arr]) => {
+    if (arr.length === 0) return "";
     const list = arr.map(v => `
       <article class="news-item">
         <iframe src="${v.embed}" allowfullscreen></iframe>
@@ -162,7 +165,7 @@ async function buildHome(videos) {
         <p class="stats">👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} vpm</p>
         <a class="watch-link" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
       </article>`).join("\n");
-    return `<section class="section-block"><h2>${catName}</h2>${list}</section>`;
+    return `<section class="section-block" id="${catName}"><h2>${catName}</h2>${list}</section>`;
   }).join("\n");
 
   const html = `<!DOCTYPE html>
@@ -172,19 +175,23 @@ async function buildHome(videos) {
   <title>Practivio News — Live Feed</title>
   <style>
     body { font-family:"Georgia","Times New Roman",serif; background:#fff; color:#111; margin:0; padding:0; }
-    .ticker { background:#cc0000; color:#fff; font-size:0.9rem; padding:0.5rem 2rem; }
-    .ticker span { margin-right:2rem; }
+    .ticker { background:#cc0000; color:#fff; font-size:0.9rem; overflow:hidden; white-space:nowrap; padding:0.5rem 2rem; }
+    .ticker .ticker-text { display:inline-block; animation: scrollTicker 20s linear infinite; }
+    @keyframes scrollTicker {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
     header { background:#f8f8f8; padding:1rem 2rem; border-bottom:1px solid #e1e1e1; }
     header nav a { margin-right:1.5rem; text-decoration:none; color:#0077ff; font-size:1rem; }
     .hero { position:relative; }
     .hero iframe { width:100%; aspect-ratio:16/9; }
     .hero-info { padding:1rem 2rem; background:#fafafa; }
     .hero-info h1 { margin:0; font-size:2.5rem; line-height:1.2; }
-    .hero-info .meta { color:#666; font-size:0.9rem; margin-0.5rem 0; }
+    .hero-info .meta { color:#666; font-size:0.9rem; margin:0.5rem 0; }
     .section-block { max-width:900px; margin:2rem auto; padding:0 1rem; }
-    .section-block h2 { border-bottom:2px solid #e1e1e1; padding-0 0 0.5rem; font-size:1.8rem; }
-    .news-item { margin-2rem 0; }
-    .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-0 0 1rem; }
+    .section-block h2 { border-bottom:2px solid #e1e1e1; padding-bottom:0.5rem; font-size:1.8rem; }
+    .news-item { margin:2rem 0; }
+    .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-bottom:1rem; }
     .news-item h2 { margin:0 0 0.5rem; font-size:1.3rem; line-height:1.3; }
     .news-item .meta { color:#666; font-size:0.9rem; margin:0 0 0.5rem; }
     .news-item .stats { color:#666; font-size:0.9rem; margin:0 0 1rem; }
@@ -193,12 +200,12 @@ async function buildHome(videos) {
     footer { text-align:center; margin:3rem 0; font-size:0.8rem; color:#999; }
     @media (max-width:768px) {
       .hero-info h1 { font-size:1.8rem; }
-      header nav a { display:block; margin-0.5rem 0; }
+      header nav a { display:block; margin:0.5rem 0; }
     }
   </style>
 </head>
 <body>
-  <div class="ticker"><span>BREAKING:</span> Latest updates from major news outlets</div>
+  <div class="ticker"><div class="ticker-text">${tickerItems}</div></div>
   <header>
     <nav><a href="#News">News</a><a href="#Sports">Sports</a><a href="#Tech">Tech</a></nav>
   </header>
@@ -245,10 +252,7 @@ async function start() {
   const localIP = getLocalIP();
   await fs.ensureDir("./downloads");
 
-  // initial run
   await pollLoop();
-
-  // poll every 5 minutes
   setInterval(pollLoop, 5 * 60 * 1000);
 
   app.listen(PORT, "0.0.0.0", () => {
