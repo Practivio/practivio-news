@@ -2,151 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Practivio News — Live Feed</title>
+  <title>Practivio News — Live Feed (Last Hour)</title>
   <style>
     body { font-family:"Georgia","Times New Roman",serif; background:#fff; color:#111; margin:0; padding:0; }
     .ticker { background:#cc0000; color:#fff; font-size:0.9rem; overflow:hidden; white-space:nowrap; padding:0.5rem 2rem; }
-    .ticker .ticker-text { display:inline-block; animation: scrollTicker 20s linear infinite; }
+    .ticker .ticker-text { display:inline-block; animation: scrollTicker 40s linear infinite; }
     @keyframes scrollTicker {
       0%   { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
     header { background:#f8f8f8; padding:1rem 2rem; border-bottom:1px solid #e1e1e1; }
-    header nav a { margin-right:1.5rem; text-decoration:none; color:#0077ff; font-size:1rem; }
-    .hero { position:relative; }
-    .hero iframe { width:100%; aspect-ratio:16/9; }
-    .hero-info { padding:1rem 2rem; background:#fafafa; }
-    .hero-info h1 { margin:0; font-size:2.5rem; line-height:1.2; }
-    .hero-info .meta { color:#666; font-size:0.9rem; margin:0.5rem 0; }
-    .section-block { max-width:900px; margin:2rem auto; padding:0 1rem; }
-    .section-block h2 { border-bottom:2px solid #e1e1e1; padding-bottom:0.5rem; font-size:1.8rem; }
-    .news-item { margin:2rem 0; }
+    header h1 { margin:0; font-size:2rem; }
+    header .refresh { display:inline-block; margin-top:0.5rem; padding:0.4rem 1rem; background:#0077ff; color:#fff; text-decoration:none; border-radius:4px; }
+    main { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    .news-item { margin-bottom:2rem; border-bottom:1px solid #eaeaea; padding-bottom:2rem; }
     .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-bottom:1rem; }
-    .news-item h2 { margin:0 0 0.5rem; font-size:1.3rem; line-height:1.3; }
+    .news-item h2 { margin:0 0 0.5rem; font-size:1.4rem; line-height:1.4; }
     .news-item .meta { color:#666; font-size:0.9rem; margin:0 0 0.5rem; }
     .news-item .stats { color:#666; font-size:0.9rem; margin:0 0 1rem; }
-    .watch-link { font-size:1rem; color:#0077ff; text-decoration:none; }
-    .watch-link:hover { text-decoration:underline; }
+    .buttons { display:flex; gap:0.5rem; margin-top:0.5rem; }
+    .watch-link, .download-link {
+      flex:1; text-align:center; text-decoration:none; padding:0.6rem 1rem; border-radius:4px; color:#fff;
+    }
+    .watch-link { background:#0077ff; }
+    .download-link { background:#00994c; }
+    .watch-link:hover { background:#005ae0; }
+    .download-link:hover { background:#007a3b; }
     footer { text-align:center; margin:3rem 0; font-size:0.8rem; color:#999; }
     @media (max-width:768px) {
-      .hero-info h1 { font-size:1.8rem; }
-      header nav a { display:block; margin:0.5rem 0; }
+      header h1 { font-size:1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="ticker"><div class="ticker-text">FOX: ‘The Five’: Trump puts on a ‘masterclass’ • CNN: Judge asks top border official in Chicago to check in daily at court over protests • REUTERS: Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica • REUTERS: Hurricane Melissa batters Jamaica: On the ground look, forecast, interviews • FOX: WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics • BBC: How to cope with long winter nights and seasonal depression | BBC News • REUTERS: Part-time Jamaica resident describes Hurricane Melissa's impact on the ground • REUTERS: Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor • REUTERS: Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going • BBC: Can the UK government stop using migrant hotels? | BBC Newscast</div></div>
+  <div class="ticker"><div class="ticker-text"></div></div>
   <header>
-    <nav><a href="#News">News</a><a href="#Sports">Sports</a><a href="#Tech">Tech</a></nav>
+    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   </header>
-  
-    <section class="hero">
-      <iframe src="https://www.youtube.com/embed/u_VriOLifzY" allowfullscreen></iframe>
-      <div class="hero-info">
-        <h1>‘The Five’: Trump puts on a ‘masterclass’</h1>
-        <p class="meta">FOX • 20 min ago</p>
-      </div>
-    </section>
   <main>
-    <section class="section-block" id="News"><h2>News</h2>
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/u_VriOLifzY" allowfullscreen></iframe>
-        <h2>‘The Five’: Trump puts on a ‘masterclass’</h2>
-        <p class="meta">FOX • 20 min ago</p>
-        <p class="stats">👁️ 12,868 views • ⚡ 653.95 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/AR7IzMqTaig" allowfullscreen></iframe>
-        <h2>Judge asks top border official in Chicago to check in daily at court over protests</h2>
-        <p class="meta">CNN • 41 min ago</p>
-        <p class="stats">👁️ 6,499 views • ⚡ 158.00 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/ze5LRAzG0E8" allowfullscreen></iframe>
-        <h2>Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica</h2>
-        <p class="meta">REUTERS • 50 min ago</p>
-        <p class="stats">👁️ 5,977 views • ⚡ 119.82 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/inp6zuP8OvE" allowfullscreen></iframe>
-        <h2>Hurricane Melissa batters Jamaica: On the ground look, forecast, interviews</h2>
-        <p class="meta">REUTERS • 11 min ago</p>
-        <p class="stats">👁️ 916 views • ⚡ 85.74 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=inp6zuP8OvE" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/vOteoJCV9yY" allowfullscreen></iframe>
-        <h2>WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics</h2>
-        <p class="meta">FOX • 35 min ago</p>
-        <p class="stats">👁️ 1,770 views • ⚡ 51.02 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/X7ZOQIVUmyQ" allowfullscreen></iframe>
-        <h2>How to cope with long winter nights and seasonal depression | BBC News</h2>
-        <p class="meta">BBC • 49 min ago</p>
-        <p class="stats">👁️ 949 views • ⚡ 19.39 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/kxtKc5Ej5wE" allowfullscreen></iframe>
-        <h2>Part-time Jamaica resident describes Hurricane Melissa's impact on the ground</h2>
-        <p class="meta">REUTERS • 51 min ago</p>
-        <p class="stats">👁️ 965 views • ⚡ 18.85 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/EqozzqZIAEs" allowfullscreen></iframe>
-        <h2>Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor</h2>
-        <p class="meta">REUTERS • 30 min ago</p>
-        <p class="stats">👁️ 423 views • ⚡ 14.15 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/Ejevw_6OlhA" allowfullscreen></iframe>
-        <h2>Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going</h2>
-        <p class="meta">REUTERS • 31 min ago</p>
-        <p class="stats">👁️ 416 views • ⚡ 13.58 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/88SRZ8zd9YQ" allowfullscreen></iframe>
-        <h2>Can the UK government stop using migrant hotels? | BBC Newscast</h2>
-        <p class="meta">BBC • 50 min ago</p>
-        <p class="stats">👁️ 635 views • ⚡ 12.80 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/_3dvnjjcu20" allowfullscreen></iframe>
-        <h2>Potential impact of nationwide congressional redistricting fights</h2>
-        <p class="meta">REUTERS • 15 min ago</p>
-        <p class="stats">👁️ 126 views • ⚡ 8.48 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=_3dvnjjcu20" target="_blank">▶️ Watch on YouTube</a>
-      </article>
-
-      <article class="news-item">
-        <iframe src="https://www.youtube.com/embed/i_nEv58uWfI" allowfullscreen></iframe>
-        <h2>MLB weighing ban on all prop betting</h2>
-        <p class="meta">REUTERS • 20 min ago</p>
-        <p class="stats">👁️ 134 views • ⚡ 6.69 vpm</p>
-        <a class="watch-link" href="https://www.youtube.com/watch?v=i_nEv58uWfI" target="_blank">▶️ Watch on YouTube</a>
-      </article></section>
-
-
+    <p>No new uploads in the last hour.</p>
   </main>
-  <footer><p>Updated at 10/28/2025, 6:49:48 PM</p></footer>
+  <footer><p>Updated at 10/28/2025, 6:53:11 PM</p></footer>
 </body>
 </html>

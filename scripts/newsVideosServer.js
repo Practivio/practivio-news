@@ -85,7 +85,6 @@ async function fetchFromYouTube() {
           views,
           vpm,
           minutesOld: Math.round(minutesOld),
-          category: "News"  // <-- assign category appropriately
         });
       });
 
@@ -108,7 +107,6 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// Download route remains fully functional
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
   const url = `https://www.youtube.com/watch?v=${id}`;
@@ -135,83 +133,69 @@ app.get("/download/:id", async (req, res) => {
 });
 
 async function buildHome(videos) {
-  // Build ticker items
-  const tickerItems = videos.slice(0, 10).map(v => `${v.channel}: ${v.title}`).join(" • ");
+  const tickerItems = videos.slice(0,10).map(v => `${v.channel}: ${v.title}`).join(" • ");
 
-  // Categories
-  const cats = { News: [], Sports: [], Tech: [] };
-  videos.forEach(v => {
-    if (cats[v.category]) cats[v.category].push(v);
-    else cats["News"].push(v);
-  });
-
-  const hero = videos[0];
-  const heroHtml = hero ? `
-    <section class="hero">
-      <iframe src="${hero.embed}" allowfullscreen></iframe>
-      <div class="hero-info">
-        <h1>${hero.title}</h1>
-        <p class="meta">${hero.channel} • ${hero.minutesOld} min ago</p>
-      </div>
-    </section>` : "";
-
-  const sectionHtml = Object.entries(cats).map(([catName, arr]) => {
-    if (arr.length === 0) return "";
-    const list = arr.map(v => `
+  const cards = videos.map(v => {
+    const views = v.views || 0;
+    const vpm = v.vpm?.toFixed(2) || "0.00";
+    const ageMins = v.minutesOld;
+    return `
       <article class="news-item">
         <iframe src="${v.embed}" allowfullscreen></iframe>
         <h2>${v.title}</h2>
-        <p class="meta">${v.channel} • ${v.minutesOld} min ago</p>
-        <p class="stats">👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} vpm</p>
-        <a class="watch-link" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
-      </article>`).join("\n");
-    return `<section class="section-block" id="${catName}"><h2>${catName}</h2>${list}</section>`;
+        <p class="meta">${v.channel} • ${ageMins} min ago</p>
+        <p class="stats">👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min</p>
+        <div class="buttons">
+          <a class="watch-link" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
+          <a class="download-link" href="/download/${v.id}" target="_blank">⬇️ Download</a>
+        </div>
+      </article>`;
   }).join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Practivio News — Live Feed</title>
+  <title>Practivio News — Live Feed (Last Hour)</title>
   <style>
     body { font-family:"Georgia","Times New Roman",serif; background:#fff; color:#111; margin:0; padding:0; }
     .ticker { background:#cc0000; color:#fff; font-size:0.9rem; overflow:hidden; white-space:nowrap; padding:0.5rem 2rem; }
-    .ticker .ticker-text { display:inline-block; animation: scrollTicker 20s linear infinite; }
+    .ticker .ticker-text { display:inline-block; animation: scrollTicker 40s linear infinite; }
     @keyframes scrollTicker {
       0%   { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
     header { background:#f8f8f8; padding:1rem 2rem; border-bottom:1px solid #e1e1e1; }
-    header nav a { margin-right:1.5rem; text-decoration:none; color:#0077ff; font-size:1rem; }
-    .hero { position:relative; }
-    .hero iframe { width:100%; aspect-ratio:16/9; }
-    .hero-info { padding:1rem 2rem; background:#fafafa; }
-    .hero-info h1 { margin:0; font-size:2.5rem; line-height:1.2; }
-    .hero-info .meta { color:#666; font-size:0.9rem; margin:0.5rem 0; }
-    .section-block { max-width:900px; margin:2rem auto; padding:0 1rem; }
-    .section-block h2 { border-bottom:2px solid #e1e1e1; padding-bottom:0.5rem; font-size:1.8rem; }
-    .news-item { margin:2rem 0; }
+    header h1 { margin:0; font-size:2rem; }
+    header .refresh { display:inline-block; margin-top:0.5rem; padding:0.4rem 1rem; background:#0077ff; color:#fff; text-decoration:none; border-radius:4px; }
+    main { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    .news-item { margin-bottom:2rem; border-bottom:1px solid #eaeaea; padding-bottom:2rem; }
     .news-item iframe { width:100%; aspect-ratio:16/9; border:none; margin-bottom:1rem; }
-    .news-item h2 { margin:0 0 0.5rem; font-size:1.3rem; line-height:1.3; }
+    .news-item h2 { margin:0 0 0.5rem; font-size:1.4rem; line-height:1.4; }
     .news-item .meta { color:#666; font-size:0.9rem; margin:0 0 0.5rem; }
     .news-item .stats { color:#666; font-size:0.9rem; margin:0 0 1rem; }
-    .watch-link { font-size:1rem; color:#0077ff; text-decoration:none; }
-    .watch-link:hover { text-decoration:underline; }
+    .buttons { display:flex; gap:0.5rem; margin-top:0.5rem; }
+    .watch-link, .download-link {
+      flex:1; text-align:center; text-decoration:none; padding:0.6rem 1rem; border-radius:4px; color:#fff;
+    }
+    .watch-link { background:#0077ff; }
+    .download-link { background:#00994c; }
+    .watch-link:hover { background:#005ae0; }
+    .download-link:hover { background:#007a3b; }
     footer { text-align:center; margin:3rem 0; font-size:0.8rem; color:#999; }
     @media (max-width:768px) {
-      .hero-info h1 { font-size:1.8rem; }
-      header nav a { display:block; margin:0.5rem 0; }
+      header h1 { font-size:1.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="ticker"><div class="ticker-text">${tickerItems}</div></div>
   <header>
-    <nav><a href="#News">News</a><a href="#Sports">Sports</a><a href="#Tech">Tech</a></nav>
+    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   </header>
-  ${heroHtml}
   <main>
-    ${sectionHtml}
+    ${cards || "<p>No new uploads in the last hour.</p>"}
   </main>
   <footer><p>Updated at ${new Date().toLocaleString()}</p></footer>
 </body>
