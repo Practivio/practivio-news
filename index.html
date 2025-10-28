@@ -1,236 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Practivio News — Trending Now (Last Hour)</title>
-<style>
-body {
-  font-family: "Inter", Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f5;
-  color: #111;
-}
-header {
-  background: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-.refresh {
-  display: inline-block;
-  margin: 0.5rem 2rem;
-  padding: 0.5rem 1rem;
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-main {
-  max-width: 1200px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-.video-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.video-card iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-.video-card .info {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.video-card .info h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-}
-.video-card .info .meta {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-.video-card .info .stats {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.video-card .info .watch-btn {
-  margin-top: auto;
-  align-self: start;
-  padding: 0.6rem 1rem;
-  background: #0077ff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.video-card .info .watch-btn:hover {
-  background: #005ae0;
-}
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #777;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Practivio News — Trend­ing Now (Last Hour)</title>
+  <style>
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #f8f8f8;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #e1e1e1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    header .refresh {
+      display: inline-block;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #0077ff;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .news-item {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 2rem;
+    }
+    .news-item iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      margin-bottom: 1rem;
+    }
+    .news-headline {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    .news-meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .news-stats {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .watch-link {
+      font-size: 1rem;
+      color: #0077ff;
+      text-decoration: none;
+    }
+    .watch-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin: 3rem 0;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
-  <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
-</header>
-<main>
-  <div class="grid">
+  <header>
+    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+  </header>
+  <main>
     
-      <article class="video-card">
-        <iframe src="https://www.youtube.com/embed/kVcMb47d0sE" allowfullscreen></iframe>
-        <div class="info">
-          <h2>McEnany: I was STUNNED by this</h2>
-          <p class="meta"><span class="channel">FOX</span> • <span class="age">49 min ago</span></p>
-          <p class="stats">👁️ 20,216 views • ⚡ 413.14 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=kVcMb47d0sE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </article>
-
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/u_VriOLifzY" allowfullscreen></iframe>
-        <div class="info">
-          <h2>‘The Five’: Trump puts on a ‘masterclass’</h2>
-          <p class="meta"><span class="channel">FOX</span> • <span class="age">4 min ago</span></p>
-          <p class="stats">👁️ 1,146 views • ⚡ 296.40 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">‘The Five’: Trump puts on a ‘masterclass’</h2>
+        <p class="news-meta"><span class="channel">FOX</span> • <span class="age">11 min ago</span></p>
+        <p class="news-stats">👁️ 5,635 views • ⚡ 517.20 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
+        <iframe src="https://www.youtube.com/embed/kVcMb47d0sE" allowfullscreen></iframe>
+        <h2 class="news-headline">McEnany: I was STUNNED by this</h2>
+        <p class="news-meta"><span class="channel">FOX</span> • <span class="age">56 min ago</span></p>
+        <p class="news-stats">👁️ 23,384 views • ⚡ 417.86 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=kVcMb47d0sE" target="_blank">▶️ Watch on YouTube</a>
+      </article>
+
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/AR7IzMqTaig" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Judge asks top border official in Chicago to check in daily at court over protests</h2>
-          <p class="meta"><span class="channel">CNN</span> • <span class="age">25 min ago</span></p>
-          <p class="stats">👁️ 3,826 views • ⚡ 151.09 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">Judge asks top border official in Chicago to check in daily at court over protests</h2>
+        <p class="news-meta"><span class="channel">CNN</span> • <span class="age">32 min ago</span></p>
+        <p class="news-stats">👁️ 5,090 views • ⚡ 157.35 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/mQQzzN1mfOU" allowfullscreen></iframe>
-        <div class="info">
-          <h2>WATCH: State Trooper pushes a massive hay bale that blew into the road #shorts #watch #video #usa</h2>
-          <p class="meta"><span class="channel">FOX</span> • <span class="age">49 min ago</span></p>
-          <p class="stats">👁️ 7,366 views • ⚡ 150.74 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=mQQzzN1mfOU" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">WATCH: State Trooper pushes a massive hay bale that blew into the road #shorts #watch #video #usa</h2>
+        <p class="news-meta"><span class="channel">FOX</span> • <span class="age">56 min ago</span></p>
+        <p class="news-stats">👁️ 8,093 views • ⚡ 144.79 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=mQQzzN1mfOU" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/ze5LRAzG0E8" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica</h2>
-          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">34 min ago</span></p>
-          <p class="stats">👁️ 2,299 views • ⚡ 67.47 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica</h2>
+        <p class="news-meta"><span class="channel">REUTERS</span> • <span class="age">41 min ago</span></p>
+        <p class="news-stats">👁️ 3,952 views • ⚡ 96.15 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/wl52n8YaPJE" allowfullscreen></iframe>
-        <div class="info">
-          <h2>EXTRA EYES ON GIANNIS 👀 The Bucks host the Knicks after reported trade talks | NBA Today</h2>
-          <p class="meta"><span class="channel">ESPN</span> • <span class="age">46 min ago</span></p>
-          <p class="stats">👁️ 3,102 views • ⚡ 67.45 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=wl52n8YaPJE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">EXTRA EYES ON GIANNIS 👀 The Bucks host the Knicks after reported trade talks | NBA Today</h2>
+        <p class="news-meta"><span class="channel">ESPN</span> • <span class="age">53 min ago</span></p>
+        <p class="news-stats">👁️ 3,518 views • ⚡ 66.36 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=wl52n8YaPJE" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/vOteoJCV9yY" allowfullscreen></iframe>
-        <div class="info">
-          <h2>WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics</h2>
-          <p class="meta"><span class="channel">FOX</span> • <span class="age">19 min ago</span></p>
-          <p class="stats">👁️ 786 views • ⚡ 41.62 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics</h2>
+        <p class="news-meta"><span class="channel">FOX</span> • <span class="age">26 min ago</span></p>
+        <p class="news-stats">👁️ 1,253 views • ⚡ 48.36 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/X7ZOQIVUmyQ" allowfullscreen></iframe>
-        <div class="info">
-          <h2>How to cope with long winter nights and seasonal depression | BBC News</h2>
-          <p class="meta"><span class="channel">BBC</span> • <span class="age">33 min ago</span></p>
-          <p class="stats">👁️ 700 views • ⚡ 21.13 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">How to cope with long winter nights and seasonal depression | BBC News</h2>
+        <p class="news-meta"><span class="channel">BBC</span> • <span class="age">40 min ago</span></p>
+        <p class="news-stats">👁️ 824 views • ⚡ 20.52 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/kxtKc5Ej5wE" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Part-time Jamaica resident describes Hurricane Melissa's impact on the ground</h2>
-          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">35 min ago</span></p>
-          <p class="stats">👁️ 718 views • ⚡ 20.29 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">Part-time Jamaica resident describes Hurricane Melissa's impact on the ground</h2>
+        <p class="news-meta"><span class="channel">REUTERS</span> • <span class="age">42 min ago</span></p>
+        <p class="news-stats">👁️ 820 views • ⚡ 19.33 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
-        <iframe src="https://www.youtube.com/embed/Ejevw_6OlhA" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going</h2>
-          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">15 min ago</span></p>
-          <p class="stats">👁️ 210 views • ⚡ 14.17 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </article>
-
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/EqozzqZIAEs" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor</h2>
-          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">14 min ago</span></p>
-          <p class="stats">👁️ 192 views • ⚡ 13.64 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor</h2>
+        <p class="news-meta"><span class="channel">REUTERS</span> • <span class="age">21 min ago</span></p>
+        <p class="news-stats">👁️ 305 views • ⚡ 14.45 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
+        <iframe src="https://www.youtube.com/embed/Ejevw_6OlhA" allowfullscreen></iframe>
+        <h2 class="news-headline">Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going</h2>
+        <p class="news-meta"><span class="channel">REUTERS</span> • <span class="age">22 min ago</span></p>
+        <p class="news-stats">👁️ 314 views • ⚡ 14.37 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">▶️ Watch on YouTube</a>
+      </article>
+
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/88SRZ8zd9YQ" allowfullscreen></iframe>
-        <div class="info">
-          <h2>Can the UK government stop using migrant hotels? | BBC Newscast</h2>
-          <p class="meta"><span class="channel">BBC</span> • <span class="age">34 min ago</span></p>
-          <p class="stats">👁️ 461 views • ⚡ 13.63 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">Can the UK government stop using migrant hotels? | BBC Newscast</h2>
+        <p class="news-meta"><span class="channel">BBC</span> • <span class="age">41 min ago</span></p>
+        <p class="news-stats">👁️ 548 views • ⚡ 13.42 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">▶️ Watch on YouTube</a>
       </article>
 
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="https://www.youtube.com/embed/i_nEv58uWfI" allowfullscreen></iframe>
-        <div class="info">
-          <h2>MLB weighing ban on all prop betting</h2>
-          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">4 min ago</span></p>
-          <p class="stats">👁️ 11 views • ⚡ 2.62 views/min</p>
-          <a class="watch-btn" href="https://www.youtube.com/watch?v=i_nEv58uWfI" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">MLB weighing ban on all prop betting</h2>
+        <p class="news-meta"><span class="channel">REUTERS</span> • <span class="age">11 min ago</span></p>
+        <p class="news-stats">👁️ 80 views • ⚡ 7.12 views/min</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=i_nEv58uWfI" target="_blank">▶️ Watch on YouTube</a>
       </article>
-  </div>
-</main>
-<footer>
-  <p>Updated at 10/28/2025, 6:33:59 PM</p>
-</footer>
+  </main>
+  <footer>
+    <p>Updated at 10/28/2025, 6:41:01 PM</p>
+  </footer>
 </body>
 </html>

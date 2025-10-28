@@ -58,7 +58,8 @@ async function fetchFromYouTube() {
       const { data } = await axios.get(searchUrl);
 
       const items = data.items.filter(
-        it => it.id.videoId && new Date(it.snippet.publishedAt).getTime() > cutoff
+        it => it.id.videoId
+              && new Date(it.snippet.publishedAt).getTime() > cutoff
       );
       const videoIds = items.map(it => it.id.videoId).join(",");
       if (!videoIds) continue;
@@ -108,7 +109,7 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Download Route (unchanged) ----------
+// -------- Download Route (local functionality preserved) --------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
   const url = `https://www.youtube.com/watch?v=${id}`;
@@ -126,137 +127,118 @@ app.get("/download/:id", async (req, res) => {
       }
       res.download(fixedPath, `${id}.mp4`, () => {
         setTimeout(() => {
-          fs.remove(`./downloads/${id}.mp4`).catch(()=>{});
-          fs.remove(fixedPath).catch(()=>{});
+          fs.remove(`./downloads/${id}.mp4`).catch(() => {});
+          fs.remove(fixedPath).catch(() => {});
         }, 5000);
       });
     });
   });
 });
 
-// -------- Build homepage (modern-style) ----------
+// -------- Build homepage (publication-style design) ----------
 async function buildHome(videos) {
   const cards = videos.map(v => {
     const views = v.views || 0;
     const vpm = v.vpm?.toFixed(2) || "0.00";
     const ageMins = v.minutesOld;
     return `
-      <article class="video-card">
+      <article class="news-item">
         <iframe src="${v.embed}" allowfullscreen></iframe>
-        <div class="info">
-          <h2>${v.title}</h2>
-          <p class="meta"><span class="channel">${v.channel}</span> • <span class="age">${ageMins} min ago</span></p>
-          <p class="stats">👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min</p>
-          <a class="watch-btn" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
-        </div>
+        <h2 class="news-headline">${v.title}</h2>
+        <p class="news-meta"><span class="channel">${v.channel}</span> • <span class="age">${ageMins} min ago</span></p>
+        <p class="news-stats">👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min</p>
+        <a class="watch-link" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
       </article>`;
   }).join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Practivio News — Trending Now (Last Hour)</title>
-<style>
-body {
-  font-family: "Inter", Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f5;
-  color: #111;
-}
-header {
-  background: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-.refresh {
-  display: inline-block;
-  margin: 0.5rem 2rem;
-  padding: 0.5rem 1rem;
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-main {
-  max-width: 1200px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-.video-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.video-card iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-.video-card .info {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.video-card .info h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-}
-.video-card .info .meta {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-.video-card .info .stats {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.video-card .info .watch-btn {
-  margin-top: auto;
-  align-self: start;
-  padding: 0.6rem 1rem;
-  background: #0077ff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.video-card .info .watch-btn:hover {
-  background: #005ae0;
-}
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #777;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Practivio News — Trend­ing Now (Last Hour)</title>
+  <style>
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #f8f8f8;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #e1e1e1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    header .refresh {
+      display: inline-block;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #0077ff;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .news-item {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 2rem;
+    }
+    .news-item iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      margin-bottom: 1rem;
+    }
+    .news-headline {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    .news-meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .news-stats {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .watch-link {
+      font-size: 1rem;
+      color: #0077ff;
+      text-decoration: none;
+    }
+    .watch-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin: 3rem 0;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
-  <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
-</header>
-<main>
-  <div class="grid">
+  <header>
+    <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+    <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+  </header>
+  <main>
     ${cards || "<p>No new uploads in the last hour.</p>"}
-  </div>
-</main>
-<footer>
-  <p>Updated at ${new Date().toLocaleString()}</p>
-</footer>
+  </main>
+  <footer>
+    <p>Updated at ${new Date().toLocaleString()}</p>
+  </footer>
 </body>
 </html>`;
 
@@ -277,7 +259,7 @@ async function deploySite() {
   }
 }
 
-// -------- Express server ----------
+// -------- Express server indexing, refresh route --------
 app.use(express.static("."));
 app.get("/refresh", async (req, res) => {
   const videos = await fetchFromYouTube();
@@ -286,7 +268,7 @@ app.get("/refresh", async (req, res) => {
   res.redirect("/");
 });
 
-// -------- Start ----------
+// -------- Start server --------
 async function start() {
   const localIP = getLocalIP();
   const videos = await fetchFromYouTube();
