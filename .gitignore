@@ -13,3 +13,4 @@ Thumbs.db
 
 # Log files
 *.log
+/downloads/
