@@ -2,727 +2,235 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Practivio News — Trending Now (Last 24 h)</title>
+<title>Practivio News — Trending Now (Last Hour)</title>
 <style>
-body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
-h1{text-align:center;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;}
-.video-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-iframe{width:100%;aspect-ratio:16/9;border-radius:10px;border:none;}
-.buttons{display:flex;gap:0.5rem;margin-top:0.5rem;}
-.download,.alt{flex:1;text-align:center;text-decoration:none;color:white;padding:0.4rem 0.8rem;border-radius:6px;}
-.download{background:#0077ff;}
-.alt{background:#00994c;}
-.download:hover{background:#005ae0;}
-.alt:hover{background:#007a3b;}
-.refresh{display:block;width:fit-content;margin:1rem auto;padding:0.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
-.refresh:hover{background:#333;}
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f5;
+  color: #111;
+}
+header {
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.refresh {
+  display: inline-block;
+  margin: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+main {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.video-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+}
+.video-card .info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.video-card .info h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+.video-card .info .meta {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.video-card .info .stats {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.video-card .info .watch-btn {
+  margin-top: auto;
+  align-self: start;
+  padding: 0.6rem 1rem;
+  background: #0077ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.video-card .info .watch-btn:hover {
+  background: #005ae0;
+}
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+}
 </style>
 </head>
 <body>
-<h1>🔥 Practivio News — Most Viral Now (Views per Minute)</h1>
-<a class="refresh" href="/refresh">🔄 Refresh Feed</a>
-<div class="grid">
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/QV3bDKSkuto" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Category 5 Hurricane Melissa makes devastating landfall in Jamaica</p>
-        <p>👁️ 315,938 views • ⚡ 1054.95 views/min • ⏰ 5.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=QV3bDKSkuto" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=QV3bDKSkuto" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/QavZSd6BGXY" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Three dead in Jamaica as Hurricane Melissa approaches | BBC News</p>
-        <p>👁️ 439,842 views • ⚡ 652.00 views/min • ⏰ 11.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=QavZSd6BGXY" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=QavZSd6BGXY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vmcOUUOzW3o" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: BREAKING: Netanyahu orders Gaza strikes after Israeli official says Hamas violated ceasefire</p>
-        <p>👁️ 133,054 views • ⚡ 592.37 views/min • ⏰ 3.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=vmcOUUOzW3o" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=vmcOUUOzW3o" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/lKu48FazQ2k" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Hurricane Melissa makes landfall in Jamaica with violent 185 mph winds | BBC News</p>
-        <p>👁️ 175,190 views • ⚡ 568.17 views/min • ⏰ 5.1 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=lKu48FazQ2k" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=lKu48FazQ2k" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/cXB158gZ5ck" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Hurricane Melissa closes in on Jamaica | BBC News</p>
-        <p>👁️ 174,330 views • ⚡ 488.02 views/min • ⏰ 6.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=cXB158gZ5ck" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=cXB158gZ5ck" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/ix3THj8QPoA" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Prince Andrew hosted Epstein, Maxwell and Weinstein at Royal Lodge | BBC News</p>
-        <p>👁️ 258,600 views • ⚡ 482.40 views/min • ⏰ 8.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=ix3THj8QPoA" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=ix3THj8QPoA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/XBIu3nD6euk" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: 'This is SCARY': MSNBC makes baffling claim</p>
-        <p>👁️ 129,241 views • ⚡ 480.55 views/min • ⏰ 4.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=XBIu3nD6euk" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=XBIu3nD6euk" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
+<header>
+  <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
+  <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+</header>
+<main>
+  <div class="grid">
+    
+      <article class="video-card">
         <iframe src="https://www.youtube.com/embed/kVcMb47d0sE" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: McEnany: I was STUNNED by this</p>
-        <p>👁️ 18,373 views • ⚡ 411.53 views/min • ⏰ 0.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=kVcMb47d0sE" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=kVcMb47d0sE" target="_blank">▶️ Watch on YouTube</a>
+        <div class="info">
+          <h2>McEnany: I was STUNNED by this</h2>
+          <p class="meta"><span class="channel">FOX</span> • <span class="age">49 min ago</span></p>
+          <p class="stats">👁️ 20,216 views • ⚡ 413.14 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=kVcMb47d0sE" target="_blank">▶️ Watch on YouTube</a>
         </div>
-      </div>
+      </article>
 
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Q0rRTKGs-bs" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: TEAR GAS FIRESTORM: Border czar Homan stands firm behind Chief Bovino amid tear gas use</p>
-        <p>👁️ 44,062 views • ⚡ 327.28 views/min • ⏰ 2.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=Q0rRTKGs-bs" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=Q0rRTKGs-bs" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/cK0riHf53N0" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Hurricane Melissa batters Jamaica</p>
-        <p>👁️ 54,739 views • ⚡ 310.23 views/min • ⏰ 2.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=cK0riHf53N0" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=cK0riHf53N0" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/u8C6l9sa_fM" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Israeli PM Netanyahu orders military to immediately strike Gaza | BBC News</p>
-        <p>👁️ 62,841 views • ⚡ 234.30 views/min • ⏰ 4.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=u8C6l9sa_fM" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=u8C6l9sa_fM" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vFcAv4i-ry0" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: Hakeem Jeffries holds presser as government shutdown drags on</p>
-        <p>👁️ 49,167 views • ⚡ 223.76 views/min • ⏰ 3.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=vFcAv4i-ry0" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=vFcAv4i-ry0" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/XFdsBtPXDDc" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: WATCH: Troops cheer as Trump announces military pay raise</p>
-        <p>👁️ 18,781 views • ⚡ 211.27 views/min • ⏰ 1.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=XFdsBtPXDDc" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=XFdsBtPXDDc" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/BgcdaYWDWAQ" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Forbes: Trump Organization raking in millions off ties to UAE</p>
-        <p>👁️ 62,757 views • ⚡ 173.18 views/min • ⏰ 6.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=BgcdaYWDWAQ" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=BgcdaYWDWAQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/BeMpQW39H-A" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: 42 million Americans could lose food stamps in government shutdown</p>
-        <p>👁️ 38,538 views • ⚡ 170.07 views/min • ⏰ 3.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=BeMpQW39H-A" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=BeMpQW39H-A" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/yL2L0ByINno" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Israel launches strikes on Gaza, after PM Netanyahu orders 'powerful' attacks | BBC News</p>
-        <p>👁️ 12,614 views • ⚡ 154.19 views/min • ⏰ 1.4 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=yL2L0ByINno" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=yL2L0ByINno" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/mQQzzN1mfOU" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: WATCH: State Trooper pushes a massive hay bale that blew into the road #shorts #watch #video #usa</p>
-        <p>👁️ 6,869 views • ⚡ 154.09 views/min • ⏰ 0.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=mQQzzN1mfOU" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=mQQzzN1mfOU" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/6NXad0oPxs0" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: American couple on honeymoon trapped in Jamaica as Melissa makes landfall</p>
-        <p>👁️ 32,259 views • ⚡ 141.75 views/min • ⏰ 3.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=6NXad0oPxs0" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=6NXad0oPxs0" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/AR7IzMqTaig" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Judge asks top border official in Chicago to check in daily at court over protests</p>
-        <p>👁️ 2,843 views • ⚡ 135.17 views/min • ⏰ 0.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/CU66elxqNtw" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Hegseth: US strikes more alleged drug boats in Pacific, killing 14</p>
-        <p>👁️ 15,653 views • ⚡ 134.32 views/min • ⏰ 1.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=CU66elxqNtw" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=CU66elxqNtw" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/sdzaOId3Ac8" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Mad Dog: Buffalo NEEDS TO WIN this game + What is going on with Caleb Williams? | First Take</p>
-        <p>👁️ 55,037 views • ⚡ 133.79 views/min • ⏰ 6.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=sdzaOId3Ac8" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=sdzaOId3Ac8" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/VExexsC39cA" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Border Patrol commander defends himself to Chicago judge</p>
-        <p>👁️ 9,763 views • ⚡ 130.87 views/min • ⏰ 1.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=VExexsC39cA" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=VExexsC39cA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/eSoGeMUz4MI" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Air traffic controllers miss first paycheck of shutdown</p>
-        <p>👁️ 28,531 views • ⚡ 130.34 views/min • ⏰ 3.6 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=eSoGeMUz4MI" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=eSoGeMUz4MI" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/PBl5Mt6V1RU" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Hurricane Melissa makes devastating landfall in Jamaica</p>
-        <p>👁️ 38,675 views • ⚡ 129.09 views/min • ⏰ 5.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=PBl5Mt6V1RU" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=PBl5Mt6V1RU" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/C14uL3XuWsY" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: Troops go WILD after Trump unveils pay raise #shorts #trump #us #troops #military #foxnews</p>
-        <p>👁️ 27,843 views • ⚡ 116.40 views/min • ⏰ 4.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=C14uL3XuWsY" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=C14uL3XuWsY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/TcxBVN0MJ0U" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: 'VIOLENT VIDEOS': These images are 'traumatizing' for Jewish students, author warns</p>
-        <p>👁️ 18,845 views • ⚡ 104.99 views/min • ⏰ 3.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=TcxBVN0MJ0U" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=TcxBVN0MJ0U" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/TSHqZirGfBU" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: President Donald Trump begins new US-Japan alliance | BBC News</p>
-        <p>👁️ 62,038 views • ⚡ 103.57 views/min • ⏰ 10.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=TSHqZirGfBU" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=TSHqZirGfBU" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/EsgKENrgYVI" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: This may have been the last pitch he'll ever throw 😮</p>
-        <p>👁️ 40,454 views • ⚡ 99.96 views/min • ⏰ 6.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=EsgKENrgYVI" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=EsgKENrgYVI" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/UW-JDTAOYd4" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Air traffic controllers say they're running out of money</p>
-        <p>👁️ 28,223 views • ⚡ 81.55 views/min • ⏰ 5.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=UW-JDTAOYd4" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=UW-JDTAOYd4" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vk5pNx1MhUM" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Hurricane Melissa makes landfall in Jamaica as Category 5 storm | full coverage</p>
-        <p>👁️ 19,814 views • ⚡ 79.54 views/min • ⏰ 4.2 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=vk5pNx1MhUM" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=vk5pNx1MhUM" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/8llTpHaQYqM" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Madison & Justin Bieber doing double dates at Dodger Stadium ❤️ (via @haiiley.c/IG, @lilbieber/IG)</p>
-        <p>👁️ 8,141 views • ⚡ 78.91 views/min • ⏰ 1.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=8llTpHaQYqM" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=8llTpHaQYqM" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/eAb0jdEfzKc" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: CAMPUS WAVE: Massive crowd chants 'Charlie Kirk!' at LSU event #shorts #charliekirk</p>
-        <p>👁️ 11,809 views • ⚡ 71.74 views/min • ⏰ 2.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=eAb0jdEfzKc" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=eAb0jdEfzKc" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/qhwpR_i0gHE" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: "Hell on Earth is unfolding right now in Jamaica," meteorologist Matthew Cappucci says</p>
-        <p>👁️ 17,770 views • ⚡ 68.66 views/min • ⏰ 4.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=qhwpR_i0gHE" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=qhwpR_i0gHE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/5nhs-wlffe4" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Netanyahu orders ‘immediate, powerful’ strikes in Gaza</p>
-        <p>👁️ 15,958 views • ⚡ 68.19 views/min • ⏰ 3.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=5nhs-wlffe4" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=5nhs-wlffe4" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/wl52n8YaPJE" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: EXTRA EYES ON GIANNIS 👀 The Bucks host the Knicks after reported trade talks | NBA Today</p>
-        <p>👁️ 2,827 views • ⚡ 67.79 views/min • ⏰ 0.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=wl52n8YaPJE" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=wl52n8YaPJE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/ze5LRAzG0E8" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica</p>
-        <p>👁️ 1,954 views • ⚡ 65.60 views/min • ⏰ 0.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/WZCz80sCprw" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: A California sheriff’s deputy killed in line of duty</p>
-        <p>👁️ 10,834 views • ⚡ 62.22 views/min • ⏰ 2.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=WZCz80sCprw" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=WZCz80sCprw" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/ZeYJJtnchuk" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: GloRilla supporting Brandon Ingram courtside ❤️ (via @raptors/TT, @vonharrisproductions/TT)</p>
-        <p>👁️ 15,969 views • ⚡ 59.38 views/min • ⏰ 4.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=ZeYJJtnchuk" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=ZeYJJtnchuk" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/FcFY_6SpiGM" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Hurricane Melissa keeps strengthening near Jamaica</p>
-        <p>👁️ 22,649 views • ⚡ 55.13 views/min • ⏰ 6.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=FcFY_6SpiGM" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=FcFY_6SpiGM" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/UDE9mla6q2o" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Satellite video shows Hurricane Melissa growing near Jamaica. #HurricaneMelissa #BBCNews</p>
-        <p>👁️ 34,515 views • ⚡ 48.99 views/min • ⏰ 11.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=UDE9mla6q2o" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=UDE9mla6q2o" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/oU_9wLQj7SY" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Air traffic controllers miss first full paycheck</p>
-        <p>👁️ 20,023 views • ⚡ 45.76 views/min • ⏰ 7.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=oU_9wLQj7SY" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=oU_9wLQj7SY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/aNIc3qgg8Zo" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Hurricane Melissa a historic, slow-moving storm as it comes ashore in Jamaica</p>
-        <p>👁️ 10,522 views • ⚡ 43.01 views/min • ⏰ 4.1 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=aNIc3qgg8Zo" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=aNIc3qgg8Zo" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/UMnVBhfHWgg" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: Comedian jokes about Trump’s potential third term in hilarious impression #foxnews #news #shorts</p>
-        <p>👁️ 5,033 views • ⚡ 42.13 views/min • ⏰ 2.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=UMnVBhfHWgg" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=UMnVBhfHWgg" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/3pe4Awij5ME" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Netanyahu orders strikes on Gaza, accusing Hamas of returning wrong hostage remains</p>
-        <p>👁️ 7,804 views • ⚡ 38.27 views/min • ⏰ 3.4 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=3pe4Awij5ME" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=3pe4Awij5ME" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vOteoJCV9yY" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics</p>
-        <p>👁️ 554 views • ⚡ 37.96 views/min • ⏰ 0.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/EtUpWu7NIqc" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Wait for it 😯 (via @therock/TT)</p>
-        <p>👁️ 7,149 views • ⚡ 33.73 views/min • ⏰ 3.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=EtUpWu7NIqc" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=EtUpWu7NIqc" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/bwWaLcVoUaM" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: CALL TO HONOR: Louisiana governor urges LSU to honor the legacy of Charlie Kirk #shorts #foxnews</p>
-        <p>👁️ 2,392 views • ⚡ 32.04 views/min • ⏰ 1.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=bwWaLcVoUaM" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=bwWaLcVoUaM" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/BQL2EISwTuQ" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: GOING PRO: President Trump's granddaughter is making her LPGA Tour debut #shorts #trump</p>
-        <p>👁️ 4,307 views • ⚡ 31.98 views/min • ⏰ 2.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=BQL2EISwTuQ" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=BQL2EISwTuQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Izx6nrqVFK0" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Steph is accepting his unc status 👴</p>
-        <p>👁️ 14,325 views • ⚡ 31.90 views/min • ⏰ 7.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=Izx6nrqVFK0" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=Izx6nrqVFK0" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/SHnXHgcqeRw" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Vance to meet with Senate Republicans with government shutdown in Day 28</p>
-        <p>👁️ 7,581 views • ⚡ 29.30 views/min • ⏰ 4.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=SHnXHgcqeRw" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=SHnXHgcqeRw" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/4foR2FizhuQ" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Travis Kelce repping Taylor Swift after his touchdown 🫶</p>
-        <p>👁️ 11,273 views • ⚡ 26.86 views/min • ⏰ 7.0 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=4foR2FizhuQ" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=4foR2FizhuQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/e0He2nr3v88" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Israel launches strikes on Gaza, reports say, after Netanyahu orders 'powerful' attacks. #BBCNews</p>
-        <p>👁️ 4,258 views • ⚡ 26.54 views/min • ⏰ 2.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=e0He2nr3v88" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=e0He2nr3v88" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/4PxWzdXe_4k" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Are car headlights too bright? #Headlights #Driving #BBCNews</p>
-        <p>👁️ 10,495 views • ⚡ 26.17 views/min • ⏰ 6.7 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=4PxWzdXe_4k" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=4PxWzdXe_4k" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/q2ijHhiRSDo" allowfullscreen></iframe>
-        <p><strong>CNN</strong>: Massive West Virginia hospital may be most haunted in America #cnn #news #spooky #horror #scary</p>
-        <p>👁️ 3,536 views • ⚡ 24.44 views/min • ⏰ 2.4 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=q2ijHhiRSDo" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=q2ijHhiRSDo" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/X7ZOQIVUmyQ" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: How to cope with long winter nights and seasonal depression | BBC News</p>
-        <p>👁️ 612 views • ⚡ 21.22 views/min • ⏰ 0.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/kxtKc5Ej5wE" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Part-time Jamaica resident describes Hurricane Melissa's impact on the ground</p>
-        <p>👁️ 649 views • ⚡ 20.87 views/min • ⏰ 0.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/vM_r_ZX0uTw" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Hurricane Melissa downgraded to Category 4 as it moves over Jamaica</p>
-        <p>👁️ 1,599 views • ⚡ 18.79 views/min • ⏰ 1.4 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=vM_r_ZX0uTw" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=vM_r_ZX0uTw" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/8jmIjZEjQng" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Louisiana declares state of emergency over looming SNAP benefits pause</p>
-        <p>👁️ 4,480 views • ⚡ 17.64 views/min • ⏰ 4.2 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=8jmIjZEjQng" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=8jmIjZEjQng" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Ejevw_6OlhA" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going</p>
-        <p>👁️ 151 views • ⚡ 14.33 views/min • ⏰ 0.2 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/HM2bPz0yrsI" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Just a little late 🤣🫩</p>
-        <p>👁️ 4,357 views • ⚡ 13.50 views/min • ⏰ 5.4 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=HM2bPz0yrsI" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=HM2bPz0yrsI" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/88SRZ8zd9YQ" allowfullscreen></iframe>
-        <p><strong>BBC</strong>: Can the UK government stop using migrant hotels? | BBC Newscast</p>
-        <p>👁️ 393 views • ⚡ 13.31 views/min • ⏰ 0.5 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/4g16L1th8s8" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: The RESURGENCE of RBs & AFC North coaches in trouble + Game balls of the week! | The Pat McAfee Show</p>
-        <p>👁️ 2,003 views • ⚡ 11.61 views/min • ⏰ 2.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=4g16L1th8s8" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=4g16L1th8s8" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Hlgza2QtxBA" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: So impressive 👏</p>
-        <p>👁️ 4,907 views • ⚡ 11.29 views/min • ⏰ 7.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=Hlgza2QtxBA" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=Hlgza2QtxBA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/EqozzqZIAEs" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor</p>
-        <p>👁️ 109 views • ⚡ 11.14 views/min • ⏰ 0.2 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/3FaWVPSrGWI" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Sometimes you just have an off day 😅</p>
-        <p>👁️ 4,229 views • ⚡ 10.16 views/min • ⏰ 6.9 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=3FaWVPSrGWI" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=3FaWVPSrGWI" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/m5mY_glBtzU" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Cattle ranchers struggle with Trump administration's request to lower beef prices</p>
-        <p>👁️ 1,524 views • ⚡ 6.63 views/min • ⏰ 3.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=m5mY_glBtzU" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=m5mY_glBtzU" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Fa-dLBDeTsw" allowfullscreen></iframe>
-        <p><strong>ESPN</strong>: Put some respect on X 😮‍💨 (via @wdymond_/IG)</p>
-        <p>👁️ 1,422 views • ⚡ 4.99 views/min • ⏰ 4.8 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=Fa-dLBDeTsw" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=Fa-dLBDeTsw" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/UKpWfcM5FWg" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: Duffy warns more travel delays are coming amid government shutdown</p>
-        <p>👁️ 1,027 views • ⚡ 4.06 views/min • ⏰ 4.2 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=UKpWfcM5FWg" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=UKpWfcM5FWg" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/yv5Lee84zcA" allowfullscreen></iframe>
-        <p><strong>REUTERS</strong>: From the archives: Cuban Missile Crisis ends on Oct. 28, 1962</p>
-        <p>👁️ 217 views • ⚡ 2.70 views/min • ⏰ 1.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=yv5Lee84zcA" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=yv5Lee84zcA" target="_blank">▶️ Watch on YouTube</a>
-        </div>
-      </div>
-
-      <div class="video-card">
+      <article class="video-card">
         <iframe src="https://www.youtube.com/embed/u_VriOLifzY" allowfullscreen></iframe>
-        <p><strong>FOX</strong>: ‘The Five’: Trump puts on a ‘masterclass’</p>
-        <p>👁️ 0 views • ⚡ 0.00 views/min • ⏰ 1.3 h old</p>
-        <div class="buttons">
-          <a class="download" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">⬇️ Download via YouTube</a>
-          <a class="alt" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">▶️ Watch on YouTube</a>
+        <div class="info">
+          <h2>‘The Five’: Trump puts on a ‘masterclass’</h2>
+          <p class="meta"><span class="channel">FOX</span> • <span class="age">4 min ago</span></p>
+          <p class="stats">👁️ 1,146 views • ⚡ 296.40 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=u_VriOLifzY" target="_blank">▶️ Watch on YouTube</a>
         </div>
-      </div>
-</div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/AR7IzMqTaig" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Judge asks top border official in Chicago to check in daily at court over protests</h2>
+          <p class="meta"><span class="channel">CNN</span> • <span class="age">25 min ago</span></p>
+          <p class="stats">👁️ 3,826 views • ⚡ 151.09 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=AR7IzMqTaig" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/mQQzzN1mfOU" allowfullscreen></iframe>
+        <div class="info">
+          <h2>WATCH: State Trooper pushes a massive hay bale that blew into the road #shorts #watch #video #usa</h2>
+          <p class="meta"><span class="channel">FOX</span> • <span class="age">49 min ago</span></p>
+          <p class="stats">👁️ 7,366 views • ⚡ 150.74 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=mQQzzN1mfOU" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/ze5LRAzG0E8" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Hurricane Melissa reportedly ripping roofs off buildings, causing widespread flooding in Jamaica</h2>
+          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">34 min ago</span></p>
+          <p class="stats">👁️ 2,299 views • ⚡ 67.47 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=ze5LRAzG0E8" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/wl52n8YaPJE" allowfullscreen></iframe>
+        <div class="info">
+          <h2>EXTRA EYES ON GIANNIS 👀 The Bucks host the Knicks after reported trade talks | NBA Today</h2>
+          <p class="meta"><span class="channel">ESPN</span> • <span class="age">46 min ago</span></p>
+          <p class="stats">👁️ 3,102 views • ⚡ 67.45 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=wl52n8YaPJE" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/vOteoJCV9yY" allowfullscreen></iframe>
+        <div class="info">
+          <h2>WATCH: Sean Hannity has one question for Mamdani... #zohranmamdani #shorts #politics</h2>
+          <p class="meta"><span class="channel">FOX</span> • <span class="age">19 min ago</span></p>
+          <p class="stats">👁️ 786 views • ⚡ 41.62 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=vOteoJCV9yY" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/X7ZOQIVUmyQ" allowfullscreen></iframe>
+        <div class="info">
+          <h2>How to cope with long winter nights and seasonal depression | BBC News</h2>
+          <p class="meta"><span class="channel">BBC</span> • <span class="age">33 min ago</span></p>
+          <p class="stats">👁️ 700 views • ⚡ 21.13 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=X7ZOQIVUmyQ" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/kxtKc5Ej5wE" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Part-time Jamaica resident describes Hurricane Melissa's impact on the ground</h2>
+          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">35 min ago</span></p>
+          <p class="stats">👁️ 718 views • ⚡ 20.29 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=kxtKc5Ej5wE" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/Ejevw_6OlhA" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Agriculture Secretary Brooke Rollins defends not using emergency funds to keep SNAP benefits going</h2>
+          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">15 min ago</span></p>
+          <p class="stats">👁️ 210 views • ⚡ 14.17 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=Ejevw_6OlhA" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/EqozzqZIAEs" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Latest U.S. strikes on alleged drug boats kill at least 14 people, leave 1 survivor</h2>
+          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">14 min ago</span></p>
+          <p class="stats">👁️ 192 views • ⚡ 13.64 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=EqozzqZIAEs" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/88SRZ8zd9YQ" allowfullscreen></iframe>
+        <div class="info">
+          <h2>Can the UK government stop using migrant hotels? | BBC Newscast</h2>
+          <p class="meta"><span class="channel">BBC</span> • <span class="age">34 min ago</span></p>
+          <p class="stats">👁️ 461 views • ⚡ 13.63 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=88SRZ8zd9YQ" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <iframe src="https://www.youtube.com/embed/i_nEv58uWfI" allowfullscreen></iframe>
+        <div class="info">
+          <h2>MLB weighing ban on all prop betting</h2>
+          <p class="meta"><span class="channel">REUTERS</span> • <span class="age">4 min ago</span></p>
+          <p class="stats">👁️ 11 views • ⚡ 2.62 views/min</p>
+          <a class="watch-btn" href="https://www.youtube.com/watch?v=i_nEv58uWfI" target="_blank">▶️ Watch on YouTube</a>
+        </div>
+      </article>
+  </div>
+</main>
+<footer>
+  <p>Updated at 10/28/2025, 6:33:59 PM</p>
+</footer>
 </body>
 </html>
