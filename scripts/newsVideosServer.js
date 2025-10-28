@@ -31,6 +31,21 @@ function getLocalIP() {
   return "localhost";
 }
 
+function runCommand(cmd) {
+  return new Promise((resolve, reject) => {
+    console.log(`> ${cmd}`);
+    exec(cmd, (err, stdout, stderr) => {
+      if (stdout) console.log(stdout.trim());
+      if (stderr) console.error(stderr.trim());
+      if (err) {
+        console.error(`❌ Error running command: ${cmd}`);
+        return reject(err);
+      }
+      resolve(stdout);
+    });
+  });
+}
+
 // -------- Fetch from YouTube API ----------
 async function fetchFromYouTube() {
   const videos = [];
@@ -184,19 +199,17 @@ ${cards || "<p>No new uploads found in the last 24 hours.</p>"}
   console.log(`🏠 Homepage updated with ${videos.length} videos`);
 }
 
-// -------- Deploy step ----------
+// -------- Deploy step (including git) ----------
 async function deploySite() {
   console.log("📦 Deploying site…");
-  return new Promise((resolve, reject) => {
-    exec('sh ./deploy.sh', (err, stdout, stderr) => {
-      if (err) {
-        console.error(`❌ Deploy failed: ${stderr}`);
-        return reject(err);
-      }
-      console.log(`✅ Deploy succeeded:\n${stdout}`);
-      resolve();
-    });
-  });
+  try {
+    await runCommand("git add .");
+    await runCommand(`git commit -m "Auto-update site with latest videos ${new Date().toISOString()}"`);
+    await runCommand("git push origin main"); // change branch name if needed
+    console.log("✅ Git push succeeded");
+  } catch (err) {
+    console.error("❌ Git push failed:", err);
+  }
 }
 
 // -------- Express server ----------
