@@ -110,39 +110,13 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Download Route ----------
+// -------- Download Route (disabled actual download) ----------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
+  // Instead of downloading, we simply redirect user to YouTube link
   const url = `https://www.youtube.com/watch?v=${id}`;
-  const dir = "./downloads";
-  const rawPath = `${dir}/${id}.mp4`;
-  const fixedPath = `${dir}/${id}_fixed.mp4`;
-
-  await fs.ensureDir(dir);
-  console.log(`⬇️ Downloading ${url} ...`);
-
-  exec(`yt-dlp -f mp4 -o "${rawPath}" "${url}"`, (err) => {
-    if (err) {
-      console.error(`❌ Download failed for ${id}: ${err.message}`);
-      return res.status(500).send("Download failed.");
-    }
-
-    exec(
-      `ffmpeg -y -i "${rawPath}" -c:v libx264 -c:a aac -movflags +faststart "${fixedPath}"`,
-      (convErr) => {
-        if (convErr) {
-          console.error(`⚠️ FFmpeg failed: ${convErr.message}`);
-          return res.download(rawPath, `${id}.mp4`);
-        }
-        res.download(fixedPath, `${id}.mp4`, () => {
-          setTimeout(() => {
-            fs.remove(rawPath).catch(() => {});
-            fs.remove(fixedPath).catch(() => {});
-          }, 5000);
-        });
-      }
-    );
-  });
+  console.log(`➡️ Redirecting download request to YouTube: ${url}`);
+  res.redirect(url);
 });
 
 // -------- Build homepage ----------
@@ -158,7 +132,7 @@ async function buildHome(videos) {
         <p><strong>${v.channel}</strong>: ${v.title}</p>
         <p>👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min • ⏰ ${ageHrs} h old</p>
         <div class="buttons">
-          <a class="download" href="/download/${v.id}" target="_blank">⬇️ Download</a>
+          <a class="download" href="${v.link}" target="_blank">⬇️ Download via YouTube</a>
           <a class="alt" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
         </div>
       </div>`;
