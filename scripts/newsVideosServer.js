@@ -49,7 +49,7 @@ function runCommand(cmd) {
 // -------- Fetch from YouTube API ----------
 async function fetchFromYouTube() {
   const videos = [];
-  const cutoff = Date.now() - (60 * 60 * 1000); // one hour ago
+  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
 
   for (const [name, id] of Object.entries(CHANNEL_IDS)) {
     try {
@@ -58,19 +58,22 @@ async function fetchFromYouTube() {
       const { data } = await axios.get(searchUrl);
 
       const items = data.items.filter(
-        it => it.id.videoId && new Date(it.snippet.publishedAt).getTime() > cutoff
+        (it) => it.id.videoId && new Date(it.snippet.publishedAt).getTime() > cutoff
       );
-      const videoIds = items.map(it => it.id.videoId).join(",");
+      const videoIds = items.map((it) => it.id.videoId).join(",");
       if (!videoIds) continue;
 
       const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${API_KEY}`;
       const { data: statsData } = await axios.get(statsUrl);
 
-      statsData.items.forEach(v => {
+      statsData.items.forEach((v) => {
         const s = v.statistics || {};
         const views = parseInt(s.viewCount || 0);
         const published = new Date(v.snippet.publishedAt);
-        const minutesOld = Math.max((Date.now() - published.getTime()) / (1000 * 60), 1);
+        const minutesOld = Math.max(
+          (Date.now() - published.getTime()) / (1000 * 60),
+          1
+        );
         const vpm = views / minutesOld;
 
         videos.push({
@@ -86,7 +89,6 @@ async function fetchFromYouTube() {
           minutesOld: Math.round(minutesOld),
         });
       });
-
     } catch (err) {
       console.log(`⚠️ ${name} failed: ${err.message}`);
     }
@@ -94,13 +96,13 @@ async function fetchFromYouTube() {
 
   // Remove duplicates
   const seen = new Set();
-  const unique = videos.filter(v => {
+  const unique = videos.filter((v) => {
     if (seen.has(v.id)) return false;
     seen.add(v.id);
     return true;
   });
 
-  // Sort by views/minute (descending)
+  // Sort by views per minute (descending)
   unique.sort((a, b) => b.vpm - a.vpm);
 
   await fs.outputJson(OUT_FILE, unique, { spaces: 2 });
@@ -108,155 +110,62 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Download Route (unchanged) ----------
+// -------- Download Route (disabled actual download) ----------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
+  // Instead of downloading, we simply redirect user to YouTube link
   const url = `https://www.youtube.com/watch?v=${id}`;
-  console.log(`⬇️ Downloading ${url} …`);
-  exec(`yt-dlp -f mp4 -o "./downloads/${id}.mp4" "${url}"`, err => {
-    if (err) {
-      console.error(`❌ Download failed for ${id}: ${err.message}`);
-      return res.status(500).send("Download failed.");
-    }
-    const fixedPath = `./downloads/${id}_fixed.mp4`;
-    exec(`ffmpeg -y -i "./downloads/${id}.mp4" -c:v libx264 -c:a aac -movflags +faststart "${fixedPath}"`, convErr => {
-      if (convErr) {
-        console.error(`⚠️ FFmpeg failed: ${convErr.message}`);
-        return res.download(`./downloads/${id}.mp4`, `${id}.mp4`);
-      }
-      res.download(fixedPath, `${id}.mp4`, () => {
-        setTimeout(() => {
-          fs.remove(`./downloads/${id}.mp4`).catch(()=>{});
-          fs.remove(fixedPath).catch(()=>{});
-        }, 5000);
-      });
-    });
-  });
+  console.log(`➡️ Redirecting download request to YouTube: ${url}`);
+  res.redirect(url);
 });
 
-// -------- Build homepage (modern-style) ----------
+// -------- Build homepage ----------
 async function buildHome(videos) {
-  const cards = videos.map(v => {
-    const views = v.views || 0;
-    const vpm = v.vpm?.toFixed(2) || "0.00";
-    const ageMins = v.minutesOld;
-    return `
-      <article class="video-card">
+  const cards = videos
+    .map((v) => {
+      const views = v.views || 0;
+      const vpm = v.vpm?.toFixed(2) || "0.00";
+      const ageHrs = (v.minutesOld / 60).toFixed(1);
+      return `
+      <div class="video-card">
         <iframe src="${v.embed}" allowfullscreen></iframe>
-        <div class="info">
-          <h2>${v.title}</h2>
-          <p class="meta"><span class="channel">${v.channel}</span> • <span class="age">${ageMins} min ago</span></p>
-          <p class="stats">👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min</p>
-          <a class="watch-btn" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
+        <p><strong>${v.channel}</strong>: ${v.title}</p>
+        <p>👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min • ⏰ ${ageHrs} h old</p>
+        <div class="buttons">
+          <a class="download" href="${v.link}" target="_blank">⬇️ Download via YouTube</a>
+          <a class="alt" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
         </div>
-      </article>`;
-  }).join("\n");
+      </div>`;
+    })
+    .join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Practivio News — Trending Now (Last Hour)</title>
+<title>Practivio News — Trending Now (Last 24 h)</title>
 <style>
-body {
-  font-family: "Inter", Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f5;
-  color: #111;
-}
-header {
-  background: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-.refresh {
-  display: inline-block;
-  margin: 0.5rem 2rem;
-  padding: 0.5rem 1rem;
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-main {
-  max-width: 1200px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-.video-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-}
-.video-card iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-.video-card .info {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.video-card .info h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-}
-.video-card .info .meta {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-.video-card .info .stats {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.video-card .info .watch-btn {
-  margin-top: auto;
-  align-self: start;
-  padding: 0.6rem 1rem;
-  background: #0077ff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.video-card .info .watch-btn:hover {
-  background: #005ae0;
-}
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #777;
-}
+body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
+h1{text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;}
+.video-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+iframe{width:100%;aspect-ratio:16/9;border-radius:10px;border:none;}
+.buttons{display:flex;gap:0.5rem;margin-top:0.5rem;}
+.download,.alt{flex:1;text-align:center;text-decoration:none;color:white;padding:0.4rem 0.8rem;border-radius:6px;}
+.download{background:#0077ff;}
+.alt{background:#00994c;}
+.download:hover{background:#005ae0;}
+.alt:hover{background:#007a3b;}
+.refresh{display:block;width:fit-content;margin:1rem auto;padding:0.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
+.refresh:hover{background:#333;}
 </style>
 </head>
 <body>
-<header>
-  <h1>🔥 Practivio News — Most Viral Now (Last Hour)</h1>
-  <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
-</header>
-<main>
-  <div class="grid">
-    ${cards || "<p>No new uploads in the last hour.</p>"}
-  </div>
-</main>
-<footer>
-  <p>Updated at ${new Date().toLocaleString()}</p>
-</footer>
+<h1>🔥 Practivio News — Most Viral Now (Views per Minute)</h1>
+<a class="refresh" href="/refresh">🔄 Refresh Feed</a>
+<div class="grid">
+${cards || "<p>No new uploads found in the last 24 hours.</p>"}
+</div>
 </body>
 </html>`;
 
@@ -270,7 +179,7 @@ async function deploySite() {
   try {
     await runCommand("git add .");
     await runCommand(`git commit -m "Auto-update site with latest videos ${new Date().toISOString()}"`);
-    await runCommand("git push origin main");
+    await runCommand("git push origin main"); // change branch name if needed
     console.log("✅ Git push succeeded");
   } catch (err) {
     console.error("❌ Git push failed:", err);
