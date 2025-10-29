@@ -110,13 +110,33 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Download Route (disabled actual download) ----------
+// -------- Actual Download Route ----------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
-  // Instead of downloading, we simply redirect user to YouTube link
-  const url = `https://www.youtube.com/watch?v=${id}`;
-  console.log(`➡️ Redirecting download request to YouTube: ${url}`);
-  res.redirect(url);
+  const videoUrl = `https://www.youtube.com/watch?v=${id}`;
+  const outputDir = "./downloads";
+  const outputPath = `${outputDir}/${id}.mp4`;
+
+  try {
+    await fs.ensureDir(outputDir);
+
+    console.log(`⬇️ Downloading ${videoUrl} → ${outputPath}`);
+    await runCommand(
+      `yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" -o "${outputPath}" "${videoUrl}"`
+    );
+
+    res.download(outputPath, `${id}.mp4`, (err) => {
+      if (err) {
+        console.error("❌ Error sending file:", err);
+        res.status(500).send("Download failed");
+      } else {
+        console.log(`✅ Sent ${outputPath} to browser`);
+      }
+    });
+  } catch (err) {
+    console.error("❌ Download failed:", err);
+    res.status(500).send("Failed to download video");
+  }
 });
 
 // -------- Build homepage ----------
@@ -132,7 +152,7 @@ async function buildHome(videos) {
         <p><strong>${v.channel}</strong>: ${v.title}</p>
         <p>👁️ ${views.toLocaleString()} views • ⚡ ${vpm} views/min • ⏰ ${ageHrs} h old</p>
         <div class="buttons">
-          <a class="download" href="${v.link}" target="_blank">⬇️ Download via YouTube</a>
+          <a class="download" href="/download/${v.id}">⬇️ Download MP4</a>
           <a class="alt" href="${v.link}" target="_blank">▶️ Watch on YouTube</a>
         </div>
       </div>`;
@@ -173,13 +193,15 @@ ${cards || "<p>No new uploads found in the last 24 hours.</p>"}
   console.log(`🏠 Homepage updated with ${videos.length} videos`);
 }
 
-// -------- Deploy step (including git) ----------
+// -------- Deploy step ----------
 async function deploySite() {
   console.log("📦 Deploying site…");
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update site with latest videos ${new Date().toISOString()}"`);
-    await runCommand("git push origin main"); // change branch name if needed
+    await runCommand(
+      `git commit -m "Auto-update site with latest videos ${new Date().toISOString()}"`
+    );
+    await runCommand("git push origin main");
     console.log("✅ Git push succeeded");
   } catch (err) {
     console.error("❌ Git push failed:", err);
