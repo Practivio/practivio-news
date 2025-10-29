@@ -122,8 +122,9 @@ app.get("/download/:id", async (req, res) => {
 
     console.log(`⬇️ Downloading ${videoUrl} → ${outputPath}`);
     await runCommand(
-      `yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" -o "${outputPath}" "${videoUrl}"`
-    );
+  `yt-dlp -f "bestvideo+bestaudio" --merge-output-format mp4 --recode-video mp4 -o "${outputPath}" "${videoUrl}"`
+);
+
 
     res.download(outputPath, `${id}.mp4`, (err) => {
       if (err) {
