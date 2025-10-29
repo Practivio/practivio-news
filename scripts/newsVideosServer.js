@@ -116,23 +116,29 @@ async function fetchFromYouTube() {
     }
   }
 
-  // Categorize into slots
+  // ✅ Categorize into unique slots (no duplicates)
   const slots = [];
+  const usedIds = new Set();
+
   for (const def of SLOT_DEFS) {
     const match = videos
-      .filter(v =>
-        def.sources.includes(v.channel) ||
-        def.keywords.some(k => v.title.toLowerCase().includes(k))
+      .filter(
+        v =>
+          !usedIds.has(v.id) &&
+          (def.sources.includes(v.channel) ||
+            def.keywords.some(k => v.title.toLowerCase().includes(k)))
       )
       .sort((a, b) => b.vpm - a.vpm)[0];
+
     if (match) {
+      usedIds.add(match.id);
       slots.push({ ...match, slot: def.label, slotTime: def.time });
     }
   }
 
   const final = slots.slice(0, 6);
   await fs.outputJson(OUT_FILE, final, { spaces: 2 });
-  console.log(`✅ Saved ${final.length} categorized videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${final.length} unique categorized videos → ${OUT_FILE}`);
   return final;
 }
 
@@ -141,18 +147,27 @@ app.get("/download/:id", async (req, res) => {
   const safeId = req.params.id.replace(/[^a-zA-Z0-9_-]/g, "");
   const videoUrl = `https://www.youtube.com/watch?v=${safeId}`;
   const tmp = `./tmp/${safeId}.webm`;
-  const out = `./downloads/${safeId}.mp4`;
 
   try {
+    const data = await fs.readJson(OUT_FILE).catch(() => []);
+    const info = data.find(v => v.id === safeId);
+    const slotTag = info
+      ? `${info.slotTime.replace(/[: ]/g, "")}_${info.slot.replace(/[^\w]/g, "")}_${info.channel}`
+      : safeId;
+    const out = `./downloads/${slotTag}.mp4`;
+
     await ensureBins();
     await fs.ensureDir("./tmp");
     await fs.ensureDir("./downloads");
 
+    console.log(`⬇️ Downloading ${videoUrl} → ${slotTag}.mp4`);
     await runCommand(`yt-dlp -f "bestvideo+bestaudio/best" -o "${tmp}" "${videoUrl}"`);
-    await runCommand(`ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`);
+    await runCommand(
+      `ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`
+    );
     await fs.remove(tmp);
 
-    res.download(out, `${safeId}.mp4`);
+    res.download(out, `${slotTag}.mp4`);
   } catch (err) {
     console.error("❌ Download failed:", err);
     res.status(500).send("Failed to rebuild video");
@@ -171,8 +186,7 @@ async function buildHome(videos) {
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
       </div>
-    </div>
-  `).join("\n");
+    </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><title>Practivio News — 6 Slot Viral Schedule</title>
