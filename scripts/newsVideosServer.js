@@ -31,19 +31,35 @@ function getLocalIP() {
   return "localhost";
 }
 
+// exec with a BIG buffer (ffmpeg/yt-dlp can be chatty on stderr)
 function runCommand(cmd) {
   return new Promise((resolve, reject) => {
     console.log(`> ${cmd}`);
-    exec(cmd, (err, stdout, stderr) => {
-      if (stdout) console.log(stdout.trim());
-      if (stderr) console.error(stderr.trim());
-      if (err) {
-        console.error(`❌ Error running command: ${cmd}`);
-        return reject(err);
+    exec(
+      cmd,
+      { maxBuffer: 1024 * 1024 * 1024, timeout: 0 },
+      (err, stdout, stderr) => {
+        if (stdout?.trim()) console.log(stdout.trim());
+        if (stderr?.trim()) console.error(stderr.trim());
+        if (err) {
+          console.error(`❌ Error running command: ${cmd}`);
+          return reject(err);
+        }
+        resolve(stdout);
       }
-      resolve(stdout);
-    });
+    );
   });
+}
+
+async function ensureBins() {
+  try {
+    await runCommand(`command -v yt-dlp`);
+    await runCommand(`command -v ffmpeg`);
+  } catch {
+    throw new Error(
+      "yt-dlp and/or ffmpeg not found. Install with: brew install yt-dlp ffmpeg"
+    );
+  }
 }
 
 // -------- Fetch from YouTube API ----------
@@ -57,8 +73,10 @@ async function fetchFromYouTube() {
       const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${id}&part=snippet,id&order=date&maxResults=15`;
       const { data } = await axios.get(searchUrl);
 
-      const items = data.items.filter(
-        (it) => it.id.videoId && new Date(it.snippet.publishedAt).getTime() > cutoff
+      const items = (data.items || []).filter(
+        (it) =>
+          it.id?.videoId &&
+          new Date(it.snippet.publishedAt).getTime() > cutoff
       );
       const videoIds = items.map((it) => it.id.videoId).join(",");
       if (!videoIds) continue;
@@ -66,9 +84,9 @@ async function fetchFromYouTube() {
       const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${API_KEY}`;
       const { data: statsData } = await axios.get(statsUrl);
 
-      statsData.items.forEach((v) => {
+      (statsData.items || []).forEach((v) => {
         const s = v.statistics || {};
-        const views = parseInt(s.viewCount || 0);
+        const views = parseInt(s.viewCount || 0, 10);
         const published = new Date(v.snippet.publishedAt);
         const minutesOld = Math.max(
           (Date.now() - published.getTime()) / (1000 * 60),
@@ -80,7 +98,7 @@ async function fetchFromYouTube() {
           title: v.snippet.title,
           id: v.id,
           embed: `https://www.youtube.com/embed/${v.id}`,
-          thumb: v.snippet.thumbnails.medium.url,
+          thumb: v.snippet.thumbnails?.medium?.url,
           channel: name,
           link: `https://www.youtube.com/watch?v=${v.id}`,
           publishedAt: v.snippet.publishedAt,
@@ -110,23 +128,38 @@ async function fetchFromYouTube() {
   return unique;
 }
 
-// -------- Actual Download Route ----------
+// -------- Actual Download Route (REBUILD to QuickTime-safe MP4) ----------
 app.get("/download/:id", async (req, res) => {
   const { id } = req.params;
-  const videoUrl = `https://www.youtube.com/watch?v=${id}`;
+  // sanitize id just in case
+  const safeId = String(id).replace(/[^a-zA-Z0-9_-]/g, "");
+  const videoUrl = `https://www.youtube.com/watch?v=${safeId}`;
   const outputDir = "./downloads";
-  const outputPath = `${outputDir}/${id}.mp4`;
+  const outputPath = `${outputDir}/${safeId}.mp4`;
 
   try {
+    await ensureBins();
     await fs.ensureDir(outputDir);
 
-    console.log(`⬇️ Downloading ${videoUrl} → ${outputPath}`);
-    await runCommand(
-  `yt-dlp -f "bestvideo+bestaudio" --merge-output-format mp4 --recode-video mp4 -o "${outputPath}" "${videoUrl}"`
-);
+    console.log(`⬇️ Rebuilding ${videoUrl} → ${outputPath}`);
 
+    // Strategy: pipe the best streams into ffmpeg and FORCE H.264/AAC MP4
+    // - QuickTime-safe: H.264 (avc1) + AAC
+    // - +faststart: move moov atom to the front (web & mobile friendly)
+    // - Low verbosity to avoid blowing buffers
+    const cmd = [
+      `yt-dlp --no-progress -f "bestvideo+bestaudio/best" -o - "${videoUrl}"`,
+      `ffmpeg -hide_banner -loglevel error -y -i pipe:0`,
+      `-c:v libx264 -preset veryfast -crf 22`,
+      `-c:a aac -b:a 160k`,
+      `-movflags +faststart`,
+      `"${outputPath}"`
+    ].join(" | ");
 
-    res.download(outputPath, `${id}.mp4`, (err) => {
+    await runCommand(cmd);
+
+    // Serve the rebuilt file to the browser, but keep local copy.
+    res.download(outputPath, `${safeId}.mp4`, (err) => {
       if (err) {
         console.error("❌ Error sending file:", err);
         res.status(500).send("Download failed");
@@ -135,8 +168,12 @@ app.get("/download/:id", async (req, res) => {
       }
     });
   } catch (err) {
-    console.error("❌ Download failed:", err);
-    res.status(500).send("Failed to download video");
+    console.error("❌ Download/Rebuild failed:", err);
+    res
+      .status(500)
+      .send(
+        `Failed to download/rebuild video. Make sure yt-dlp and ffmpeg are installed.`
+      );
   }
 });
 
