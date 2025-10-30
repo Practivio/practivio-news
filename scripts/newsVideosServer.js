@@ -27,68 +27,26 @@ const SLOT_DEFS = [
   {
     time: "9:00 PM",
     label: "Emotional Justice / Outrage Story",
-    keywords: [
-      "verdict",
-      "court",
-      "police",
-      "charged",
-      "trial",
-      "justice",
-      "shooting",
-      "killed",
-      "protest"
-    ],
-    sources: ["CNN", "FOX", "MSNBC", "CBS", "ABC"]
+    keywords: ["verdict","court","police","charged","trial","justice","shooting","killed","protest"],
+    sources: ["CNN","FOX","MSNBC","CBS","ABC"]
   },
   {
     time: "11:00 PM",
     label: "Economic or Political Impact",
-    keywords: [
-      "inflation",
-      "economy",
-      "jobs",
-      "tax",
-      "price",
-      "cost",
-      "insurance",
-      "premium",
-      "law",
-      "ban",
-      "vote"
-    ],
-    sources: ["BLOOMBERG", "REUTERS", "AP", "CSPAN", "FOX"]
+    keywords: ["inflation","economy","jobs","tax","price","cost","insurance","premium","law","ban","vote"],
+    sources: ["BLOOMBERG","REUTERS","AP","CSPAN","FOX"]
   },
   {
     time: "1:00 AM",
     label: "World / Tech Story",
-    keywords: [
-      "china",
-      "russia",
-      "ukraine",
-      "israel",
-      "ai",
-      "technology",
-      "climate",
-      "world",
-      "international"
-    ],
-    sources: ["BBC", "REUTERS", "CNN"]
+    keywords: ["china","russia","ukraine","israel","ai","technology","climate","world","international"],
+    sources: ["BBC","REUTERS","CNN"]
   },
   {
     time: "3:00 AM",
     label: "Viral / Reaction-Based Story",
-    keywords: [
-      "reacts",
-      "viral",
-      "trending",
-      "caught",
-      "outrage",
-      "moment",
-      "clip",
-      "comment",
-      "response"
-    ],
-    sources: ["FOX", "CNN", "MSNBC", "ABC", "CBS"]
+    keywords: ["reacts","viral","trending","caught","outrage","moment","clip","comment","response"],
+    sources: ["FOX","CNN","MSNBC","ABC","CBS"]
   }
 ];
 
@@ -122,6 +80,16 @@ async function ensureBins() {
   await runCommand("command -v ffmpeg");
 }
 
+// ---------- Weighted Scoring ----------
+function scoreVideo(v) {
+  const totalMin = parseFloat(v.duration);
+  const durationScore = Math.max(0, 1 - Math.abs(totalMin - 2.0) / 0.8); // sweet spot ≈2 min
+  const vpmScore = Math.log10(v.vpm + 1) / 4;
+  const recencyScore = 1 - Math.min(v.minutesOld / 720, 1);
+  const shortPenalty = totalMin < 1.5 ? -0.5 : 0;
+  return durationScore * 0.45 + vpmScore * 0.3 + recencyScore * 0.25 + shortPenalty;
+}
+
 // ---------- YouTube Fetch + Categorization ----------
 async function fetchFromYouTube() {
   const videos = [];
@@ -133,10 +101,7 @@ async function fetchFromYouTube() {
       const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${id}&part=snippet,id&order=date&maxResults=20`;
       const { data } = await axios.get(searchUrl);
 
-      const videoIds = (data.items || [])
-        .map(it => it.id?.videoId)
-        .filter(Boolean)
-        .join(",");
+      const videoIds = (data.items || []).map(it => it.id?.videoId).filter(Boolean).join(",");
       if (!videoIds) continue;
 
       const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet,contentDetails&id=${videoIds}&key=${API_KEY}`;
@@ -152,7 +117,7 @@ async function fetchFromYouTube() {
         const mins = parseInt(m?.[1] || 0, 10);
         const secs = parseInt(m?.[2] || 0, 10);
         const totalMin = mins + secs / 60;
-        if (totalMin < 3 || totalMin > 5) return;
+        if (totalMin < 1.5 || totalMin > 3) return; // TikTok sweet-spot range
 
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
@@ -166,7 +131,7 @@ async function fetchFromYouTube() {
           embed: `https://www.youtube.com/embed/${v.id}`,
           thumb: v.snippet.thumbnails?.medium?.url,
           publishedAt: v.snippet.publishedAt,
-          duration: `${totalMin.toFixed(1)} min`,
+          duration: totalMin.toFixed(1),
           views,
           vpm,
           minutesOld: Math.round(ageMin),
@@ -177,7 +142,6 @@ async function fetchFromYouTube() {
     }
   }
 
-  // ✅ Categorize into unique slots (no duplicates)
   const slots = [];
   const usedIds = new Set();
 
@@ -189,17 +153,17 @@ async function fetchFromYouTube() {
           (def.sources.includes(v.channel) ||
             def.keywords.some(k => v.title.toLowerCase().includes(k)))
       )
-      .sort((a, b) => b.vpm - a.vpm)[0];
+      .sort((a, b) => scoreVideo(b) - scoreVideo(a))[0];
 
     if (match) {
       usedIds.add(match.id);
-      slots.push({ ...match, slot: def.label, slotTime: def.time });
+      slots.push({ ...match, slot: def.label, slotTime: def.time, score: scoreVideo(match).toFixed(2) });
     }
   }
 
   const final = slots.slice(0, 4);
   await fs.outputJson(OUT_FILE, final, { spaces: 2 });
-  console.log(`✅ Saved ${final.length} pivoted videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${final.length} weighted videos → ${OUT_FILE}`);
   return final;
 }
 
@@ -212,9 +176,7 @@ app.get("/download/:id", async (req, res) => {
   try {
     const data = await fs.readJson(OUT_FILE).catch(() => []);
     const info = data.find(v => v.id === safeId);
-    const slotTag = info
-      ? `${info.slotTime.replace(/[: ]/g, "")}_${info.slot.replace(/[^\w]/g, "")}_${info.channel}`
-      : safeId;
+    const slotTag = info ? `${info.slotTime.replace(/[: ]/g,"")}_${info.slot.replace(/[^\w]/g,"")}_${info.channel}` : safeId;
     const out = `./downloads/${slotTag}.mp4`;
 
     await ensureBins();
@@ -223,9 +185,7 @@ app.get("/download/:id", async (req, res) => {
 
     console.log(`⬇️ Downloading ${videoUrl} → ${slotTag}.mp4`);
     await runCommand(`yt-dlp -f "bestvideo+bestaudio/best" -o "${tmp}" "${videoUrl}"`);
-    await runCommand(
-      `ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`
-    );
+    await runCommand(`ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`);
     await fs.remove(tmp);
 
     res.download(out, `${slotTag}.mp4`);
@@ -242,7 +202,7 @@ async function buildHome(videos) {
       <iframe src="${v.embed}" allowfullscreen></iframe>
       <h3>${v.slotTime} — ${v.slot}</h3>
       <p><strong>${v.channel}</strong>: ${v.title}</p>
-      <p>⏱️ ${v.duration} • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} views/min</p>
+      <p>⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} v/m • 🧮 Score ${v.score}</p>
       <div class="buttons">
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
@@ -250,7 +210,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>Practivio News — Night #2 Late-Night Pivot</title>
+  <meta charset="UTF-8"><title>Practivio News — TikTok-Optimized Late-Night Pivot</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -263,19 +223,19 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🌙 Practivio News — Night #2 Late-Night Pivot (4 Clips)</h1>
+  <h1>🌙 Practivio News — TikTok-Optimized Late-Night Pivot (4 Clips)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} pivoted videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} weighted videos`);
 }
 
 // ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update pivot ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update TikTok-optimized pivot ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
@@ -299,7 +259,7 @@ async function start() {
   await deploySite();
   await fs.ensureDir("./downloads");
 
-  app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT,"0.0.0.0",() => {
     console.log(`🚀 Local → http://localhost:${PORT}`);
     console.log(`📱 Phone → http://${localIP}:${PORT}`);
   });
