@@ -22,13 +22,74 @@ const CHANNEL_IDS = {
   MSNBC: "UCaXkIU1QidjPwiAYu6GcHjg",
 };
 
+// ---------- Night #2 Late-Night Pivot Schedule ----------
 const SLOT_DEFS = [
-  { time: "10:00 PM", label: "Political Firestorm", keywords: ["congress", "debate", "senate", "bill", "hearing", "election", "vote"], sources: ["FOX", "MSNBC", "CSPAN"] },
-  { time: "12:00 AM", label: "Viral Reaction / Soundbite", keywords: ["reacts", "criticizes", "claps", "comments", "responds", "statement"], sources: ["CNN", "FOX", "MSNBC"] },
-  { time: "2:00 AM", label: "Scandal / Exposure", keywords: ["investigation", "lawsuit", "scandal", "caught", "probe", "leak"], sources: ["CNN", "FOX", "CSPAN"] },
-  { time: "4:00 AM", label: "Foreign Tension / Conflict", keywords: ["china", "russia", "war", "israel", "ukraine", "tension", "diplomacy"], sources: ["BBC", "REUTERS"] },
-  { time: "6:00 AM", label: "Economic / Policy Impact", keywords: ["inflation", "economy", "market", "jobs", "law", "ban", "court"], sources: ["BLOOMBERG", "REUTERS", "AP"] },
-  { time: "8:00 AM", label: "Human / Morning Recap", keywords: ["recap", "human", "story", "moment", "viral"], sources: ["ABC", "CBS"] },
+  {
+    time: "9:00 PM",
+    label: "Emotional Justice / Outrage Story",
+    keywords: [
+      "verdict",
+      "court",
+      "police",
+      "charged",
+      "trial",
+      "justice",
+      "shooting",
+      "killed",
+      "protest"
+    ],
+    sources: ["CNN", "FOX", "MSNBC", "CBS", "ABC"]
+  },
+  {
+    time: "11:00 PM",
+    label: "Economic or Political Impact",
+    keywords: [
+      "inflation",
+      "economy",
+      "jobs",
+      "tax",
+      "price",
+      "cost",
+      "insurance",
+      "premium",
+      "law",
+      "ban",
+      "vote"
+    ],
+    sources: ["BLOOMBERG", "REUTERS", "AP", "CSPAN", "FOX"]
+  },
+  {
+    time: "1:00 AM",
+    label: "World / Tech Story",
+    keywords: [
+      "china",
+      "russia",
+      "ukraine",
+      "israel",
+      "ai",
+      "technology",
+      "climate",
+      "world",
+      "international"
+    ],
+    sources: ["BBC", "REUTERS", "CNN"]
+  },
+  {
+    time: "3:00 AM",
+    label: "Viral / Reaction-Based Story",
+    keywords: [
+      "reacts",
+      "viral",
+      "trending",
+      "caught",
+      "outrage",
+      "moment",
+      "clip",
+      "comment",
+      "response"
+    ],
+    sources: ["FOX", "CNN", "MSNBC", "ABC", "CBS"]
+  }
 ];
 
 const app = express();
@@ -136,9 +197,9 @@ async function fetchFromYouTube() {
     }
   }
 
-  const final = slots.slice(0, 6);
+  const final = slots.slice(0, 4);
   await fs.outputJson(OUT_FILE, final, { spaces: 2 });
-  console.log(`✅ Saved ${final.length} unique categorized videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${final.length} pivoted videos → ${OUT_FILE}`);
   return final;
 }
 
@@ -189,7 +250,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>Practivio News — 6 Slot Viral Schedule</title>
+  <meta charset="UTF-8"><title>Practivio News — Night #2 Late-Night Pivot</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -202,19 +263,19 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — 6 Scheduled Viral Clips</h1>
+  <h1>🌙 Practivio News — Night #2 Late-Night Pivot (4 Clips)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} categorized videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} pivoted videos`);
 }
 
 // ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update pivot ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
