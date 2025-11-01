@@ -81,13 +81,19 @@ async function ensureBins() {
   await runCommand("command -v ffmpeg");
 }
 
-// ---------- Weighted Viral Scoring ----------
+// ---------- Viral Scoring (High-Velocity Focus) ----------
 function scoreVideo(v) {
   const totalMin = parseFloat(v.duration);
-  const durationScore = Math.max(0, 1 - Math.abs(totalMin - 2.5) / 2);
-  const vpmScore = Math.log10(v.vpm + 1) / 4;
-  const recencyScore = 1 - Math.min(v.minutesOld / 1440, 1);
-  return durationScore * 0.3 + vpmScore * 0.5 + recencyScore * 0.2;
+  const vpm = v.vpm || 0;
+  const views = v.views || 0;
+  const ageHours = v.minutesOld / 60;
+
+  const vpmScore = Math.min(vpm / 1000, 1); // 1000+ vpm = max score
+  const recencyScore = ageHours < 12 ? 1 : Math.max(0, 1 - (ageHours - 12) / 24); // favors <12h old
+  const viewBoost = Math.min(Math.log10(views + 1) / 5, 0.3); // slight bonus for reach
+  const durationPenalty = totalMin > 5 ? -0.2 : 0;
+
+  return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
 // ---------- YouTube Fetch + Categorization ----------
@@ -122,6 +128,9 @@ async function fetchFromYouTube() {
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
         const vpm = views / ageMin;
+
+        // Filter out anything under 300 v/m (too slow)
+        if (vpm < 300) return;
 
         videos.push({
           id: v.id,
@@ -168,7 +177,7 @@ async function fetchFromYouTube() {
 
   const final = slots.slice(0, 4);
   await fs.outputJson(OUT_FILE, final, { spaces: 2 });
-  console.log(`✅ Saved ${final.length} viral-weighted videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${final.length} high-velocity viral videos → ${OUT_FILE}`);
   return final;
 }
 
@@ -219,7 +228,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>Practivio News — Viral Discovery Mode (with Al Jazeera)</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — High-Velocity Viral Mode (with Al Jazeera)</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -232,19 +241,19 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — Viral Discovery Mode (with Al Jazeera)</h1>
+  <h1>🔥 Practivio News — High-Velocity Viral Mode (with Al Jazeera)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} viral-weighted videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} high-velocity viral videos`);
 }
 
 // ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update viral mode ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update high-velocity viral mode ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
