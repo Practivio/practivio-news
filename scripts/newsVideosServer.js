@@ -64,7 +64,6 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
-// ---------- Time Scheduling ----------
 function generateUploadTimes(count) {
   const times = [];
   const startHour = 9;
@@ -114,7 +113,7 @@ async function fetchFromYouTube() {
         const secs = parseInt(m?.[2] || 0, 10);
         const totalMin = mins + secs / 60;
 
-        // ✅ Must be between 3 and 10 minutes exactly
+        // ✅ 3–10 minute range only
         if (totalMin < 3.0 || totalMin > 10.0) return;
 
         const thumb = snip.thumbnails?.medium;
@@ -124,7 +123,7 @@ async function fetchFromYouTube() {
 
         const t = (snip.title + " " + (snip.description || "")).toLowerCase();
 
-        // 🚫 Skip Shorts / social-media / vertical content
+        // 🚫 Skip Shorts / vertical / social content
         if (
           t.includes("#short") ||
           t.includes("shorts") ||
@@ -163,7 +162,7 @@ async function fetchFromYouTube() {
     }
   }
 
-  // 🧹 Remove near-duplicate stories across all channels
+  // 🧹 Remove near-duplicates across all channels
   const normalize = str =>
     str
       .toLowerCase()
@@ -181,19 +180,32 @@ async function fetchFromYouTube() {
     });
   }
 
-  // 🌀 Round-robin pick up to 12
+  // ✅ At least one per source, then fill remaining (up to 12)
   const selected = [];
-  let rank = 0;
-  while (selected.length < 12) {
-    for (const name of Object.keys(allChannelVideos)) {
-      const vid = allChannelVideos[name]?.[rank];
-      if (vid) selected.push(vid);
-      if (selected.length >= 12) break;
-    }
-    rank++;
-    if (rank > 10) break;
+
+  // First pass: take top 1 per channel if available
+  for (const name of Object.keys(allChannelVideos)) {
+    const vid = allChannelVideos[name]?.[0];
+    if (vid) selected.push(vid);
   }
 
+  // Second pass: round robin fill until 12
+  let rank = 1;
+  while (selected.length < 12) {
+    let added = false;
+    for (const name of Object.keys(allChannelVideos)) {
+      const vid = allChannelVideos[name]?.[rank];
+      if (vid && !selected.find(v => v.id === vid.id)) {
+        selected.push(vid);
+        added = true;
+      }
+      if (selected.length >= 12) break;
+    }
+    if (!added) break;
+    rank++;
+  }
+
+  // Schedule uploads
   const times = generateUploadTimes(selected.length);
   selected.forEach((v, i) => {
     const t = times[i];
@@ -202,16 +214,16 @@ async function fetchFromYouTube() {
   });
 
   await fs.outputJson(OUT_FILE, selected, { spaces: 2 });
-  console.log(`✅ Saved ${selected.length} 3–10 min videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${selected.length} scheduled videos (≥1 per source) → ${OUT_FILE}`);
   return selected;
 }
 
-// ---------- Download Route ----------
+// ---------- Download ----------
 app.get("/download/:id", async (req, res) => {
   const safeId = req.params.id.replace(/[^a-zA-Z0-9_-]/g, "");
   const data = await fs.readJson(OUT_FILE).catch(() => []);
   const info = data.find(v => v.id === safeId);
-  const timeTag = info ? info.uploadTime.replace(/[:\s]/g, "-") : "unknown-time";
+  const timeTag = info ? info.uploadTime.replace(/[:\s]/g, "-") : "unknown";
   const tag = info ? `${info.channel}_${timeTag}_${info.id}` : safeId;
   const videoUrl = `https://www.youtube.com/watch?v=${safeId}`;
   const tmp = `./tmp/${safeId}.webm`;
@@ -242,9 +254,9 @@ async function buildHome(videos) {
       <iframe src="${v.embed}" allowfullscreen></iframe>
       <h3>${v.channel}</h3>
       <p>${v.title}</p>
-      <p>🕒 Upload: ${v.uploadTime} • ⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(
+      <p>🕒 ${v.uploadTime} • ⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} • ⚡ ${v.vpm.toFixed(
         1
-      )} v/m • 🧮 Score ${v.score}</p>
+      )} v/m • 🧮 ${v.score}</p>
       <div class="buttons">
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
@@ -254,7 +266,7 @@ async function buildHome(videos) {
     .join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>🔥 Practivio News — 3–10 Minute Stories</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — 3–10 Minute Balanced Feed</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -264,21 +276,20 @@ async function buildHome(videos) {
   .buttons{display:flex;gap:.5rem;margin-top:.5rem;}
   .download,.alt{flex:1;text-align:center;text-decoration:none;color:#fff;padding:.4rem;border-radius:6px;}
   .download{background:#0077ff}.alt{background:#00994c}
-  .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — 3–10 Minute Top Stories (9 AM → 9 PM)</h1>
+  <h1>🔥 Practivio News — 3–10 Minute Balanced Feed (≥1 from every source)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} scheduled stories`);
+  console.log(`🏠 Homepage updated with ${videos.length} videos`);
 }
 
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update top videos ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
