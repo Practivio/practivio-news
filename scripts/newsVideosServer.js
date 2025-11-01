@@ -99,7 +99,8 @@ function scoreVideo(v) {
 // ---------- YouTube Fetch + Categorization ----------
 async function fetchFromYouTube() {
   const videos = [];
-  const cutoff = Date.now() - 3 * 24 * 60 * 60 * 1000;
+  // ⏱️ Only include videos from the last 24 hours
+  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
 
   for (const [name, id] of Object.entries(CHANNEL_IDS)) {
     try {
@@ -116,6 +117,8 @@ async function fetchFromYouTube() {
       (statsData.items || []).forEach(v => {
         const s = v.statistics || {};
         const published = new Date(v.snippet.publishedAt);
+
+        // ⏳ Only include videos published within the last 24 hours
         if (published.getTime() < cutoff) return;
 
         const dur = v.contentDetails?.duration || "";
@@ -177,7 +180,7 @@ async function fetchFromYouTube() {
 
   const final = slots.slice(0, 4);
   await fs.outputJson(OUT_FILE, final, { spaces: 2 });
-  console.log(`✅ Saved ${final.length} high-velocity viral videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${final.length} viral videos from last 24 hours → ${OUT_FILE}`);
   return final;
 }
 
@@ -228,7 +231,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>🔥 Practivio News — High-Velocity Viral Mode (with Al Jazeera)</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — High-Velocity Viral Mode (Last 24 Hours)</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -241,19 +244,19 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — High-Velocity Viral Mode (with Al Jazeera)</h1>
+  <h1>🔥 Practivio News — Viral Stories from Last 24 Hours</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} high-velocity viral videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} viral videos from last 24 hours`);
 }
 
 // ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update high-velocity viral mode ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update last-24h viral mode ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
