@@ -20,7 +20,9 @@ const CHANNEL_IDS = {
   BLOOMBERG: "UCIALMKvObZNtJ6AmdCLP7Lg",
   CSPAN: "UCbR0qg4Qd5MwHdAAp5aBvFw",
   MSNBC: "UCaXkIU1QidjPwiAYu6GcHjg",
-  ALJAZEERA: "UCNye-wNBqNL5ZzHSJj3l8Bg"
+  ALJAZEERA: "UCNye-wNBqNL5ZzHSJj3l8Bg",
+  ESPN: "UCiWLfSweyRNmLpgEHekhoAg",
+  WEATHER: "UCQ5vM2GvthjVx3y5C9Ftb2A"
 };
 
 const app = express();
@@ -65,6 +67,25 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
+// ---------- Time Scheduling ----------
+function generateUploadTimes(count) {
+  const times = [];
+  let hour = 21; // start at 9 PM
+  const now = new Date();
+
+  for (let i = 0; i < count; i++) {
+    hour += 2;
+    if (hour === 17) hour = 19; // skip 5–7 PM window
+    if (hour >= 24) hour -= 24;
+
+    const scheduled = new Date(now);
+    scheduled.setHours(hour, 0, 0, 0);
+    times.push(scheduled);
+  }
+
+  return times;
+}
+
 // ---------- Fetch YouTube Data ----------
 async function fetchFromYouTube() {
   const videos = [];
@@ -103,7 +124,6 @@ async function fetchFromYouTube() {
         const vpm = views / ageMin;
         const score = scoreVideo({ duration: totalMin, vpm, views, minutesOld: ageMin });
 
-        // Track best viral (>=200 v/m) and best overall by views
         if (vpm >= 200 && score > bestScore) {
           bestScore = score;
           bestVideo = v;
@@ -129,7 +149,7 @@ async function fetchFromYouTube() {
 
         videos.push({
           id: pick.id,
-          title: pick.snippet.title,
+          title: pick.snippet.title.trim(),
           channel: name,
           link: `https://www.youtube.com/watch?v=${pick.id}`,
           embed: `https://www.youtube.com/embed/${pick.id}`,
@@ -154,21 +174,38 @@ async function fetchFromYouTube() {
     }
   }
 
-  await fs.outputJson(OUT_FILE, videos, { spaces: 2 });
-  console.log(`✅ Saved ${videos.length} top videos (1 per channel) → ${OUT_FILE}`);
-  return videos;
+  // 🧹 Deduplicate identical stories
+  const seen = new Map();
+  for (const v of videos) {
+    const key = v.title.toLowerCase();
+    if (!seen.has(key) || v.score > seen.get(key).score) seen.set(key, v);
+  }
+  const deduped = Array.from(seen.values());
+
+  // Assign upload times (2-hour spacing, skip 5–7 PM)
+  const times = generateUploadTimes(deduped.length);
+  deduped.forEach((v, i) => {
+    const t = times[i];
+    v.uploadTime = t.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  });
+
+  await fs.outputJson(OUT_FILE, deduped, { spaces: 2 });
+  console.log(`✅ Saved ${deduped.length} videos with upload times → ${OUT_FILE}`);
+  return deduped;
 }
 
 // ---------- Download Route ----------
 app.get("/download/:id", async (req, res) => {
   const safeId = req.params.id.replace(/[^a-zA-Z0-9_-]/g, "");
+  const data = await fs.readJson(OUT_FILE).catch(() => []);
+  const info = data.find(v => v.id === safeId);
+  const timeTag = info ? info.uploadTime.replace(/[:\s]/g, "-") : "unknown-time";
+  const tag = info ? `${info.channel}_${timeTag}_${info.id}` : safeId;
   const videoUrl = `https://www.youtube.com/watch?v=${safeId}`;
   const tmp = `./tmp/${safeId}.webm`;
+  const out = `./downloads/${tag}.mp4`;
+
   try {
-    const data = await fs.readJson(OUT_FILE).catch(() => []);
-    const info = data.find(v => v.id === safeId);
-    const tag = info ? `${info.channel}_${info.id}` : safeId;
-    const out = `./downloads/${tag}.mp4`;
     await ensureBins();
     await fs.ensureDir("./tmp");
     await fs.ensureDir("./downloads");
@@ -189,7 +226,7 @@ async function buildHome(videos) {
       <iframe src="${v.embed}" allowfullscreen></iframe>
       <h3>${v.channel}</h3>
       <p>${v.title}</p>
-      <p>⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(1)} v/m • 🧮 Score ${v.score}</p>
+      <p>🕒 Upload: ${v.uploadTime} • ⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(1)} v/m • 🧮 Score ${v.score}</p>
       <div class="buttons">
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
@@ -197,7 +234,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>🔥 Practivio News — Top Story Per Source (Last 24 Hours)</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — Top Stories (Last 24 Hours)</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -210,12 +247,12 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — Top Story from Each Source (Last 24 Hours)</h1>
+  <h1>🔥 Practivio News — Scheduled Top Stories (Last 24 Hours)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} stories`);
+  console.log(`🏠 Homepage updated with ${videos.length} scheduled stories`);
 }
 
 // ---------- Deploy ----------
