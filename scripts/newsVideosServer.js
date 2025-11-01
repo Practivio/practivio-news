@@ -77,7 +77,7 @@ function generateUploadTimes(count) {
   return times.slice(0, 12); // exactly 12 posts
 }
 
-// ---------- Fetch YouTube Data (Modified) ----------
+// ---------- Fetch YouTube Data (Improved Filter + Dedup) ----------
 async function fetchFromYouTube() {
   const allChannelVideos = {};
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
@@ -97,7 +97,8 @@ async function fetchFromYouTube() {
 
       (statsData.items || []).forEach(v => {
         const s = v.statistics || {};
-        const published = new Date(v.snippet.publishedAt);
+        const snip = v.snippet || {};
+        const published = new Date(snip.publishedAt);
         if (published.getTime() < cutoff) return;
 
         const dur = v.contentDetails?.duration || "";
@@ -107,11 +108,15 @@ async function fetchFromYouTube() {
         const totalMin = mins + secs / 60;
         if (totalMin < 0.5 || totalMin > 10.0) return;
 
-        const thumb = v.snippet.thumbnails?.medium;
+        const thumb = snip.thumbnails?.medium;
         const w = thumb?.width || 0;
         const h = thumb?.height || 0;
-        // 🚫 Skip vertical 9x16 videos
-        if (h > w) return;
+        const aspect = w && h ? w / h : 16 / 9;
+
+        const t = snip.title.toLowerCase();
+        // 🚫 Stronger vertical + #shorts filtering
+        if (t.includes("#short") || aspect < 1.3) return;
+        if (totalMin < 1 && /[#🎥📱😂🤣🤯🔥]/.test(t)) return;
 
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
@@ -120,12 +125,12 @@ async function fetchFromYouTube() {
 
         channelVideos.push({
           id: v.id,
-          title: v.snippet.title.trim(),
+          title: snip.title.trim(),
           channel: name,
           link: `https://www.youtube.com/watch?v=${v.id}`,
           embed: `https://www.youtube.com/embed/${v.id}`,
           thumb: thumb?.url,
-          publishedAt: v.snippet.publishedAt,
+          publishedAt: snip.publishedAt,
           duration: totalMin.toFixed(1),
           views,
           vpm,
@@ -134,12 +139,30 @@ async function fetchFromYouTube() {
         });
       });
 
-      // Sort by score descending for that channel
       allChannelVideos[name] = channelVideos.sort((a, b) => b.score - a.score);
-      console.log(`✅ ${name}: ${channelVideos.length} valid non-vertical videos`);
+      console.log(`✅ ${name}: ${channelVideos.length} valid landscape videos`);
     } catch (e) {
       console.log(`⚠️ ${name} failed: ${e.message}`);
     }
+  }
+
+  // 🧹 Remove near-duplicate stories across all channels
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, "")
+      .split(/\s+/)
+      .slice(0, 6)
+      .join(" ");
+
+  const seen = new Set();
+  for (const name of Object.keys(allChannelVideos)) {
+    allChannelVideos[name] = allChannelVideos[name].filter(v => {
+      const key = normalize(v.title);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   // 🌀 Round-robin pick: top, 2nd, 3rd, etc. across channels
@@ -152,7 +175,7 @@ async function fetchFromYouTube() {
       if (selected.length >= 12) break;
     }
     rank++;
-    if (rank > 10) break; // safety
+    if (rank > 10) break;
   }
 
   // Assign upload times (9AM–9PM every 2 hours)
