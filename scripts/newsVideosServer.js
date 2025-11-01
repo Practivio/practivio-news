@@ -8,7 +8,6 @@ const API_KEY = "AIzaSyAdG1Ce4XZbP1P-66AdAWKpcIWweet5hOc";
 const OUT_FILE = "./content/videos.json";
 const PORT = 3030;
 
-// ---------- Trusted verified sources ----------
 const CHANNEL_IDS = {
   FOX: "UCXIJgqnII2ZOINSWNOGFThA",
   CNN: "UCupvZG-5ko_eiXAupbDfxWw",
@@ -27,7 +26,6 @@ const CHANNEL_IDS = {
 
 const app = express();
 
-// ---------- Helpers ----------
 function getLocalIP() {
   const nets = os.networkInterfaces();
   for (const name of Object.keys(nets)) {
@@ -54,7 +52,6 @@ async function ensureBins() {
   await runCommand("command -v ffmpeg");
 }
 
-// ---------- Viral Scoring ----------
 function scoreVideo(v) {
   const totalMin = parseFloat(v.duration);
   const vpm = v.vpm || 0;
@@ -67,28 +64,22 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
-// ---------- Time Scheduling ----------
+// ---------- Modified Time Scheduling ----------
 function generateUploadTimes(count) {
   const times = [];
-  let hour = 21; // start at 9 PM
+  const startHour = 9; // start 9AM
   const now = new Date();
-
   for (let i = 0; i < count; i++) {
-    hour += 2;
-    if (hour === 17) hour = 19; // skip 5–7 PM window
-    if (hour >= 24) hour -= 24;
-
     const scheduled = new Date(now);
-    scheduled.setHours(hour, 0, 0, 0);
+    scheduled.setHours(startHour + i * 2, 0, 0, 0); // every 2 hours
     times.push(scheduled);
   }
-
-  return times;
+  return times.slice(0, 12); // exactly 12 posts
 }
 
-// ---------- Fetch YouTube Data ----------
+// ---------- Fetch YouTube Data (Modified) ----------
 async function fetchFromYouTube() {
-  const videos = [];
+  const allChannelVideos = {};
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
 
   for (const [name, id] of Object.entries(CHANNEL_IDS)) {
@@ -99,13 +90,10 @@ async function fetchFromYouTube() {
       const videoIds = (data.items || []).map(it => it.id?.videoId).filter(Boolean).join(",");
       if (!videoIds) continue;
 
-      const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet,contentDetails&id=${videoIds}&key=${API_KEY}`;
+      const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet,contentDetails,id&key=${API_KEY}&id=${videoIds}`;
       const { data: statsData } = await axios.get(statsUrl);
 
-      let bestVideo = null;
-      let bestScore = 0;
-      let bestByViews = null;
-      let maxViews = 0;
+      const channelVideos = [];
 
       (statsData.items || []).forEach(v => {
         const s = v.statistics || {};
@@ -119,79 +107,65 @@ async function fetchFromYouTube() {
         const totalMin = mins + secs / 60;
         if (totalMin < 0.5 || totalMin > 10.0) return;
 
+        const thumb = v.snippet.thumbnails?.medium;
+        const w = thumb?.width || 0;
+        const h = thumb?.height || 0;
+        // 🚫 Skip vertical 9x16 videos
+        if (h > w) return;
+
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
         const vpm = views / ageMin;
         const score = scoreVideo({ duration: totalMin, vpm, views, minutesOld: ageMin });
 
-        if (vpm >= 200 && score > bestScore) {
-          bestScore = score;
-          bestVideo = v;
-        }
-        if (views > maxViews) {
-          maxViews = views;
-          bestByViews = v;
-        }
-      });
-
-      const pick = bestVideo || bestByViews;
-      if (pick) {
-        const s = pick.statistics || {};
-        const published = new Date(pick.snippet.publishedAt);
-        const dur = pick.contentDetails?.duration || "";
-        const m = dur.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
-        const mins = parseInt(m?.[1] || 0, 10);
-        const secs = parseInt(m?.[2] || 0, 10);
-        const totalMin = mins + secs / 60;
-        const views = parseInt(s.viewCount || 0, 10);
-        const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
-        const vpm = views / ageMin;
-
-        videos.push({
-          id: pick.id,
-          title: pick.snippet.title.trim(),
+        channelVideos.push({
+          id: v.id,
+          title: v.snippet.title.trim(),
           channel: name,
-          link: `https://www.youtube.com/watch?v=${pick.id}`,
-          embed: `https://www.youtube.com/embed/${pick.id}`,
-          thumb: pick.snippet.thumbnails?.medium?.url,
-          publishedAt: pick.snippet.publishedAt,
+          link: `https://www.youtube.com/watch?v=${v.id}`,
+          embed: `https://www.youtube.com/embed/${v.id}`,
+          thumb: thumb?.url,
+          publishedAt: v.snippet.publishedAt,
           duration: totalMin.toFixed(1),
           views,
           vpm,
           minutesOld: Math.round(ageMin),
-          score: scoreVideo({ duration: totalMin, vpm, views, minutesOld: ageMin }).toFixed(2)
+          score
         });
-        console.log(
-          bestVideo
-            ? `🔥 Viral from ${name}: ${pick.snippet.title} (${vpm.toFixed(1)} v/m)`
-            : `⭐ Top (fallback) from ${name}: ${pick.snippet.title} (${views.toLocaleString()} views)`
-        );
-      } else {
-        console.log(`⚠️ No recent videos for ${name}`);
-      }
+      });
+
+      // Sort by score descending for that channel
+      allChannelVideos[name] = channelVideos.sort((a, b) => b.score - a.score);
+      console.log(`✅ ${name}: ${channelVideos.length} valid non-vertical videos`);
     } catch (e) {
       console.log(`⚠️ ${name} failed: ${e.message}`);
     }
   }
 
-  // 🧹 Deduplicate identical stories
-  const seen = new Map();
-  for (const v of videos) {
-    const key = v.title.toLowerCase();
-    if (!seen.has(key) || v.score > seen.get(key).score) seen.set(key, v);
+  // 🌀 Round-robin pick: top, 2nd, 3rd, etc. across channels
+  const selected = [];
+  let rank = 0;
+  while (selected.length < 12) {
+    for (const name of Object.keys(allChannelVideos)) {
+      const vid = allChannelVideos[name]?.[rank];
+      if (vid) selected.push(vid);
+      if (selected.length >= 12) break;
+    }
+    rank++;
+    if (rank > 10) break; // safety
   }
-  const deduped = Array.from(seen.values());
 
-  // Assign upload times (2-hour spacing, skip 5–7 PM)
-  const times = generateUploadTimes(deduped.length);
-  deduped.forEach((v, i) => {
+  // Assign upload times (9AM–9PM every 2 hours)
+  const times = generateUploadTimes(selected.length);
+  selected.forEach((v, i) => {
     const t = times[i];
     v.uploadTime = t.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    v.score = v.score.toFixed(2);
   });
 
-  await fs.outputJson(OUT_FILE, deduped, { spaces: 2 });
-  console.log(`✅ Saved ${deduped.length} videos with upload times → ${OUT_FILE}`);
-  return deduped;
+  await fs.outputJson(OUT_FILE, selected, { spaces: 2 });
+  console.log(`✅ Saved ${selected.length} scheduled videos → ${OUT_FILE}`);
+  return selected;
 }
 
 // ---------- Download Route ----------
@@ -247,7 +221,7 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — Scheduled Top Stories (Last 24 Hours)</h1>
+  <h1>🔥 Practivio News — Scheduled Top Stories (9 AM → 9 PM)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
@@ -255,7 +229,6 @@ async function buildHome(videos) {
   console.log(`🏠 Homepage updated with ${videos.length} scheduled stories`);
 }
 
-// ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
@@ -266,7 +239,6 @@ async function deploySite() {
   }
 }
 
-// ---------- Server ----------
 app.use(express.static("."));
 app.get("/refresh", async (req, res) => {
   const vids = await fetchFromYouTube();
@@ -275,7 +247,6 @@ app.get("/refresh", async (req, res) => {
   res.redirect("/");
 });
 
-// ---------- Start ----------
 async function start() {
   const localIP = getLocalIP();
   const vids = await fetchFromYouTube();
