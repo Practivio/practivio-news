@@ -8,10 +8,66 @@
     "thumb": "https://i.ytimg.com/vi/6rNZ_AzOnrc/mqdefault.jpg",
     "publishedAt": "2025-11-01T00:00:13Z",
     "duration": "2.2",
-    "views": 12243,
-    "vpm": 413.8670068138359,
-    "minutesOld": 30,
-    "score": "0.52"
+    "views": 14707,
+    "vpm": 467.7322918786892,
+    "minutesOld": 31,
+    "score": "0.56"
+  },
+  {
+    "id": "BGiuYV0DUq0",
+    "title": "Speaker Johnson issues warning after Trump says GOP should end the filibuster",
+    "channel": "CNN",
+    "link": "https://www.youtube.com/watch?v=BGiuYV0DUq0",
+    "embed": "https://www.youtube.com/embed/BGiuYV0DUq0",
+    "thumb": "https://i.ytimg.com/vi/BGiuYV0DUq0/mqdefault.jpg",
+    "publishedAt": "2025-10-31T17:59:41Z",
+    "duration": "8.6",
+    "views": 318695,
+    "vpm": 813.0264510711075,
+    "minutesOld": 392,
+    "score": "0.60"
+  },
+  {
+    "id": "r00zeZIYNj0",
+    "title": "Hurricane Melissa death toll rises as aid struggles to reach parts of Jamaica | BBC News",
+    "channel": "BBC",
+    "link": "https://www.youtube.com/watch?v=r00zeZIYNj0",
+    "embed": "https://www.youtube.com/embed/r00zeZIYNj0",
+    "thumb": "https://i.ytimg.com/vi/r00zeZIYNj0/mqdefault.jpg",
+    "publishedAt": "2025-10-31T12:01:52Z",
+    "duration": "4.2",
+    "views": 47715,
+    "vpm": 63.636128223164114,
+    "minutesOld": 750,
+    "score": "0.27"
+  },
+  {
+    "id": "hW7H8t6-wt0",
+    "title": "Judges say Trump administration must pay some SNAP benefits during government shutdown",
+    "channel": "REUTERS",
+    "link": "https://www.youtube.com/watch?v=hW7H8t6-wt0",
+    "embed": "https://www.youtube.com/embed/hW7H8t6-wt0",
+    "thumb": "https://i.ytimg.com/vi/hW7H8t6-wt0/mqdefault.jpg",
+    "publishedAt": "2025-10-31T19:18:51Z",
+    "duration": "3.0",
+    "views": 21035,
+    "vpm": 67.23982566765933,
+    "minutesOld": 313,
+    "score": "0.28"
+  },
+  {
+    "id": "hW7H8t6-wt0",
+    "title": "Judges say Trump administration must pay some SNAP benefits during government shutdown",
+    "channel": "CBS",
+    "link": "https://www.youtube.com/watch?v=hW7H8t6-wt0",
+    "embed": "https://www.youtube.com/embed/hW7H8t6-wt0",
+    "thumb": "https://i.ytimg.com/vi/hW7H8t6-wt0/mqdefault.jpg",
+    "publishedAt": "2025-10-31T19:18:51Z",
+    "duration": "3.0",
+    "views": 21035,
+    "vpm": 67.23724652580923,
+    "minutesOld": 313,
+    "score": "0.28"
   },
   {
     "id": "A85aLYBT3JA",
@@ -23,9 +79,23 @@
     "publishedAt": "2025-10-31T09:40:58Z",
     "duration": "3.0",
     "views": 469040,
-    "vpm": 527.6810054469698,
-    "minutesOld": 889,
-    "score": "0.58"
+    "vpm": 526.5731842590948,
+    "minutesOld": 891,
+    "score": "0.57"
+  },
+  {
+    "id": "lYFS_dBk_Y4",
+    "title": "Trump Says He Had an 'Amazing' Meeting With China's Xi",
+    "channel": "BLOOMBERG",
+    "link": "https://www.youtube.com/watch?v=lYFS_dBk_Y4",
+    "embed": "https://www.youtube.com/embed/lYFS_dBk_Y4",
+    "thumb": "https://i.ytimg.com/vi/lYFS_dBk_Y4/mqdefault.jpg",
+    "publishedAt": "2025-10-31T17:01:31Z",
+    "duration": "0.9",
+    "views": 6843,
+    "vpm": 15.199960669204016,
+    "minutesOld": 450,
+    "score": "0.24"
   },
   {
     "id": "7k0ypJ5fVe0",
@@ -37,8 +107,22 @@
     "publishedAt": "2025-10-31T18:42:55Z",
     "duration": "4.7",
     "views": 216371,
-    "vpm": 623.660989633417,
-    "minutesOld": 347,
-    "score": "0.67"
+    "vpm": 620.311058120434,
+    "minutesOld": 349,
+    "score": "0.66"
+  },
+  {
+    "id": "0vHy6Q0DAHA",
+    "title": "Dancing, deals and nuclear subs – what did Trump get up to in Asia? | AJ #shorts",
+    "channel": "ALJAZEERA",
+    "link": "https://www.youtube.com/watch?v=0vHy6Q0DAHA",
+    "embed": "https://www.youtube.com/embed/0vHy6Q0DAHA",
+    "thumb": "https://i.ytimg.com/vi/0vHy6Q0DAHA/mqdefault.jpg",
+    "publishedAt": "2025-10-31T11:36:15Z",
+    "duration": "2.3",
+    "views": 28420,
+    "vpm": 36.64794967702651,
+    "minutesOld": 775,
+    "score": "0.25"
   }
 ]

@@ -38,7 +38,6 @@ function getLocalIP() {
 
 function runCommand(cmd) {
   return new Promise((resolve, reject) => {
-    console.log(`> ${cmd}`);
     exec(cmd, { maxBuffer: 1024 * 1024 * 1024 }, (err, stdout, stderr) => {
       if (stdout?.trim()) console.log(stdout.trim());
       if (stderr?.trim()) console.error(stderr.trim());
@@ -66,7 +65,7 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
-// ---------- YouTube Fetch (Top Viral per Channel in Last 24 Hours) ----------
+// ---------- Fetch YouTube Data ----------
 async function fetchFromYouTube() {
   const videos = [];
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
@@ -76,7 +75,6 @@ async function fetchFromYouTube() {
       console.log(`🎥 Fetching from ${name}`);
       const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${id}&part=snippet,id&order=date&maxResults=25`;
       const { data } = await axios.get(searchUrl);
-
       const videoIds = (data.items || []).map(it => it.id?.videoId).filter(Boolean).join(",");
       if (!videoIds) continue;
 
@@ -85,6 +83,8 @@ async function fetchFromYouTube() {
 
       let bestVideo = null;
       let bestScore = 0;
+      let bestByViews = null;
+      let maxViews = 0;
 
       (statsData.items || []).forEach(v => {
         const s = v.statistics || {};
@@ -96,47 +96,66 @@ async function fetchFromYouTube() {
         const mins = parseInt(m?.[1] || 0, 10);
         const secs = parseInt(m?.[2] || 0, 10);
         const totalMin = mins + secs / 60;
-        if (totalMin < 1.0 || totalMin > 6.0) return;
+        if (totalMin < 0.5 || totalMin > 10.0) return;
 
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
         const vpm = views / ageMin;
-        if (vpm < 200) return;
-
         const score = scoreVideo({ duration: totalMin, vpm, views, minutesOld: ageMin });
-        if (score > bestScore) {
+
+        // Track best viral (>=200 v/m) and best overall by views
+        if (vpm >= 200 && score > bestScore) {
           bestScore = score;
-          bestVideo = {
-            id: v.id,
-            title: v.snippet.title,
-            channel: name,
-            link: `https://www.youtube.com/watch?v=${v.id}`,
-            embed: `https://www.youtube.com/embed/${v.id}`,
-            thumb: v.snippet.thumbnails?.medium?.url,
-            publishedAt: v.snippet.publishedAt,
-            duration: totalMin.toFixed(1),
-            views,
-            vpm,
-            minutesOld: Math.round(ageMin),
-            score: score.toFixed(2)
-          };
+          bestVideo = v;
+        }
+        if (views > maxViews) {
+          maxViews = views;
+          bestByViews = v;
         }
       });
 
-      if (bestVideo) {
-        videos.push(bestVideo);
-        console.log(`🔥 Top from ${name}: ${bestVideo.title} (${bestVideo.vpm.toFixed(2)} v/m)`);
-      } else {
-        console.log(`⚠️ No viral videos found for ${name} in last 24 hours`);
-      }
+      const pick = bestVideo || bestByViews;
+      if (pick) {
+        const s = pick.statistics || {};
+        const published = new Date(pick.snippet.publishedAt);
+        const dur = pick.contentDetails?.duration || "";
+        const m = dur.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
+        const mins = parseInt(m?.[1] || 0, 10);
+        const secs = parseInt(m?.[2] || 0, 10);
+        const totalMin = mins + secs / 60;
+        const views = parseInt(s.viewCount || 0, 10);
+        const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
+        const vpm = views / ageMin;
 
+        videos.push({
+          id: pick.id,
+          title: pick.snippet.title,
+          channel: name,
+          link: `https://www.youtube.com/watch?v=${pick.id}`,
+          embed: `https://www.youtube.com/embed/${pick.id}`,
+          thumb: pick.snippet.thumbnails?.medium?.url,
+          publishedAt: pick.snippet.publishedAt,
+          duration: totalMin.toFixed(1),
+          views,
+          vpm,
+          minutesOld: Math.round(ageMin),
+          score: scoreVideo({ duration: totalMin, vpm, views, minutesOld: ageMin }).toFixed(2)
+        });
+        console.log(
+          bestVideo
+            ? `🔥 Viral from ${name}: ${pick.snippet.title} (${vpm.toFixed(1)} v/m)`
+            : `⭐ Top (fallback) from ${name}: ${pick.snippet.title} (${views.toLocaleString()} views)`
+        );
+      } else {
+        console.log(`⚠️ No recent videos for ${name}`);
+      }
     } catch (e) {
       console.log(`⚠️ ${name} failed: ${e.message}`);
     }
   }
 
   await fs.outputJson(OUT_FILE, videos, { spaces: 2 });
-  console.log(`✅ Saved ${videos.length} top viral videos (1 per channel) → ${OUT_FILE}`);
+  console.log(`✅ Saved ${videos.length} top videos (1 per channel) → ${OUT_FILE}`);
   return videos;
 }
 
@@ -145,22 +164,17 @@ app.get("/download/:id", async (req, res) => {
   const safeId = req.params.id.replace(/[^a-zA-Z0-9_-]/g, "");
   const videoUrl = `https://www.youtube.com/watch?v=${safeId}`;
   const tmp = `./tmp/${safeId}.webm`;
-
   try {
     const data = await fs.readJson(OUT_FILE).catch(() => []);
     const info = data.find(v => v.id === safeId);
     const tag = info ? `${info.channel}_${info.id}` : safeId;
     const out = `./downloads/${tag}.mp4`;
-
     await ensureBins();
     await fs.ensureDir("./tmp");
     await fs.ensureDir("./downloads");
-
-    console.log(`⬇️ Downloading ${videoUrl}`);
     await runCommand(`yt-dlp -f "bestvideo+bestaudio/best" -o "${tmp}" "${videoUrl}"`);
     await runCommand(`ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`);
     await fs.remove(tmp);
-
     res.download(out, `${tag}.mp4`);
   } catch (err) {
     console.error("❌ Download failed:", err);
@@ -175,7 +189,7 @@ async function buildHome(videos) {
       <iframe src="${v.embed}" allowfullscreen></iframe>
       <h3>${v.channel}</h3>
       <p>${v.title}</p>
-      <p>⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(2)} v/m • 🧮 Score ${v.score}</p>
+      <p>⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(1)} v/m • 🧮 Score ${v.score}</p>
       <div class="buttons">
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
@@ -183,7 +197,7 @@ async function buildHome(videos) {
     </div>`).join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>🔥 Practivio News — Most Viral Story from Each Source (Last 24 Hours)</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — Top Story Per Source (Last 24 Hours)</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -196,19 +210,19 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — Most Viral Story from Each Source (Last 24 Hours)</h1>
+  <h1>🔥 Practivio News — Top Story from Each Source (Last 24 Hours)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
   await fs.outputFile("./index.html", html);
-  console.log(`🏠 Homepage updated with ${videos.length} most viral videos`);
+  console.log(`🏠 Homepage updated with ${videos.length} stories`);
 }
 
 // ---------- Deploy ----------
 async function deploySite() {
   try {
     await runCommand("git add .");
-    await runCommand(`git commit -m "Auto-update top viral videos ${new Date().toISOString()}"`);
+    await runCommand(`git commit -m "Auto-update top videos ${new Date().toISOString()}"`);
     await runCommand("git push origin main");
   } catch (err) {
     console.error("❌ Git push failed:", err);
