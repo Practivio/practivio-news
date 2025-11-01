@@ -60,7 +60,7 @@ function scoreVideo(v) {
   const vpmScore = Math.min(vpm / 1000, 1);
   const recencyScore = ageHours < 12 ? 1 : Math.max(0, 1 - (ageHours - 12) / 24);
   const viewBoost = Math.min(Math.log10(views + 1) / 5, 0.3);
-  const durationPenalty = totalMin > 5 ? -0.2 : 0;
+  const durationPenalty = totalMin > 8 ? -0.2 : 0;
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
@@ -106,14 +106,16 @@ async function fetchFromYouTube() {
         const s = v.statistics || {};
         const snip = v.snippet || {};
         const published = new Date(snip.publishedAt);
-        if (published.getTime() < cutoffTime) return; // too old
+        if (published.getTime() < cutoffTime) return;
 
         const dur = v.contentDetails?.duration || "";
         const m = dur.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
         const mins = parseInt(m?.[1] || 0, 10);
         const secs = parseInt(m?.[2] || 0, 10);
         const totalMin = mins + secs / 60;
-        if (totalMin < 1.0 || totalMin > 10.0) return; // too short/long
+
+        // ✅ Must be between 3 and 10 minutes exactly
+        if (totalMin < 3.0 || totalMin > 10.0) return;
 
         const thumb = snip.thumbnails?.medium;
         const w = thumb?.width || 0;
@@ -155,13 +157,13 @@ async function fetchFromYouTube() {
       });
 
       allChannelVideos[name] = channelVideos.sort((a, b) => b.score - a.score);
-      console.log(`✅ ${name}: ${channelVideos.length} fresh non-Shorts`);
+      console.log(`✅ ${name}: ${channelVideos.length} valid 3–10 min videos`);
     } catch (e) {
       console.log(`⚠️ ${name} failed: ${e.message}`);
     }
   }
 
-  // 🧹 Remove near-duplicate stories across channels
+  // 🧹 Remove near-duplicate stories across all channels
   const normalize = str =>
     str
       .toLowerCase()
@@ -169,7 +171,6 @@ async function fetchFromYouTube() {
       .split(/\s+/)
       .slice(0, 6)
       .join(" ");
-
   const seen = new Set();
   for (const name of Object.keys(allChannelVideos)) {
     allChannelVideos[name] = allChannelVideos[name].filter(v => {
@@ -180,7 +181,7 @@ async function fetchFromYouTube() {
     });
   }
 
-  // 🌀 Round-robin pick: top, 2nd, 3rd, etc.
+  // 🌀 Round-robin pick up to 12
   const selected = [];
   let rank = 0;
   while (selected.length < 12) {
@@ -193,7 +194,6 @@ async function fetchFromYouTube() {
     if (rank > 10) break;
   }
 
-  // Assign upload times (9 AM–9 PM)
   const times = generateUploadTimes(selected.length);
   selected.forEach((v, i) => {
     const t = times[i];
@@ -202,7 +202,7 @@ async function fetchFromYouTube() {
   });
 
   await fs.outputJson(OUT_FILE, selected, { spaces: 2 });
-  console.log(`✅ Saved ${selected.length} fresh videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${selected.length} 3–10 min videos → ${OUT_FILE}`);
   return selected;
 }
 
@@ -254,7 +254,7 @@ async function buildHome(videos) {
     .join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8"><title>🔥 Practivio News — Top Stories (Last 24 Hours)</title>
+  <meta charset="UTF-8"><title>🔥 Practivio News — 3–10 Minute Stories</title>
   <style>
   body{font-family:Inter,Arial,sans-serif;margin:2rem;background:#fafafa;color:#111;}
   h1{text-align:center;}
@@ -267,7 +267,7 @@ async function buildHome(videos) {
   .download:hover{background:#005ae0}.alt:hover{background:#007a3b}
   .refresh{display:block;margin:1rem auto;text-align:center;padding:.6rem 1rem;background:#111;color:#fff;text-decoration:none;border-radius:8px;}
   </style></head><body>
-  <h1>🔥 Practivio News — Scheduled Top Stories (9 AM → 9 PM)</h1>
+  <h1>🔥 Practivio News — 3–10 Minute Top Stories (9 AM → 9 PM)</h1>
   <a class="refresh" href="/refresh">🔄 Refresh Feed</a>
   <div class="grid">${cards}</div>
   </body></html>`;
