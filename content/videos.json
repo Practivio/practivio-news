@@ -1,21 +1,5 @@
 [
   {
-    "id": "7k0ypJ5fVe0",
-    "title": "BREAKING: Judge tells govt. to consider issuing reduced SNAP food for November",
-    "channel": "MSNBC",
-    "link": "https://www.youtube.com/watch?v=7k0ypJ5fVe0",
-    "embed": "https://www.youtube.com/embed/7k0ypJ5fVe0",
-    "thumb": "https://i.ytimg.com/vi/7k0ypJ5fVe0/mqdefault.jpg",
-    "publishedAt": "2025-10-31T18:42:55Z",
-    "duration": "4.7",
-    "views": 212343,
-    "vpm": 615.103274710963,
-    "minutesOld": 345,
-    "slot": "Emotional Justice / Outrage Story",
-    "slotTime": "9:00 PM",
-    "score": "0.66"
-  },
-  {
     "id": "6rNZ_AzOnrc",
     "title": "JUST IN: Several arrested for Halloween terror plot in Michigan",
     "channel": "FOX",
@@ -24,27 +8,37 @@
     "thumb": "https://i.ytimg.com/vi/6rNZ_AzOnrc/mqdefault.jpg",
     "publishedAt": "2025-11-01T00:00:13Z",
     "duration": "2.2",
-    "views": 10705,
-    "vpm": 384.3178224024441,
-    "minutesOld": 28,
-    "slot": "Economic or Political Impact",
-    "slotTime": "11:00 PM",
-    "score": "0.50"
+    "views": 12243,
+    "vpm": 413.8670068138359,
+    "minutesOld": 30,
+    "score": "0.52"
   },
   {
-    "id": "UqPaVXMUFyY",
-    "title": "Speaker Johnson dodges question about Trump's request to end filibuster",
+    "id": "A85aLYBT3JA",
+    "title": "Trump pushes 'nuclear option' to end government shutdown",
     "channel": "ABC",
-    "link": "https://www.youtube.com/watch?v=UqPaVXMUFyY",
-    "embed": "https://www.youtube.com/embed/UqPaVXMUFyY",
-    "thumb": "https://i.ytimg.com/vi/UqPaVXMUFyY/mqdefault.jpg",
-    "publishedAt": "2025-10-31T16:07:47Z",
-    "duration": "3.5",
-    "views": 197210,
-    "vpm": 394.1608261181331,
-    "minutesOld": 500,
-    "slot": "Viral / Reaction-Based Story",
-    "slotTime": "3:00 AM",
-    "score": "0.51"
+    "link": "https://www.youtube.com/watch?v=A85aLYBT3JA",
+    "embed": "https://www.youtube.com/embed/A85aLYBT3JA",
+    "thumb": "https://i.ytimg.com/vi/A85aLYBT3JA/mqdefault.jpg",
+    "publishedAt": "2025-10-31T09:40:58Z",
+    "duration": "3.0",
+    "views": 469040,
+    "vpm": 527.6810054469698,
+    "minutesOld": 889,
+    "score": "0.58"
+  },
+  {
+    "id": "7k0ypJ5fVe0",
+    "title": "BREAKING: Judge tells govt. to consider issuing reduced SNAP food for November",
+    "channel": "MSNBC",
+    "link": "https://www.youtube.com/watch?v=7k0ypJ5fVe0",
+    "embed": "https://www.youtube.com/embed/7k0ypJ5fVe0",
+    "thumb": "https://i.ytimg.com/vi/7k0ypJ5fVe0/mqdefault.jpg",
+    "publishedAt": "2025-10-31T18:42:55Z",
+    "duration": "4.7",
+    "views": 216371,
+    "vpm": 623.660989633417,
+    "minutesOld": 347,
+    "score": "0.67"
   }
 ]
