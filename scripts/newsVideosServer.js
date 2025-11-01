@@ -64,23 +64,30 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
-// ---------- Modified Time Scheduling ----------
+// ---------- Time Scheduling ----------
 function generateUploadTimes(count) {
   const times = [];
-  const startHour = 9; // start 9AM
+  const startHour = 9;
   const now = new Date();
   for (let i = 0; i < count; i++) {
     const scheduled = new Date(now);
-    scheduled.setHours(startHour + i * 2, 0, 0, 0); // every 2 hours
+    scheduled.setHours(startHour + i * 2, 0, 0, 0);
     times.push(scheduled);
   }
-  return times.slice(0, 12); // exactly 12 posts
+  return times.slice(0, 12);
 }
 
-// ---------- Fetch YouTube Data (Improved Filter + Dedup) ----------
+// ---------- Fetch YouTube Data ----------
 async function fetchFromYouTube() {
   const allChannelVideos = {};
-  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+
+  // 🕘 Only include videos published since 9 PM last night
+  const now = new Date();
+  const cutoff = new Date(now);
+  cutoff.setDate(now.getHours() < 21 ? now.getDate() - 1 : now.getDate());
+  cutoff.setHours(21, 0, 0, 0);
+  const cutoffTime = cutoff.getTime();
+  console.log(`📅 Filtering videos newer than ${cutoff.toLocaleString()}`);
 
   for (const [name, id] of Object.entries(CHANNEL_IDS)) {
     try {
@@ -99,24 +106,32 @@ async function fetchFromYouTube() {
         const s = v.statistics || {};
         const snip = v.snippet || {};
         const published = new Date(snip.publishedAt);
-        if (published.getTime() < cutoff) return;
+        if (published.getTime() < cutoffTime) return; // too old
 
         const dur = v.contentDetails?.duration || "";
         const m = dur.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
         const mins = parseInt(m?.[1] || 0, 10);
         const secs = parseInt(m?.[2] || 0, 10);
         const totalMin = mins + secs / 60;
-        if (totalMin < 0.5 || totalMin > 10.0) return;
+        if (totalMin < 1.0 || totalMin > 10.0) return; // too short/long
 
         const thumb = snip.thumbnails?.medium;
         const w = thumb?.width || 0;
         const h = thumb?.height || 0;
         const aspect = w && h ? w / h : 16 / 9;
 
-        const t = snip.title.toLowerCase();
-        // 🚫 Stronger vertical + #shorts filtering
-        if (t.includes("#short") || aspect < 1.3) return;
-        if (totalMin < 1 && /[#🎥📱😂🤣🤯🔥]/.test(t)) return;
+        const t = (snip.title + " " + (snip.description || "")).toLowerCase();
+
+        // 🚫 Skip Shorts / social-media / vertical content
+        if (
+          t.includes("#short") ||
+          t.includes("shorts") ||
+          t.includes("tiktok") ||
+          t.includes("reel") ||
+          t.includes("clip") ||
+          aspect < 1.4
+        )
+          return;
 
         const views = parseInt(s.viewCount || 0, 10);
         const ageMin = Math.max((Date.now() - published.getTime()) / 60000, 1);
@@ -140,13 +155,13 @@ async function fetchFromYouTube() {
       });
 
       allChannelVideos[name] = channelVideos.sort((a, b) => b.score - a.score);
-      console.log(`✅ ${name}: ${channelVideos.length} valid landscape videos`);
+      console.log(`✅ ${name}: ${channelVideos.length} fresh non-Shorts`);
     } catch (e) {
       console.log(`⚠️ ${name} failed: ${e.message}`);
     }
   }
 
-  // 🧹 Remove near-duplicate stories across all channels
+  // 🧹 Remove near-duplicate stories across channels
   const normalize = str =>
     str
       .toLowerCase()
@@ -165,7 +180,7 @@ async function fetchFromYouTube() {
     });
   }
 
-  // 🌀 Round-robin pick: top, 2nd, 3rd, etc. across channels
+  // 🌀 Round-robin pick: top, 2nd, 3rd, etc.
   const selected = [];
   let rank = 0;
   while (selected.length < 12) {
@@ -178,7 +193,7 @@ async function fetchFromYouTube() {
     if (rank > 10) break;
   }
 
-  // Assign upload times (9AM–9PM every 2 hours)
+  // Assign upload times (9 AM–9 PM)
   const times = generateUploadTimes(selected.length);
   selected.forEach((v, i) => {
     const t = times[i];
@@ -187,7 +202,7 @@ async function fetchFromYouTube() {
   });
 
   await fs.outputJson(OUT_FILE, selected, { spaces: 2 });
-  console.log(`✅ Saved ${selected.length} scheduled videos → ${OUT_FILE}`);
+  console.log(`✅ Saved ${selected.length} fresh videos → ${OUT_FILE}`);
   return selected;
 }
 
@@ -207,7 +222,9 @@ app.get("/download/:id", async (req, res) => {
     await fs.ensureDir("./tmp");
     await fs.ensureDir("./downloads");
     await runCommand(`yt-dlp -f "bestvideo+bestaudio/best" -o "${tmp}" "${videoUrl}"`);
-    await runCommand(`ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`);
+    await runCommand(
+      `ffmpeg -hide_banner -loglevel error -y -i "${tmp}" -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k -movflags +faststart "${out}"`
+    );
     await fs.remove(tmp);
     res.download(out, `${tag}.mp4`);
   } catch (err) {
@@ -218,17 +235,23 @@ app.get("/download/:id", async (req, res) => {
 
 // ---------- Homepage ----------
 async function buildHome(videos) {
-  const cards = videos.map(v => `
+  const cards = videos
+    .map(
+      v => `
     <div class="video-card">
       <iframe src="${v.embed}" allowfullscreen></iframe>
       <h3>${v.channel}</h3>
       <p>${v.title}</p>
-      <p>🕒 Upload: ${v.uploadTime} • ⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(1)} v/m • 🧮 Score ${v.score}</p>
+      <p>🕒 Upload: ${v.uploadTime} • ⏱️ ${v.duration} min • 👁️ ${v.views.toLocaleString()} views • ⚡ ${v.vpm.toFixed(
+        1
+      )} v/m • 🧮 Score ${v.score}</p>
       <div class="buttons">
         <a class="download" href="/download/${v.id}">⬇️ Download</a>
         <a class="alt" href="${v.link}" target="_blank">▶️ YouTube</a>
       </div>
-    </div>`).join("\n");
+    </div>`
+    )
+    .join("\n");
 
   const html = `<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><title>🔥 Practivio News — Top Stories (Last 24 Hours)</title>
