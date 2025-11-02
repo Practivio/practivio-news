@@ -64,13 +64,14 @@ function scoreVideo(v) {
   return vpmScore * 0.7 + recencyScore * 0.2 + viewBoost * 0.1 + durationPenalty;
 }
 
+// ---------- schedule 12 uploads, 1 hr apart from 9AM ----------
 function generateUploadTimes(count) {
   const times = [];
   const startHour = 9;
   const now = new Date();
   for (let i = 0; i < count; i++) {
     const scheduled = new Date(now);
-    scheduled.setHours(startHour + i * 2, 0, 0, 0);
+    scheduled.setHours(startHour + i, 0, 0, 0); // every 1 hour
     times.push(scheduled);
   }
   return times.slice(0, 12);
@@ -180,17 +181,9 @@ async function fetchFromYouTube() {
     });
   }
 
-  // ✅ At least one per source, then fill remaining (up to 12)
+  // ✅ Round-robin selection until 12 total
   const selected = [];
-
-  // First pass: take top 1 per channel if available
-  for (const name of Object.keys(allChannelVideos)) {
-    const vid = allChannelVideos[name]?.[0];
-    if (vid) selected.push(vid);
-  }
-
-  // Second pass: round robin fill until 12
-  let rank = 1;
+  let rank = 0;
   while (selected.length < 12) {
     let added = false;
     for (const name of Object.keys(allChannelVideos)) {
@@ -205,7 +198,7 @@ async function fetchFromYouTube() {
     rank++;
   }
 
-  // Schedule uploads
+  // Schedule uploads 1 hr apart from 9 AM
   const times = generateUploadTimes(selected.length);
   selected.forEach((v, i) => {
     const t = times[i];
